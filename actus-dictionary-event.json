@@ -194,19 +194,27 @@
                 },
                 {
                     "option": "20",
-                    "identifier": "exercise",
-                    "name": "Exercise",
-                    "acronym": "XD",
-                    "description": "Exercise of a contractual feature such as an optionality",
+                    "identifier": "redemptionDay",
+                    "name": "Redemption Day",
+                    "acronym": "RD",
+                    "description": "Fixing of the redemption amount",
                     "sequence": "20"
                 },
                 {
                     "option": "21",
+                    "identifier": "exercise",
+                    "name": "Exercise",
+                    "acronym": "XD",
+                    "description": "Exercise of a contractual feature such as an optionality",
+                    "sequence": "21"
+                },
+                {
+                    "option": "22",
                     "identifier": "settlement",
                     "name": "Settlement",
                     "acronym": "STD",
                     "description": "Settlement of an exercised contractual claim",
-                    "sequence": "21"
+                    "sequence": "22"
                 }
             ]
         },

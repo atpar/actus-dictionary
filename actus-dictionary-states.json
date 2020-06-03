@@ -90,6 +90,14 @@
                 "ISO8601 Datetime"
             ]
         },
+        "exerciseQuantity": {
+            "identifier": "exerciseQuantity",
+            "name": "Exercise Quantity",
+            "acronym": "XQ",
+            "description": "The number of shares / notes / certificates / etc executed. E.g. the number of certificates redeemed as per a certain redemption day.",
+            "type": "Integer",
+            "allowedValues": []
+        },
         "feeAccrued": {
             "identifier": "feeAccrued",
             "name": "Fee Accrued",

@@ -45,6 +45,16 @@
             "coverage": "Cash, deposits at central bank.",
             "status": "Released"
         },
+        "certificate": {
+            "identifier": "certificate",
+            "name": "Certificate",
+            "acronym": "CERTF",
+            "family": "Combined",
+            "class": "Asymmetric",
+            "description": "This contract represents all kinds of certificates which, in essence, give an investor the possibility to participate in the change of market value of an underlying instrument. The underlying instrument can be any product with a market value or a NAV calculated for it. Generally, a certificate grants the investor the right to redeem his shares / notes at a defined redemption schedule and with a payoff following a predefined redemption formula. Other rights and duties of the investor are also possible.",
+            "coverage": "Tracker Certificates, Performance Certificates, etc.",
+            "status": "Planned"
+        },
         "collateral": {
             "identifier": "collateral",
             "name": "Collateral",
@@ -1120,6 +1130,15 @@
             "default": "",
             "description": "Date from which the rate reset date schedule is calculated according to the cycle length. The first rate reset event takes place on this anchor."
         },
+        "cycleAnchorDateOfRedemption": {
+            "identifier": "cycleAnchorDateOfRedemption",
+            "group": "Notional Principal",
+            "name": "Cycle Anchor Date Of Redemption",
+            "acronym": "RDANX",
+            "type": "Timestamp",
+            "allowedValues": [],
+            "default": ""
+        },
         "cycleAnchorDateOfScalingIndex": {
             "identifier": "cycleAnchorDateOfScalingIndex",
             "group": "Notional Principal",
@@ -1227,6 +1246,17 @@
             ],
             "default": "",
             "description": "Cycle according to which the rate reset date schedule will be calculated.\nIn case RRCL is not set, then there will only be one rate reset event at RRANX given RRANX if set.\nThe interval will be adjusted yet by EOMC and BDC."
+        },
+        "cycleOfRedemption": {
+            "identifier": "cycleOfRedemption",
+            "group": "Notional Principal",
+            "name": "Cycle Of Redemption",
+            "acronym": "RDCL",
+            "type": "Cycle",
+            "allowedValues": [
+                "[ISO8601 Duration]L[s={0,1}]"
+            ],
+            "default": ""
         },
         "cycleOfScalingIndex": {
             "identifier": "cycleOfScalingIndex",
@@ -1451,6 +1481,28 @@
             "default": "",
             "description": "Date of exercising a contingent event/obligation such as a forward condition, optionality etc. The Exercise date marks the observed timestamp of fixing the contingent event and respective payment obligation not necessarily the timestamp of settling the obligation."
         },
+        "exercisePeriod": {
+            "identifier": "exercisePeriod",
+            "group": "Settlement",
+            "name": "Exercise Period",
+            "acronym": "XP",
+            "type": "Period",
+            "allowedValues": [
+                "ISO8601 Duration"
+            ],
+            "default": "0D",
+            "description": "The period within which an option holder (e.g. from redemption of a note / certificate / etc) can chose to execute his option"
+        },
+        "exerciseQuantity": {
+            "identifier": "exerciseQuantity",
+            "group": "Settlement",
+            "name": "Exercise Quantity",
+            "acronym": "XQ",
+            "type": "Integer",
+            "allowedValues": [],
+            "default": "0",
+            "description": "The number of shares / notes / certificates / etc executed. E.g. the number of certificates redeemed as per a certain redemption day."
+        },
         "feeAccrued": {
             "identifier": "feeAccrued",
             "group": "Fees",
@@ -1630,6 +1682,27 @@
             "default": "",
             "description": "This is the amount used for the calculation of interest. Calculation base per SD."
         },
+        "issueDate": {
+            "identifier": "issueDate",
+            "group": "Notional Principal",
+            "name": "Issue Date",
+            "acronym": "ID",
+            "type": "Timestamp",
+            "allowedValues": [
+                "ISO8601 Datetime"
+            ],
+            "default": "",
+            "description": "Defines the time of issuance of the contract. At this time, the contract transitions from e.g. the subscription phase into the execution phase."
+        },
+        "issuePrice": {
+            "identifier": "issuePrice",
+            "group": "Notional Principal",
+            "name": "Issue Price",
+            "acronym": "IPR",
+            "type": "Real",
+            "allowedValues": [],
+            "default": ""
+        },
         "lifeCap": {
             "identifier": "lifeCap",
             "group": "Rate Reset",
@@ -1737,6 +1810,15 @@
             "default": "[ the value of notionalPrincipal ]",
             "description": "Defines the notional amount which can be withdrawn before XDN without penalty"
         },
+        "minimumSubscription": {
+            "identifier": "minimumSubscription",
+            "group": "Notional Principal",
+            "name": "Minimum Subscription",
+            "acronym": "MSU",
+            "type": "Integer",
+            "allowedValues": [],
+            "default": "1"
+        },
         "nextDividendPaymentAmount": {
             "identifier": "nextDividendPaymentAmount",
             "group": "Dividend",
@@ -1790,6 +1872,15 @@
             "allowedValues": [],
             "default": "",
             "description": "The nominal interest rate which will be used to calculate accruals and the next interest payment at the next IP date on the second leg (the one not mentioned in CNTRL) of a plain vanilla swap. The relevant time period is a function of IPDC. \nIt is periodically updated per SD."
+        },
+        "nominalPrice": {
+            "identifier": "nominalPrice",
+            "group": "Notional Principal",
+            "name": "Nominal Price",
+            "acronym": "NP",
+            "type": "Real",
+            "allowedValues": [],
+            "default": ""
         },
         "nonPerformingDate": {
             "identifier": "nonPerformingDate",
@@ -2119,6 +2210,15 @@
             "allowedValues": [],
             "default": "0",
             "description": "Interest rate spread. A typical rate resetting rule is LIBOR plus x basis point where x represents the interest rate spread.  \nThe following equation can be taken if RRMLT is not set: IPNR after rate reset = Rate selected from the market object  + RRSP."
+        },
+        "ratio": {
+            "identifier": "ratio",
+            "group": "Notional Principal",
+            "name": "Ratio",
+            "acronym": "RAT",
+            "type": "Real",
+            "allowedValues": [],
+            "default": "1.0"
         },
         "scalingEffect": {
             "identifier": "scalingEffect",
@@ -2496,6 +2596,46 @@
             "contractID": "NN",
             "currency": "NN",
             "notionalPrincipal": "NN"
+        },
+        "certificate": {
+            "contract": "certificate",
+            "calendar": "x",
+            "businessDayConvention": "x",
+            "endOfMonthConvention": "x",
+            "contractType": "NN",
+            "statusDate": "NN(,,1)",
+            "contractRole": "NN",
+            "creatorID": "NN(,,1)",
+            "contractID": "NN",
+            "marketObjectCode": "x",
+            "contractStructure": "NN",
+            "counterpartyID": "NN(,,1)",
+            "contractPerformance": "x(,,1)",
+            "nonPerformingDate": "x(,,1)",
+            "gracePeriod": "x(,,1)",
+            "delinquencyPeriod": "x(,,1)",
+            "delinquencyRate": "x(,,1)",
+            "cycleAnchorDateOfDividend": "NN(1,1,)",
+            "cycleOfDividend": "x(1,0,)",
+            "nextDividendPaymentAmount": "x(1,0,)",
+            "exDividendDate": "x(1,1,)",
+            "dayCountConvention": "NN",
+            "currency": "NN",
+            "contractDealDate": "NN(,,1)",
+            "maturityDate": "NN",
+            "quantity": "NN",
+            "fixingPeriod": "x",
+            "settlementPeriod": "x",
+            "settlementCurrency": "x",
+            "issueDate": "NN",
+            "nominalPrice": "NN",
+            "issuePrice": "NN",
+            "minimumSubscription": "x",
+            "ratio": "x",
+            "cycleAnchorDateOfRedemption": "x",
+            "cycleOfRedemption": "x",
+            "exercisePeriod": "x",
+            "exerciseQuantity": "x"
         },
         "collateral": {
             "contract": "collateral",
@@ -3211,6 +3351,14 @@
                 "ISO8601 Datetime"
             ]
         },
+        "exerciseQuantity": {
+            "identifier": "exerciseQuantity",
+            "name": "Exercise Quantity",
+            "acronym": "XQ",
+            "description": "The number of shares / notes / certificates / etc executed. E.g. the number of certificates redeemed as per a certain redemption day.",
+            "type": "Integer",
+            "allowedValues": []
+        },
         "feeAccrued": {
             "identifier": "feeAccrued",
             "name": "Fee Accrued",
@@ -3514,19 +3662,27 @@
                 },
                 {
                     "option": "20",
-                    "identifier": "exercise",
-                    "name": "Exercise",
-                    "acronym": "XD",
-                    "description": "Exercise of a contractual feature such as an optionality",
+                    "identifier": "redemptionDay",
+                    "name": "Redemption Day",
+                    "acronym": "RD",
+                    "description": "Fixing of the redemption amount",
                     "sequence": "20"
                 },
                 {
                     "option": "21",
+                    "identifier": "exercise",
+                    "name": "Exercise",
+                    "acronym": "XD",
+                    "description": "Exercise of a contractual feature such as an optionality",
+                    "sequence": "21"
+                },
+                {
+                    "option": "22",
                     "identifier": "settlement",
                     "name": "Settlement",
                     "acronym": "STD",
                     "description": "Settlement of an exercised contractual claim",
-                    "sequence": "21"
+                    "sequence": "22"
                 }
             ]
         },
