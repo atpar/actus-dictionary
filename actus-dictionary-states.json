@@ -98,6 +98,14 @@
             "type": "Integer",
             "allowedValues": []
         },
+        "exerciseQuantityOrdered": {
+            "identifier": "exerciseQuantityOrdered",
+            "name": "Exercise Quantity Ordered",
+            "acronym": "XO",
+            "description": "The number of shares / notes / certificates / etc ordered for exercise. E.g. the number of certificates ordered for redemption as per a certain redemption day.",
+            "type": "Integer",
+            "allowedValues": []
+        },
         "feeAccrued": {
             "identifier": "feeAccrued",
             "name": "Fee Accrued",

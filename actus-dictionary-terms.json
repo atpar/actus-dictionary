@@ -821,7 +821,7 @@
         },
         "cycleAnchorDateOfRedemption": {
             "identifier": "cycleAnchorDateOfRedemption",
-            "group": "Notional Principal",
+            "group": "Optionality",
             "name": "Cycle Anchor Date Of Redemption",
             "acronym": "RDANX",
             "type": "Timestamp",
@@ -839,6 +839,15 @@
             ],
             "default": "",
             "description": "Date from which the scaling date schedule is calculated according to the cycle length. The first scaling event takes place on this anchor."
+        },
+        "cycleAnchorDateOfTermination": {
+            "identifier": "cycleAnchorDateOfTermination",
+            "group": "Optionality",
+            "name": "Cycle Anchor Date Of Termination",
+            "acronym": "TDANX",
+            "type": "Timestamp",
+            "allowedValues": [],
+            "default": ""
         },
         "cycleOfDividend": {
             "identifier": "cycleOfDividend",
@@ -938,7 +947,7 @@
         },
         "cycleOfRedemption": {
             "identifier": "cycleOfRedemption",
-            "group": "Notional Principal",
+            "group": "Optionality",
             "name": "Cycle Of Redemption",
             "acronym": "RDCL",
             "type": "Cycle",
@@ -958,6 +967,17 @@
             ],
             "default": "",
             "description": "Cycle according to which the scaling date schedule will be calculated.\nIn case SCCL is not set, then there will only be one scaling event at SCANX given SCANX is set.\nThe interval will be adjusted yet by EOMC and BDC."
+        },
+        "cycleOfTermination": {
+            "identifier": "cycleOfTermination",
+            "group": "Optionality",
+            "name": "Cycle Of Termination",
+            "acronym": "TDCL",
+            "type": "Cycle",
+            "allowedValues": [
+                "[ISO8601 Duration]L[s={0,1}]"
+            ],
+            "default": ""
         },
         "cyclePointOfInterestPayment": {
             "identifier": "cyclePointOfInterestPayment",
@@ -1191,6 +1211,16 @@
             "allowedValues": [],
             "default": "0",
             "description": "The number of shares / notes / certificates / etc executed. E.g. the number of certificates redeemed as per a certain redemption day."
+        },
+        "exerciseQuantityOrdered": {
+            "identifier": "exerciseQuantityOrdered",
+            "group": "Settlement",
+            "name": "Exercise Quantity Ordered",
+            "acronym": "XO",
+            "type": "Integer",
+            "allowedValues": [],
+            "default": "0",
+            "description": "The number of shares / notes / certificates / etc ordered for exercise. E.g. the number of certificates ordered for redemption as per a certain redemption day."
         },
         "feeAccrued": {
             "identifier": "feeAccrued",
@@ -1499,15 +1529,6 @@
             "default": "[ the value of notionalPrincipal ]",
             "description": "Defines the notional amount which can be withdrawn before XDN without penalty"
         },
-        "minimumSubscription": {
-            "identifier": "minimumSubscription",
-            "group": "Notional Principal",
-            "name": "Minimum Subscription",
-            "acronym": "MSU",
-            "type": "Integer",
-            "allowedValues": [],
-            "default": "1"
-        },
         "nextDividendPaymentAmount": {
             "identifier": "nextDividendPaymentAmount",
             "group": "Dividend",
@@ -1566,7 +1587,7 @@
             "identifier": "nominalPrice",
             "group": "Notional Principal",
             "name": "Nominal Price",
-            "acronym": "NP",
+            "acronym": "NPR",
             "type": "Real",
             "allowedValues": [],
             "default": ""

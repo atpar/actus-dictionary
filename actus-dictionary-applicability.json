@@ -192,10 +192,11 @@
             "issueDate": "NN",
             "nominalPrice": "NN",
             "issuePrice": "NN",
-            "minimumSubscription": "x",
             "ratio": "x",
             "cycleAnchorDateOfRedemption": "x",
             "cycleOfRedemption": "x",
+            "cycleAnchorDateOfTermination": "x",
+            "cycleOfTermination": "x",
             "exercisePeriod": "x",
             "exerciseQuantity": "x"
         },
