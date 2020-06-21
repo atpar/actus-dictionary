@@ -21,6 +21,14 @@
             "type": "Real",
             "allowedValues": []
         },
+        "adjustmentFactor": {
+            "identifier": "adjustmentFactor",
+            "name": "Adjustment Factor",
+            "acronym": "ADF",
+            "description": "A correction factor for the Redemption Amount determined by the Calculating Agent.",
+            "type": "Real",
+            "allowedValues": []
+        },
         "contractPerformance": {
             "identifier": "contractPerformance",
             "name": "Contract Performance",
@@ -127,6 +135,14 @@
             "name": "Interest Scaling Multiplier",
             "acronym": "ISC",
             "description": "The multiplier being applied to interest cash flows",
+            "type": "Real",
+            "allowedValues": []
+        },
+        "marginFactor": {
+            "identifier": "marginFactor",
+            "name": "Margin Factor",
+            "acronym": "MRF",
+            "description": "A correction factor for the Redemption Amount determined by the Calculating Agent.",
             "type": "Real",
             "allowedValues": []
         },

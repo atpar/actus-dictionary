@@ -326,6 +326,16 @@
             "default": "",
             "description": "Accrued interest as per SD. In case of NULL, this value will be recalculated using IPANX, IPCL and IPNR information. Can be used to represent irregular next IP payments."
         },
+        "adjustmentFactor": {
+            "identifier": "adjustmentFactor",
+            "group": "Settlement",
+            "name": "Adjustment Factor",
+            "acronym": "ADF",
+            "type": "Real",
+            "allowedValues": [],
+            "default": "1",
+            "description": "A correction factor for the Redemption Amount determined by the Calculating Agent."
+        },
         "amortizationDate": {
             "identifier": "amortizationDate",
             "group": "Notional Principal",
@@ -1133,11 +1143,12 @@
         "cycleAnchorDateOfRedemption": {
             "identifier": "cycleAnchorDateOfRedemption",
             "group": "Optionality",
-            "name": "Cycle Anchor Date Of Redemption",
+            "name": "Cycle Anchor Date Of Redemption Day",
             "acronym": "RDANX",
             "type": "Timestamp",
             "allowedValues": [],
-            "default": ""
+            "default": "",
+            "description": "The start date of the Redemption Day schedule. i.e. this is the very first regular Redemption Day. After this day periodic Redemption Days are scheduled through the Cycle of Redemption Day."
         },
         "cycleAnchorDateOfScalingIndex": {
             "identifier": "cycleAnchorDateOfScalingIndex",
@@ -1158,7 +1169,8 @@
             "acronym": "TDANX",
             "type": "Timestamp",
             "allowedValues": [],
-            "default": ""
+            "default": "",
+            "description": "The start date of the Termination Day schedule. i.e. this is the very first regular Termination Day. After this period Termination Days are scheduled according to the Cycle Of Termination Day."
         },
         "cycleOfDividend": {
             "identifier": "cycleOfDividend",
@@ -1259,13 +1271,14 @@
         "cycleOfRedemption": {
             "identifier": "cycleOfRedemption",
             "group": "Optionality",
-            "name": "Cycle Of Redemption",
+            "name": "Cycle Of Redemption Day",
             "acronym": "RDCL",
             "type": "Cycle",
             "allowedValues": [
                 "[ISO8601 Duration]L[s={0,1}]"
             ],
-            "default": ""
+            "default": "",
+            "description": "The period according to which Redemption Days are scheduled."
         },
         "cycleOfScalingIndex": {
             "identifier": "cycleOfScalingIndex",
@@ -1288,7 +1301,8 @@
             "allowedValues": [
                 "[ISO8601 Duration]L[s={0,1}]"
             ],
-            "default": ""
+            "default": "",
+            "description": "The period according to which Termination Days are scheduled."
         },
         "cyclePointOfInterestPayment": {
             "identifier": "cyclePointOfInterestPayment",
@@ -1441,6 +1455,16 @@
             ],
             "default": "D",
             "description": "Indicates whether the contract is settled in cash or physical delivery.\nIn case of physical delivery, the underlying contract and associated (future) cash flows are effectively exchanged. In case of cash settlement, the current market value of the underlying contract determines the cash flow exchanged."
+        },
+        "denominationRatio": {
+            "identifier": "denominationRatio",
+            "group": "Notional Principal",
+            "name": "Denomination Ratio",
+            "acronym": "RAT",
+            "type": "Real",
+            "allowedValues": [],
+            "default": "1.0",
+            "description": "The ratio defining how a single certificate is denominated in terms of the certificate’s underlying instrument. Is often times also simply referred to as the “Ratio”."
         },
         "endOfMonthConvention": {
             "identifier": "endOfMonthConvention",
@@ -1731,7 +1755,8 @@
             "acronym": "IPR",
             "type": "Real",
             "allowedValues": [],
-            "default": ""
+            "default": "",
+            "description": "The issue price for a single certificate as per Issue Day."
         },
         "lifeCap": {
             "identifier": "lifeCap",
@@ -1776,6 +1801,16 @@
             ],
             "default": "",
             "description": "Defines the upper bound of the Maintenance Margin. If MRVM falls above MRMMU, then capital is refunded to reach the original MRIM."
+        },
+        "marginFactor": {
+            "identifier": "marginFactor",
+            "group": "Settlement",
+            "name": "Margin Factor",
+            "acronym": "MRF",
+            "type": "Real",
+            "allowedValues": [],
+            "default": "1",
+            "description": "A correction factor for the Redemption Amount determined by the Calculating Agent."
         },
         "marketObjectCode": {
             "identifier": "marketObjectCode",
@@ -1901,7 +1936,8 @@
             "acronym": "NPR",
             "type": "Real",
             "allowedValues": [],
-            "default": ""
+            "default": "",
+            "description": "The nominal price for a single certificate."
         },
         "nonPerformingDate": {
             "identifier": "nonPerformingDate",
@@ -2231,15 +2267,6 @@
             "allowedValues": [],
             "default": "0",
             "description": "Interest rate spread. A typical rate resetting rule is LIBOR plus x basis point where x represents the interest rate spread.  \nThe following equation can be taken if RRMLT is not set: IPNR after rate reset = Rate selected from the market object  + RRSP."
-        },
-        "ratio": {
-            "identifier": "ratio",
-            "group": "Notional Principal",
-            "name": "Ratio",
-            "acronym": "RAT",
-            "type": "Real",
-            "allowedValues": [],
-            "default": "1.0"
         },
         "scalingEffect": {
             "identifier": "scalingEffect",
@@ -2643,21 +2670,26 @@
             "dayCountConvention": "NN",
             "currency": "NN",
             "contractDealDate": "NN(,,1)",
-            "maturityDate": "NN",
+            "initialExchangeDate": "x",
+            "maturityDate": "x",
             "quantity": "NN",
             "fixingPeriod": "x",
+            "exerciseAmount": "x",
             "settlementPeriod": "x",
             "settlementCurrency": "x",
             "issueDate": "NN",
             "nominalPrice": "NN",
             "issuePrice": "NN",
-            "ratio": "x",
+            "denominationRatio": "x",
             "cycleAnchorDateOfRedemption": "x",
             "cycleOfRedemption": "x",
             "cycleAnchorDateOfTermination": "x",
             "cycleOfTermination": "x",
             "exercisePeriod": "x",
-            "exerciseQuantity": "x"
+            "exerciseQuantity": "x",
+            "exerciseQuantityOrdered": "x",
+            "marginFactor": "x",
+            "adjustmentFactor": "x"
         },
         "collateral": {
             "contract": "collateral",
@@ -3304,6 +3336,14 @@
             "type": "Real",
             "allowedValues": []
         },
+        "adjustmentFactor": {
+            "identifier": "adjustmentFactor",
+            "name": "Adjustment Factor",
+            "acronym": "ADF",
+            "description": "A correction factor for the Redemption Amount determined by the Calculating Agent.",
+            "type": "Real",
+            "allowedValues": []
+        },
         "contractPerformance": {
             "identifier": "contractPerformance",
             "name": "Contract Performance",
@@ -3410,6 +3450,14 @@
             "name": "Interest Scaling Multiplier",
             "acronym": "ISC",
             "description": "The multiplier being applied to interest cash flows",
+            "type": "Real",
+            "allowedValues": []
+        },
+        "marginFactor": {
+            "identifier": "marginFactor",
+            "name": "Margin Factor",
+            "acronym": "MRF",
+            "description": "A correction factor for the Redemption Amount determined by the Calculating Agent.",
             "type": "Real",
             "allowedValues": []
         },
