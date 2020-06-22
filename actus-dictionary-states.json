@@ -80,6 +80,14 @@
                 }
             ]
         },
+        "couponAmountFixed": {
+            "identifier": "couponAmountFixed",
+            "name": "Coupon Amount Fixed",
+            "acronym": "CAF",
+            "description": "The Coupon Amount fixed with the last Coupon Fixing Day event and applicable to the next Coupon Payment Day event.",
+            "type": "Real",
+            "allowedValues": []
+        },
         "exerciseAmount": {
             "identifier": "exerciseAmount",
             "name": "Exercise Amount",
@@ -137,6 +145,16 @@
             "description": "The multiplier being applied to interest cash flows",
             "type": "Real",
             "allowedValues": []
+        },
+        "lastCouponDay": {
+            "identifier": "lastCouponDay",
+            "name": "Last Coupon Day",
+            "acronym": "LCD",
+            "description": "The most recent Coupon Day as per which the last Coupon Amount was fixed.",
+            "type": "Timestamp",
+            "allowedValues": [
+                "ISO8601 Datetime"
+            ]
         },
         "marginFactor": {
             "identifier": "marginFactor",
