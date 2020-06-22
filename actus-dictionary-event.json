@@ -38,7 +38,7 @@
                     "name": "Monitoring",
                     "acronym": "AD",
                     "description": "Monitoring of contract. Evaluates all contract states",
-                    "sequence": "25"
+                    "sequence": "27"
                 },
                 {
                     "option": "1",
@@ -202,35 +202,51 @@
                 },
                 {
                     "option": "21",
-                    "identifier": "redemptionDay",
-                    "name": "Redemption Day",
-                    "acronym": "RD",
-                    "description": "Fixing of the redemption amount",
-                    "sequence": "21"
+                    "identifier": "couponFixingDay",
+                    "name": "Coupon Fixing Day",
+                    "acronym": "CFD",
+                    "description": "Fixing of the coupon amount",
+                    "sequence": "21 "
                 },
                 {
                     "option": "22",
-                    "identifier": "exerciseOrder",
-                    "name": "Exercise Order",
-                    "acronym": "XO",
-                    "description": "Submission of an exercise order for a contractual feature such as an optionality",
+                    "identifier": "couponPaymentDay",
+                    "name": "Coupon Payment Day",
+                    "acronym": "CPD",
+                    "description": "Payment of the coupon amount",
                     "sequence": "22"
                 },
                 {
                     "option": "23",
-                    "identifier": "exercise",
-                    "name": "Exercise",
-                    "acronym": "XD",
-                    "description": "Exercise of a contractual feature such as an optionality",
+                    "identifier": "redemptionDay",
+                    "name": "Redemption Day",
+                    "acronym": "RD",
+                    "description": "Fixing of the redemption amount",
                     "sequence": "23"
                 },
                 {
                     "option": "24",
+                    "identifier": "exerciseOrder",
+                    "name": "Exercise Order",
+                    "acronym": "XO",
+                    "description": "Submission of an exercise order for a contractual feature such as an optionality",
+                    "sequence": "24"
+                },
+                {
+                    "option": "25",
+                    "identifier": "exerciseDay",
+                    "name": "Exercise Day",
+                    "acronym": "XD",
+                    "description": "Exercise of a contractual feature such as an optionality",
+                    "sequence": "25"
+                },
+                {
+                    "option": "26",
                     "identifier": "settlement",
                     "name": "Settlement",
                     "acronym": "STD",
                     "description": "Settlement of an exercised contractual claim",
-                    "sequence": "24"
+                    "sequence": "26"
                 }
             ]
         },

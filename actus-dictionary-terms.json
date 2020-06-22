@@ -639,6 +639,65 @@
             "default": "",
             "description": "CPID identifies the counterparty to the CRID in this contract.\nCPID is ideally the official LEI which can be a firm, a government body, even a single person etc. However, this can also refer to a annonymous group in which case this information is not to be disclosed. CPID may also refer to a group taking a joint risk or more generally, CPID is the main counterparty, against which the contract has been settled."
         },
+        "couponAmountFixed": {
+            "identifier": "couponAmountFixed",
+            "group": "Coupon",
+            "name": "Coupon Amount Fixed",
+            "acronym": "CPFX",
+            "type": "Real",
+            "allowedValues": [],
+            "default": "0",
+            "description": "The coupon amount fixed at the most recent coupon day and due for payment."
+        },
+        "couponRate": {
+            "identifier": "couponRate",
+            "group": "Coupon",
+            "name": "Coupon Rate",
+            "acronym": "CPRT",
+            "type": "Real",
+            "allowedValues": [],
+            "default": "0",
+            "description": "The fixed coupon applicable (if any). Applies in conjunction with couponType=FIX (fixed)."
+        },
+        "couponType": {
+            "identifier": "couponType",
+            "group": "Coupon",
+            "name": "Coupon Type",
+            "acronym": "CPTP",
+            "type": "Enum",
+            "allowedValues": [
+                {
+                    "option": "0",
+                    "identifier": "none",
+                    "name": "No Coupon",
+                    "acronym": "NOC",
+                    "description": "No coupon is paid."
+                },
+                {
+                    "option": "1",
+                    "identifier": "fixed",
+                    "name": "Fixed Coupon",
+                    "acronym": "FIX",
+                    "description": "A fixed coupon is paid according to the couponRate."
+                },
+                {
+                    "option": "2",
+                    "identifier": "fixedConditional",
+                    "name": "Fixed Conditional Coupon",
+                    "acronym": "FCN",
+                    "description": "A fixed coupon is paid conditional to sufficient liquidity."
+                },
+                {
+                    "option": "3",
+                    "identifier": "performance",
+                    "name": "Performance Based",
+                    "acronym": "PRF",
+                    "description": "The coupon paid is based on the performance of the underlying instrument."
+                }
+            ],
+            "default": "NOC",
+            "description": "The type of coupon applicable."
+        },
         "coverageOfCreditEnhancement": {
             "identifier": "coverageOfCreditEnhancement",
             "group": "Counterparty",
@@ -732,6 +791,18 @@
             ],
             "default": "",
             "description": "The currency of the cash flows of the second leg (if not defined, main currency applies)\n"
+        },
+        "cycleAnchorDateOfCoupon": {
+            "identifier": "cycleAnchorDateOfCoupon",
+            "group": "Coupon",
+            "name": "Cycle Anchor Date Of Coupon",
+            "acronym": "CPANX",
+            "type": "Timestamp",
+            "allowedValues": [
+                "ISO8601 Datetime"
+            ],
+            "default": "",
+            "description": "The start date of the Coupon Day schedule. i.e. this is the very first regular Coupon Day. After this day periodic Coupon Days are scheduled through the Cycle of Coupon Day."
         },
         "cycleAnchorDateOfDividend": {
             "identifier": "cycleAnchorDateOfDividend",
@@ -835,7 +906,9 @@
             "name": "Cycle Anchor Date Of Redemption Day",
             "acronym": "RDANX",
             "type": "Timestamp",
-            "allowedValues": [],
+            "allowedValues": [
+                "ISO8601 Datetime"
+            ],
             "default": "",
             "description": "The start date of the Redemption Day schedule. i.e. this is the very first regular Redemption Day. After this day periodic Redemption Days are scheduled through the Cycle of Redemption Day."
         },
@@ -857,9 +930,23 @@
             "name": "Cycle Anchor Date Of Termination",
             "acronym": "TDANX",
             "type": "Timestamp",
-            "allowedValues": [],
+            "allowedValues": [
+                "ISO8601 Datetime"
+            ],
             "default": "",
             "description": "The start date of the Termination Day schedule. i.e. this is the very first regular Termination Day. After this period Termination Days are scheduled according to the Cycle Of Termination Day."
+        },
+        "cycleOfCoupon": {
+            "identifier": "cycleOfCoupon",
+            "group": "Coupon",
+            "name": "Cycle Of Coupon",
+            "acronym": "CPCL",
+            "type": "Cycle",
+            "allowedValues": [
+                "[ISO8601 Duration]L[s={0,1}]"
+            ],
+            "default": "",
+            "description": "The period according to which Coupon Days are scheduled."
         },
         "cycleOfDividend": {
             "identifier": "cycleOfDividend",
