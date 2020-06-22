@@ -3617,6 +3617,14 @@
             "type": "Real",
             "allowedValues": []
         },
+        "quantity": {
+            "identifier": "quantity",
+            "name": "Quantity",
+            "acronym": "QT",
+            "description": "The number of shares / notes / certificates / etc in circulation",
+            "type": "Integer",
+            "allowedValues": []
+        },
         "statusDate": {
             "identifier": "statusDate",
             "name": "Status Date",
