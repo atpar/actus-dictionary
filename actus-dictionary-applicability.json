@@ -204,7 +204,8 @@
             "cycleOfCoupon": "x(1,0,)",
             "couponType": "NN(1,1,)",
             "couponRate": "NN(1,1,)",
-            "couponAmountFixed": "x(1,0,)"
+            "couponAmountFixed": "x(1,0,)",
+            "lastCouponDay": "x(1,0,)"
         },
         "collateral": {
             "contract": "collateral",

@@ -17,7 +17,7 @@
         },
         "adjustmentFactor": {
             "identifier": "adjustmentFactor",
-            "group": "Settlement",
+            "group": "Redemption",
             "name": "Adjustment Factor",
             "acronym": "ADF",
             "type": "Real",
@@ -902,7 +902,7 @@
         },
         "cycleAnchorDateOfRedemption": {
             "identifier": "cycleAnchorDateOfRedemption",
-            "group": "Optionality",
+            "group": "Redemption",
             "name": "Cycle Anchor Date Of Redemption Day",
             "acronym": "RDANX",
             "type": "Timestamp",
@@ -926,7 +926,7 @@
         },
         "cycleAnchorDateOfTermination": {
             "identifier": "cycleAnchorDateOfTermination",
-            "group": "Optionality",
+            "group": "Redemption",
             "name": "Cycle Anchor Date Of Termination",
             "acronym": "TDANX",
             "type": "Timestamp",
@@ -1046,7 +1046,7 @@
         },
         "cycleOfRedemption": {
             "identifier": "cycleOfRedemption",
-            "group": "Optionality",
+            "group": "Redemption",
             "name": "Cycle Of Redemption Day",
             "acronym": "RDCL",
             "type": "Cycle",
@@ -1070,7 +1070,7 @@
         },
         "cycleOfTermination": {
             "identifier": "cycleOfTermination",
-            "group": "Optionality",
+            "group": "Redemption",
             "name": "Cycle Of Termination",
             "acronym": "TDCL",
             "type": "Cycle",
@@ -1303,7 +1303,7 @@
         },
         "exercisePeriod": {
             "identifier": "exercisePeriod",
-            "group": "Settlement",
+            "group": "Redemption",
             "name": "Exercise Period",
             "acronym": "XP",
             "type": "Period",
@@ -1315,7 +1315,7 @@
         },
         "exerciseQuantity": {
             "identifier": "exerciseQuantity",
-            "group": "Settlement",
+            "group": "Redemption",
             "name": "Exercise Quantity",
             "acronym": "XQ",
             "type": "Integer",
@@ -1325,7 +1325,7 @@
         },
         "exerciseQuantityOrdered": {
             "identifier": "exerciseQuantityOrdered",
-            "group": "Settlement",
+            "group": "Redemption",
             "name": "Exercise Quantity Ordered",
             "acronym": "XO",
             "type": "Integer",
@@ -1534,6 +1534,18 @@
             "default": "",
             "description": "The issue price for a single certificate as per Issue Day."
         },
+        "lastCouponDay": {
+            "identifier": "lastCouponDay",
+            "group": "Coupon",
+            "name": "Last Coupon Day",
+            "acronym": "LCD",
+            "type": "Timestamp",
+            "allowedValues": [
+                "ISO8601 Datetime"
+            ],
+            "default": "",
+            "description": "The most recent Coupon Day as per which the last Coupon Amount was fixed."
+        },
         "lifeCap": {
             "identifier": "lifeCap",
             "group": "Rate Reset",
@@ -1580,7 +1592,7 @@
         },
         "marginFactor": {
             "identifier": "marginFactor",
-            "group": "Settlement",
+            "group": "Redemption",
             "name": "Margin Factor",
             "acronym": "MRF",
             "type": "Real",
