@@ -1693,13 +1693,13 @@
             "identifier": "fixingPeriod",
             "group": "Rate Reset",
             "name": "Fixing Period",
-            "acronym": "RRFIX",
+            "acronym": "FIP",
             "type": "Period",
             "allowedValues": [
                 "ISO8601 Duration"
             ],
             "default": "P0D",
-            "description": "Interest rate resets (adjustments) are usually fixed one or two days (usually Business Days) before the new rate applies (defined by the rate reset schedule). This field holds the period between fixing and application of a rate."
+            "description": "Adjustments of external data points (variable rates, redemption amounts, etc.) are usually fixed one or two days (usually Business Days) before they are applied (the fixing day). This field holds the period between fixing and application of a data point."
         },
         "futuresPrice": {
             "identifier": "futuresPrice",
