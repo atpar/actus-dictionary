@@ -222,7 +222,7 @@
                     "name": "Redemption Fixing Day",
                     "acronym": "RFD",
                     "description": "Fixing of the redemption amount",
-                    "sequence": "23 "
+                    "sequence": "23"
                 },
                 {
                     "option": "24",
