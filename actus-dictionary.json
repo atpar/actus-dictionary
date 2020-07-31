@@ -3886,7 +3886,7 @@
                     "name": "Coupon Fixing Day",
                     "acronym": "CFD",
                     "description": "Fixing of the coupon amount",
-                    "sequence": "21 "
+                    "sequence": "21"
                 },
                 {
                     "option": "22",
