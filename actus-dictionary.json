@@ -1,8 +1,8 @@
 {
     "version": {
-        "Version": "1.2",
+        "Version": "1.3-atpar",
         "Edition": "0",
-        "Date": "2020-06-03"
+        "Date": "44096"
     },
     "taxonomy": {
         "annuity": {
@@ -1028,7 +1028,7 @@
             "identifier": "cycleAnchorDateOfDividend",
             "group": "Dividend",
             "name": "Cycle Anchor Date Of Dividend",
-            "acronym": "DVANX",
+            "acronym": "DANX",
             "type": "Timestamp",
             "allowedValues": [
                 "ISO8601 Datetime"
@@ -1136,7 +1136,7 @@
             "identifier": "cycleOfDividend",
             "group": "Dividend",
             "name": "Cycle Of Dividend",
-            "acronym": "DVCL",
+            "acronym": "DCL",
             "type": "Cycle",
             "allowedValues": [
                 "[ISO8601 Duration]L[s={0,1}]"
@@ -1392,6 +1392,66 @@
             "default": "D",
             "description": "Indicates whether the contract is settled in cash or physical delivery.\nIn case of physical delivery, the underlying contract and associated (future) cash flows are effectively exchanged. In case of cash settlement, the current market value of the underlying contract determines the cash flow exchanged."
         },
+        "dividendExDate": {
+            "identifier": "dividendExDate",
+            "group": "Dividend",
+            "name": "Dividend Ex Date",
+            "acronym": "DED",
+            "type": "Timestamp",
+            "allowedValues": [
+                "ISO8601 Datetime"
+            ],
+            "default": "",
+            "description": "In case contract is traded between DVEX and next DV payment date (i.e. PRD>DVEX & PRD<next DV payment date), then the old holder of the contract (previous to the trade) receives the next DV payment. In other words, the next DV payment is cancelled for the new (after the trade) holder of the contract."
+        },
+        "dividendPaymentAmount": {
+            "identifier": "dividendPaymentAmount",
+            "group": "Dividend",
+            "name": "Dividend Payment Amount",
+            "acronym": "DPA",
+            "type": "Real",
+            "allowedValues": [
+                "Positive"
+            ],
+            "default": "0",
+            "description": "Defines the next dividend payment (amount) whereas the date of dividend payment is defined through the DVANX/DVCL pair. If DVCL is defined, then this amount will be used as dividend payment for each future dividend payment date."
+        },
+        "dividendPaymentDate": {
+            "identifier": "dividendPaymentDate",
+            "group": "Dividend",
+            "name": "Dividend Payment Date",
+            "acronym": "DPD",
+            "type": "Timestamp",
+            "allowedValues": [
+                "ISO8601 Datetime"
+            ],
+            "default": "",
+            "description": "TBD"
+        },
+        "dividendPaymentPeriod": {
+            "identifier": "dividendPaymentPeriod",
+            "group": "Dividend",
+            "name": "Dividend Payment Period",
+            "acronym": "DPP",
+            "type": "Period",
+            "allowedValues": [
+                "ISO8601 Duration"
+            ],
+            "default": "P0D",
+            "description": "TBD"
+        },
+        "dividendRecordPeriod": {
+            "identifier": "dividendRecordPeriod",
+            "group": "Dividend",
+            "name": "Dividend Record Period",
+            "acronym": "DRP",
+            "type": "Period",
+            "allowedValues": [
+                "ISO8601 Duration"
+            ],
+            "default": "P0D",
+            "description": "TBD"
+        },
         "endOfMonthConvention": {
             "identifier": "endOfMonthConvention",
             "group": "Calendar",
@@ -1416,18 +1476,6 @@
             ],
             "default": "sd",
             "description": "When computing schedules a special problem arises if an anchor date is at the end of a month and a cycle of monthly or quarterly is applied (yearly in the case of leap years only). How do we have to interpret an anchor date April 30 plus 1M cycles? In case where EOM is selected, it will jump to the 31st of May, then June 30, July 31 and so on. If SM is selected, it will jump to the 30st always with of course an exception in February. \nThis logic applies for all months having 30 or less days and an anchor date at the last day. Month with 31 days will at any rate jump to the last of the month if anchor date is on the last day."
-        },
-        "exDividendDate": {
-            "identifier": "exDividendDate",
-            "group": "Dividend",
-            "name": "Ex Dividend Date",
-            "acronym": "DVEX",
-            "type": "Timestamp",
-            "allowedValues": [
-                "ISO8601 Datetime"
-            ],
-            "default": "",
-            "description": "In case contract is traded between DVEX and next DV payment date (i.e. PRD>DVEX & PRD<next DV payment date), then the old holder of the contract (previous to the trade) receives the next DV payment. In other words, the next DV payment is cancelled for the new (after the trade) holder of the contract."
         },
         "exerciseAmount": {
             "identifier": "exerciseAmount",
@@ -1630,6 +1678,28 @@
             "default": "",
             "description": "This is the amount used for the calculation of interest. Calculation base per SD."
         },
+        "issueDate": {
+            "identifier": "issueDate",
+            "group": "Notional Principal",
+            "name": "Issue Date",
+            "acronym": "ID",
+            "type": "Timestamp",
+            "allowedValues": [
+                "ISO8601 Datetime"
+            ],
+            "default": "",
+            "description": "Defines the time of issuance of the contract. At this time, the contract transitions from e.g. the subscription phase into the execution phase."
+        },
+        "issuePrice": {
+            "identifier": "issuePrice",
+            "group": "Notional Principal",
+            "name": "Issue Price",
+            "acronym": "IPR",
+            "type": "Real",
+            "allowedValues": [],
+            "default": "",
+            "description": "The issue price for a single certificate as per Issue Day."
+        },
         "lifeCap": {
             "identifier": "lifeCap",
             "group": "Rate Reset",
@@ -1737,18 +1807,6 @@
             "default": "[ the value of notionalPrincipal ]",
             "description": "Defines the notional amount which can be withdrawn before XDN without penalty"
         },
-        "nextDividendPaymentAmount": {
-            "identifier": "nextDividendPaymentAmount",
-            "group": "Dividend",
-            "name": "Next Dividend Payment Amount",
-            "acronym": "DVNP",
-            "type": "Real",
-            "allowedValues": [
-                "Positive"
-            ],
-            "default": "0",
-            "description": "Defines the next dividend payment (amount) whereas the date of dividend payment is defined through the DVANX/DVCL pair. If DVCL is defined, then this amount will be used as dividend payment for each future dividend payment date."
-        },
         "nextPrincipalRedemptionPayment": {
             "identifier": "nextPrincipalRedemptionPayment",
             "group": "Notional Principal",
@@ -1790,6 +1848,16 @@
             "allowedValues": [],
             "default": "",
             "description": "The nominal interest rate which will be used to calculate accruals and the next interest payment at the next IP date on the second leg (the one not mentioned in CNTRL) of a plain vanilla swap. The relevant time period is a function of IPDC. \nIt is periodically updated per SD."
+        },
+        "nominalPrice": {
+            "identifier": "nominalPrice",
+            "group": "Notional Principal",
+            "name": "Nominal Price",
+            "acronym": "NPR",
+            "type": "Real",
+            "allowedValues": [],
+            "default": "",
+            "description": "The nominal price for a single certificate."
         },
         "nonPerformingDate": {
             "identifier": "nonPerformingDate",
@@ -2120,6 +2188,89 @@
             "default": "0",
             "description": "Interest rate spread. A typical rate resetting rule is LIBOR plus x basis point where x represents the interest rate spread.  \nThe following equation can be taken if RRMLT is not set: IPNR after rate reset = Rate selected from the market object  + RRSP."
         },
+        "redeemableByIssuer": {
+            "identifier": "redeemableByIssuer",
+            "group": "Redemption",
+            "name": "Redeemable By Issuer",
+            "acronym": "RBI",
+            "type": "Enum",
+            "allowedValues": [
+                {
+                    "option": "0",
+                    "identifier": "yes",
+                    "name": "Yes",
+                    "acronym": "Y",
+                    "description": "The instrument is redeemable by the issuer."
+                },
+                {
+                    "option": "1",
+                    "identifier": "no",
+                    "name": "no",
+                    "acronym": "N",
+                    "description": "The instrument is not redeemable by the issuer."
+                }
+            ],
+            "default": "N",
+            "description": "TBD"
+        },
+        "redemptionExDate": {
+            "identifier": "redemptionExDate",
+            "group": "Redemption",
+            "name": "Redemption Ex Date",
+            "acronym": "RED",
+            "type": "Timestamp",
+            "allowedValues": [
+                "ISO8601 Datetime"
+            ],
+            "default": "",
+            "description": "TBD"
+        },
+        "redemptionPaymentDate": {
+            "identifier": "redemptionPaymentDate",
+            "group": "Redemption",
+            "name": "Redemption Payment Date",
+            "acronym": "RPD",
+            "type": "Timestamp",
+            "allowedValues": [
+                "ISO8601 Datetime"
+            ],
+            "default": "",
+            "description": "TBD"
+        },
+        "redemptionPaymentPeriod": {
+            "identifier": "redemptionPaymentPeriod",
+            "group": "Redemption",
+            "name": "Redemption Payment Period",
+            "acronym": "RPP",
+            "type": "Period",
+            "allowedValues": [
+                "ISO8601 Duration"
+            ],
+            "default": "P0D",
+            "description": "TBD"
+        },
+        "redemptionPrice": {
+            "identifier": "redemptionPrice",
+            "group": "Redemption",
+            "name": "Redemption Price",
+            "acronym": "RPR",
+            "type": "Real",
+            "allowedValues": [],
+            "default": "",
+            "description": "TBD"
+        },
+        "redemptionRecordPeriod": {
+            "identifier": "redemptionRecordPeriod",
+            "group": "Redemption",
+            "name": "Redemption Record Period",
+            "acronym": "RRP",
+            "type": "Period",
+            "allowedValues": [
+                "ISO8601 Duration"
+            ],
+            "default": "P0D",
+            "description": "TBD"
+        },
         "scalingEffect": {
             "identifier": "scalingEffect",
             "group": "Notional Principal",
@@ -2218,6 +2369,39 @@
             ],
             "default": "P0D",
             "description": "Defines the period from fixing of a contingent event/obligation (Exercise Date) to settlement of the obligation.\n"
+        },
+        "splitExDate": {
+            "identifier": "splitExDate",
+            "group": "Notional Principal",
+            "name": "Split Ex Date",
+            "acronym": "SED",
+            "type": "Timestamp",
+            "allowedValues": [
+                "ISO8601 Datetime"
+            ],
+            "default": ""
+        },
+        "splitRatio": {
+            "identifier": "splitRatio",
+            "group": "Notional Principal",
+            "name": "Split Ratio",
+            "acronym": "SRA",
+            "type": "Real",
+            "allowedValues": [
+                "Positive"
+            ],
+            "default": ""
+        },
+        "splitRecordPeriod": {
+            "identifier": "splitRecordPeriod",
+            "group": "Notional Principal",
+            "name": "Split Record Period",
+            "acronym": "SRP",
+            "type": "Period",
+            "allowedValues": [
+                "ISO8601 Duration"
+            ],
+            "default": "P0D"
         },
         "statusDate": {
             "identifier": "statusDate",
@@ -3043,18 +3227,34 @@
             "nonPerformingDate": "x(,,1)",
             "cycleAnchorDateOfDividend": "NN(1,1,)",
             "cycleOfDividend": "x(1,0,)",
-            "nextDividendPaymentAmount": "x(1,0,)",
-            "exDividendDate": "x(1,1,)",
+            "dividendExDate": "x(1,1,)",
+            "dividendPaymentDate": "x(1,1,)",
+            "dividendPaymentAmount": "x(1,0,)",
+            "dividendRecordPeriod": "x(1,1,)",
+            "dividendPaymentPeriod": "x(1,1,)",
             "currency": "NN",
             "contractDealDate": "NN(,,1)",
             "notionalPrincipal": "NN",
             "quantity": "NN(,,3)",
+            "issueDate": "NN",
+            "nominalPrice": "NN",
+            "issuePrice": "NN",
+            "splitRecordPeriod": "x",
+            "splitExDate": "x",
+            "splitRatio": "x",
             "purchaseDate": "NN",
             "priceAtPurchaseDate": "NN",
             "terminationDate": "x(6,0,1)",
             "priceAtTerminationDate": "NN(6,1,1)",
             "marketValueObserved": "x",
-            "settlementCurrency": "x"
+            "settlementPeriod": "x",
+            "settlementCurrency": "x",
+            "redeemableByIssuer": "x(7,0,)",
+            "redemptionRecordPeriod": "x",
+            "redemptionPaymentPeriod": "x",
+            "redemptionExDate": "x",
+            "redemptionPaymentDate": "x",
+            "redemptionPrice": "NN(7,1,)"
         },
         "swap": {
             "contract": "swap",
@@ -3193,6 +3393,34 @@
                 }
             ]
         },
+        "dividendDeclarationDate": {
+            "identifier": "dividendDeclarationDate",
+            "name": "Dividend Declaration Date",
+            "acronym": "DDD",
+            "description": "The timestamp of the next DDD event (if scheduled).",
+            "type": "Timestamp",
+            "allowedValues": [
+                "ISO8601 Datetime"
+            ]
+        },
+        "dividendPaymentAmount": {
+            "identifier": "dividendPaymentAmount",
+            "name": "Dividend Payment Amount",
+            "acronym": "DPA",
+            "description": "The amount of the next dividend payment (if fixed).",
+            "type": "Real",
+            "allowedValues": []
+        },
+        "dividendPaymentDate": {
+            "identifier": "dividendPaymentDate",
+            "name": "Dividend Payment Date",
+            "acronym": "DPD",
+            "description": "The timestamp of the next DPD event (if scheduled).",
+            "type": "Timestamp",
+            "allowedValues": [
+                "ISO8601 Datetime"
+            ]
+        },
         "exerciseAmount": {
             "identifier": "exerciseAmount",
             "name": "Exercise Amount",
@@ -3234,6 +3462,16 @@
             "description": "The multiplier being applied to interest cash flows",
             "type": "Real",
             "allowedValues": []
+        },
+        "lastDividendDeclarationDate": {
+            "identifier": "lastDividendDeclarationDate",
+            "name": "Last Dividend Declaration Date",
+            "acronym": "DDLD",
+            "description": "The timestamp of the last DDD event.",
+            "type": "Timestamp",
+            "allowedValues": [
+                "ISO8601 Datetime"
+            ]
         },
         "maturityDate": {
             "identifier": "maturityDate",
@@ -3303,6 +3541,56 @@
             "type": "Real",
             "allowedValues": []
         },
+        "redemption PaymentDate": {
+            "identifier": "redemption PaymentDate",
+            "name": "Redemption Payment Date",
+            "acronym": "RPD",
+            "description": "The timestamp of the next RPD event (if scheduled).",
+            "type": "Timestamp",
+            "allowedValues": [
+                "ISO8601 Datetime"
+            ]
+        },
+        "redemptionExDate": {
+            "identifier": "redemptionExDate",
+            "name": "Redemption Ex Date",
+            "acronym": "RED",
+            "description": "The timestamp of the next RED event (if scheduled).",
+            "type": "Timestamp",
+            "allowedValues": [
+                "ISO8601 Datetime"
+            ]
+        },
+        "splitExDate": {
+            "identifier": "splitExDate",
+            "name": "Split Ex Date",
+            "acronym": "SED",
+            "description": "The timestamp of the next SED event (if scheduled).",
+            "type": "Timestamp",
+            "allowedValues": [
+                "ISO8601 Datetime"
+            ]
+        },
+        "splitRatio": {
+            "identifier": "splitRatio",
+            "name": "Split Ratio",
+            "acronym": "SRA",
+            "description": "The ratio of the next stock split (if scheduled).",
+            "type": "Real",
+            "allowedValues": [
+                "Positive"
+            ]
+        },
+        "splitSettlementDate": {
+            "identifier": "splitSettlementDate",
+            "name": "Split Settlement Date",
+            "acronym": "SSD",
+            "description": "The timestmap of the next SSD event (if scheduled).",
+            "type": "Timestamp",
+            "allowedValues": [
+                "ISO8601 Datetime"
+            ]
+        },
         "statusDate": {
             "identifier": "statusDate",
             "name": "Status Date",
@@ -3358,10 +3646,18 @@
                     "name": "Monitoring",
                     "acronym": "AD",
                     "description": "Monitoring of contract. Evaluates all contract states",
-                    "sequence": "22"
+                    "sequence": "31"
                 },
                 {
                     "option": "1",
+                    "identifier": "issueDate",
+                    "name": "Issue Date",
+                    "acronym": "ID",
+                    "description": "Issuance of an instrument",
+                    "sequence": "0"
+                },
+                {
+                    "option": "2",
                     "identifier": "initialExchange",
                     "name": "Initial Exchange",
                     "acronym": "IED",
@@ -3369,7 +3665,7 @@
                     "sequence": "1"
                 },
                 {
-                    "option": "2",
+                    "option": "3",
                     "identifier": "feePayment",
                     "name": "Fee Payment",
                     "acronym": "FP",
@@ -3377,7 +3673,7 @@
                     "sequence": "2"
                 },
                 {
-                    "option": "3",
+                    "option": "4",
                     "identifier": "principalRedemption",
                     "name": "Principal Redemption",
                     "acronym": "PR",
@@ -3385,7 +3681,7 @@
                     "sequence": "3"
                 },
                 {
-                    "option": "4",
+                    "option": "5",
                     "identifier": "principalDrawing",
                     "name": "Principal Drawing",
                     "acronym": "PD",
@@ -3393,7 +3689,7 @@
                     "sequence": "4"
                 },
                 {
-                    "option": "5",
+                    "option": "6",
                     "identifier": "principalPaymentAmountFixing",
                     "name": "Principal Payment Amount Fixing",
                     "acronym": "PRF",
@@ -3401,7 +3697,7 @@
                     "sequence": "5"
                 },
                 {
-                    "option": "6",
+                    "option": "7",
                     "identifier": "penalytPayment",
                     "name": "Penalty Payment",
                     "acronym": "PY",
@@ -3409,7 +3705,7 @@
                     "sequence": "6"
                 },
                 {
-                    "option": "7",
+                    "option": "8",
                     "identifier": "principalPrepayment",
                     "name": "Principal Prepayment",
                     "acronym": "PP",
@@ -3417,7 +3713,7 @@
                     "sequence": "7"
                 },
                 {
-                    "option": "8",
+                    "option": "9",
                     "identifier": "interestPayment",
                     "name": "Interest Payment",
                     "acronym": "IP",
@@ -3425,7 +3721,7 @@
                     "sequence": "8"
                 },
                 {
-                    "option": "9",
+                    "option": "10",
                     "identifier": "interestCapitalization",
                     "name": "Interest Capitalization",
                     "acronym": "IPCI",
@@ -3433,7 +3729,7 @@
                     "sequence": "9"
                 },
                 {
-                    "option": "10",
+                    "option": "11",
                     "identifier": "creditEvent",
                     "name": "Credit Event",
                     "acronym": "CE",
@@ -3441,7 +3737,7 @@
                     "sequence": "10"
                 },
                 {
-                    "option": "11",
+                    "option": "12",
                     "identifier": "rateResetFixed",
                     "name": "Rate Reset Fixing with Known Rate",
                     "acronym": "RRF",
@@ -3449,7 +3745,7 @@
                     "sequence": "11 "
                 },
                 {
-                    "option": "12",
+                    "option": "13",
                     "identifier": "rateResetVariable",
                     "name": "Rate Reset Fixing with Unknown Rate",
                     "acronym": "RR",
@@ -3457,7 +3753,7 @@
                     "sequence": "12"
                 },
                 {
-                    "option": "13",
+                    "option": "14",
                     "identifier": "dividendPayment",
                     "name": "Dividend Payment",
                     "acronym": "DV",
@@ -3465,7 +3761,7 @@
                     "sequence": "13"
                 },
                 {
-                    "option": "14",
+                    "option": "15",
                     "identifier": "purchase",
                     "name": "Purchase",
                     "acronym": "PRD",
@@ -3473,7 +3769,7 @@
                     "sequence": "14"
                 },
                 {
-                    "option": "15",
+                    "option": "16",
                     "identifier": "marginCall",
                     "name": "Margin Call",
                     "acronym": "MR",
@@ -3481,7 +3777,7 @@
                     "sequence": "15"
                 },
                 {
-                    "option": "16",
+                    "option": "17",
                     "identifier": "termination",
                     "name": "Termination",
                     "acronym": "TD",
@@ -3489,7 +3785,7 @@
                     "sequence": "16"
                 },
                 {
-                    "option": "17",
+                    "option": "18",
                     "identifier": "scalingIndexFixing",
                     "name": "Scaling Index Fixing",
                     "acronym": "SC",
@@ -3497,7 +3793,7 @@
                     "sequence": "17"
                 },
                 {
-                    "option": "18",
+                    "option": "19",
                     "identifier": "interestCalculationBaseFixing",
                     "name": "Interest Calculation Base Fixing",
                     "acronym": "IPCB",
@@ -3505,7 +3801,7 @@
                     "sequence": "18"
                 },
                 {
-                    "option": "19",
+                    "option": "20",
                     "identifier": "maturity",
                     "name": "Maturity",
                     "acronym": "MD",
@@ -3513,7 +3809,7 @@
                     "sequence": "19"
                 },
                 {
-                    "option": "20",
+                    "option": "21",
                     "identifier": "exercise",
                     "name": "Exercise",
                     "acronym": "XD",
@@ -3521,12 +3817,84 @@
                     "sequence": "20"
                 },
                 {
-                    "option": "21",
+                    "option": "22",
                     "identifier": "settlement",
                     "name": "Settlement",
                     "acronym": "STD",
                     "description": "Settlement of an exercised contractual claim",
                     "sequence": "21"
+                },
+                {
+                    "option": "23",
+                    "identifier": "dividendDeclarationDate",
+                    "name": "Dividend Declaration Date",
+                    "acronym": "DDD",
+                    "description": "Declaration of a dividend payment",
+                    "sequence": "22"
+                },
+                {
+                    "option": "24",
+                    "identifier": "dividendExDate",
+                    "name": "Dividend Ex Date",
+                    "acronym": "DED",
+                    "description": "Date from which new shareholders are not considered for the next dividend distribution",
+                    "sequence": "23"
+                },
+                {
+                    "option": "25",
+                    "identifier": "dividendPaymentDate",
+                    "name": "Dividend Payment Date",
+                    "acronym": "DPD",
+                    "description": "Date at which next dividend is distributed to shareholders",
+                    "sequence": "24"
+                },
+                {
+                    "option": "26",
+                    "identifier": "splitDeclarationDate",
+                    "name": "Split Declaration Date",
+                    "acronym": "SDD",
+                    "description": "Declaration of a stock split or reverse split",
+                    "sequence": "25"
+                },
+                {
+                    "option": "27",
+                    "identifier": "splitExDate",
+                    "name": "Split Ex Date",
+                    "acronym": "SED",
+                    "description": "Date at which stock split is initiated",
+                    "sequence": "26"
+                },
+                {
+                    "option": "28",
+                    "identifier": "splitSettlementDate",
+                    "name": "Split Settlement Date",
+                    "acronym": "SSD",
+                    "description": "Date at which stock split is settled or settlement is finalized",
+                    "sequence": "27"
+                },
+                {
+                    "option": "29",
+                    "identifier": "redemptionDeclarationDate",
+                    "name": "Redemption Declaration Date",
+                    "acronym": "RDD",
+                    "description": "Declaration of the redemption of units of an instrument by the initiating party",
+                    "sequence": "28"
+                },
+                {
+                    "option": "30",
+                    "identifier": "redemptionExDate",
+                    "name": "Redemption Ex Date",
+                    "acronym": "RED",
+                    "description": "Date from which new holders are not considered for next redemption",
+                    "sequence": "29"
+                },
+                {
+                    "option": "31",
+                    "identifier": "redemptionPaymentDate",
+                    "name": "Redemption Payment Date",
+                    "acronym": "RPD",
+                    "description": "Date at which redemption is settled by paying the Redemption Price against returning respective units of instrument",
+                    "sequence": "30"
                 }
             ]
         },

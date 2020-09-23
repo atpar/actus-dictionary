@@ -1,8 +1,8 @@
 {
     "version": {
-        "Version": "1.2",
+        "Version": "1.3-atpar",
         "Edition": "0",
-        "Date": "2020-06-03"
+        "Date": "44096"
     },
     "applicability": {
         "annuity": {
@@ -705,18 +705,34 @@
             "nonPerformingDate": "x(,,1)",
             "cycleAnchorDateOfDividend": "NN(1,1,)",
             "cycleOfDividend": "x(1,0,)",
-            "nextDividendPaymentAmount": "x(1,0,)",
-            "exDividendDate": "x(1,1,)",
+            "dividendExDate": "x(1,1,)",
+            "dividendPaymentDate": "x(1,1,)",
+            "dividendPaymentAmount": "x(1,0,)",
+            "dividendRecordPeriod": "x(1,1,)",
+            "dividendPaymentPeriod": "x(1,1,)",
             "currency": "NN",
             "contractDealDate": "NN(,,1)",
             "notionalPrincipal": "NN",
             "quantity": "NN(,,3)",
+            "issueDate": "NN",
+            "nominalPrice": "NN",
+            "issuePrice": "NN",
+            "splitRecordPeriod": "x",
+            "splitExDate": "x",
+            "splitRatio": "x",
             "purchaseDate": "NN",
             "priceAtPurchaseDate": "NN",
             "terminationDate": "x(6,0,1)",
             "priceAtTerminationDate": "NN(6,1,1)",
             "marketValueObserved": "x",
-            "settlementCurrency": "x"
+            "settlementPeriod": "x",
+            "settlementCurrency": "x",
+            "redeemableByIssuer": "x(7,0,)",
+            "redemptionRecordPeriod": "x",
+            "redemptionPaymentPeriod": "x",
+            "redemptionExDate": "x",
+            "redemptionPaymentDate": "x",
+            "redemptionPrice": "NN(7,1,)"
         },
         "swap": {
             "contract": "swap",
