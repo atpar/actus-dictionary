@@ -145,7 +145,7 @@
         "lastDividendDeclarationDate": {
             "identifier": "lastDividendDeclarationDate",
             "name": "Last Dividend Declaration Date",
-            "acronym": "DDLD",
+            "acronym": "DLDD",
             "description": "The timestamp of the last DDD event.",
             "type": "Timestamp",
             "allowedValues": [
