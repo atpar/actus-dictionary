@@ -1,8 +1,8 @@
 {
     "version": {
-        "Version": "1.0",
+        "Version": "1.2",
         "Edition": "0",
-        "Date": "2019-10-23"
+        "Date": "2020-06-03"
     },
     "terms": {
         "accruedInterest": {
@@ -14,6 +14,16 @@
             "allowedValues": [],
             "default": "",
             "description": "Accrued interest as per SD. In case of NULL, this value will be recalculated using IPANX, IPCL and IPNR information. Can be used to represent irregular next IP payments."
+        },
+        "adjustmentFactor": {
+            "identifier": "adjustmentFactor",
+            "group": "Redemption",
+            "name": "Adjustment Factor",
+            "acronym": "ADF",
+            "type": "Real",
+            "allowedValues": [],
+            "default": "1",
+            "description": "A correction factor for the Redemption Amount determined by the Calculating Agent."
         },
         "amortizationDate": {
             "identifier": "amortizationDate",
@@ -614,6 +624,13 @@
                     "name": "Credit Enhancement Collateral",
                     "acronym": "CEC",
                     "description": "A collateral securing the scheduled payment obligations of an underlying instrument"
+                },
+                {
+                    "option": "18",
+                    "identifier": "certificate",
+                    "name": "Certificate",
+                    "acronym": "CERTF",
+                    "description": "A certificate letting the buyer participate in the performance of an underlying instrument. Often comes with specific rights of redemption and termination and also special features on the payoff."
                 }
             ],
             "default": "",
@@ -628,6 +645,65 @@
             "allowedValues": [],
             "default": "",
             "description": "CPID identifies the counterparty to the CRID in this contract.\nCPID is ideally the official LEI which can be a firm, a government body, even a single person etc. However, this can also refer to a annonymous group in which case this information is not to be disclosed. CPID may also refer to a group taking a joint risk or more generally, CPID is the main counterparty, against which the contract has been settled."
+        },
+        "couponAmountFixed": {
+            "identifier": "couponAmountFixed",
+            "group": "Coupon",
+            "name": "Coupon Amount Fixed",
+            "acronym": "CPFX",
+            "type": "Real",
+            "allowedValues": [],
+            "default": "0",
+            "description": "The coupon amount fixed at the most recent coupon day and due for payment."
+        },
+        "couponRate": {
+            "identifier": "couponRate",
+            "group": "Coupon",
+            "name": "Coupon Rate",
+            "acronym": "CPRT",
+            "type": "Real",
+            "allowedValues": [],
+            "default": "0",
+            "description": "The fixed coupon applicable (if any). Applies in conjunction with couponType=FIX (fixed)."
+        },
+        "couponType": {
+            "identifier": "couponType",
+            "group": "Coupon",
+            "name": "Coupon Type",
+            "acronym": "CPTP",
+            "type": "Enum",
+            "allowedValues": [
+                {
+                    "option": "0",
+                    "identifier": "none",
+                    "name": "No Coupon",
+                    "acronym": "NOC",
+                    "description": "No coupon is paid."
+                },
+                {
+                    "option": "1",
+                    "identifier": "fixed",
+                    "name": "Fixed Coupon",
+                    "acronym": "FIX",
+                    "description": "A fixed coupon is paid according to the couponRate."
+                },
+                {
+                    "option": "2",
+                    "identifier": "fixedConditional",
+                    "name": "Fixed Conditional Coupon",
+                    "acronym": "FCN",
+                    "description": "A fixed coupon is paid conditional to sufficient liquidity."
+                },
+                {
+                    "option": "3",
+                    "identifier": "performance",
+                    "name": "Performance Based",
+                    "acronym": "PRF",
+                    "description": "The coupon paid is based on the performance of the underlying instrument."
+                }
+            ],
+            "default": "NOC",
+            "description": "The type of coupon applicable."
         },
         "coverageOfCreditEnhancement": {
             "identifier": "coverageOfCreditEnhancement",
@@ -722,6 +798,18 @@
             ],
             "default": "",
             "description": "The currency of the cash flows of the second leg (if not defined, main currency applies)\n"
+        },
+        "cycleAnchorDateOfCoupon": {
+            "identifier": "cycleAnchorDateOfCoupon",
+            "group": "Coupon",
+            "name": "Cycle Anchor Date Of Coupon",
+            "acronym": "CPANX",
+            "type": "Timestamp",
+            "allowedValues": [
+                "ISO8601 Datetime"
+            ],
+            "default": "",
+            "description": "The start date of the Coupon Day schedule. i.e. this is the very first regular Coupon Day. After this day periodic Coupon Days are scheduled through the Cycle of Coupon Day."
         },
         "cycleAnchorDateOfDividend": {
             "identifier": "cycleAnchorDateOfDividend",
@@ -819,6 +907,18 @@
             "default": "",
             "description": "Date from which the rate reset date schedule is calculated according to the cycle length. The first rate reset event takes place on this anchor."
         },
+        "cycleAnchorDateOfRedemption": {
+            "identifier": "cycleAnchorDateOfRedemption",
+            "group": "Redemption",
+            "name": "Cycle Anchor Date Of Redemption Day",
+            "acronym": "RDANX",
+            "type": "Timestamp",
+            "allowedValues": [
+                "ISO8601 Datetime"
+            ],
+            "default": "",
+            "description": "The start date of the Redemption Day schedule. i.e. this is the very first regular Redemption Day. After this day periodic Redemption Days are scheduled through the Cycle of Redemption Day."
+        },
         "cycleAnchorDateOfScalingIndex": {
             "identifier": "cycleAnchorDateOfScalingIndex",
             "group": "Notional Principal",
@@ -830,6 +930,30 @@
             ],
             "default": "",
             "description": "Date from which the scaling date schedule is calculated according to the cycle length. The first scaling event takes place on this anchor."
+        },
+        "cycleAnchorDateOfTermination": {
+            "identifier": "cycleAnchorDateOfTermination",
+            "group": "Redemption",
+            "name": "Cycle Anchor Date Of Termination",
+            "acronym": "TDANX",
+            "type": "Timestamp",
+            "allowedValues": [
+                "ISO8601 Datetime"
+            ],
+            "default": "",
+            "description": "The start date of the Termination Day schedule. i.e. this is the very first regular Termination Day. After this period Termination Days are scheduled according to the Cycle Of Termination Day."
+        },
+        "cycleOfCoupon": {
+            "identifier": "cycleOfCoupon",
+            "group": "Coupon",
+            "name": "Cycle Of Coupon",
+            "acronym": "CPCL",
+            "type": "Cycle",
+            "allowedValues": [
+                "[ISO8601 Duration]L[s={0,1}]"
+            ],
+            "default": "",
+            "description": "The period according to which Coupon Days are scheduled."
         },
         "cycleOfDividend": {
             "identifier": "cycleOfDividend",
@@ -927,6 +1051,18 @@
             "default": "",
             "description": "Cycle according to which the rate reset date schedule will be calculated.\nIn case RRCL is not set, then there will only be one rate reset event at RRANX given RRANX if set.\nThe interval will be adjusted yet by EOMC and BDC."
         },
+        "cycleOfRedemption": {
+            "identifier": "cycleOfRedemption",
+            "group": "Redemption",
+            "name": "Cycle Of Redemption Day",
+            "acronym": "RDCL",
+            "type": "Cycle",
+            "allowedValues": [
+                "[ISO8601 Duration]L[s={0,1}]"
+            ],
+            "default": "",
+            "description": "The period according to which Redemption Days are scheduled."
+        },
         "cycleOfScalingIndex": {
             "identifier": "cycleOfScalingIndex",
             "group": "Notional Principal",
@@ -938,6 +1074,18 @@
             ],
             "default": "",
             "description": "Cycle according to which the scaling date schedule will be calculated.\nIn case SCCL is not set, then there will only be one scaling event at SCANX given SCANX is set.\nThe interval will be adjusted yet by EOMC and BDC."
+        },
+        "cycleOfTermination": {
+            "identifier": "cycleOfTermination",
+            "group": "Redemption",
+            "name": "Cycle Of Termination",
+            "acronym": "TDCL",
+            "type": "Cycle",
+            "allowedValues": [
+                "[ISO8601 Duration]L[s={0,1}]"
+            ],
+            "default": "",
+            "description": "The period according to which Termination Days are scheduled."
         },
         "cyclePointOfInterestPayment": {
             "identifier": "cyclePointOfInterestPayment",
@@ -1091,6 +1239,16 @@
             "default": "D",
             "description": "Indicates whether the contract is settled in cash or physical delivery.\nIn case of physical delivery, the underlying contract and associated (future) cash flows are effectively exchanged. In case of cash settlement, the current market value of the underlying contract determines the cash flow exchanged."
         },
+        "denominationRatio": {
+            "identifier": "denominationRatio",
+            "group": "Notional Principal",
+            "name": "Denomination Ratio",
+            "acronym": "RAT",
+            "type": "Real",
+            "allowedValues": [],
+            "default": "1.0",
+            "description": "The ratio defining how a single certificate is denominated in terms of the certificate’s underlying instrument. Is often times also simply referred to as the “Ratio”."
+        },
         "endOfMonthConvention": {
             "identifier": "endOfMonthConvention",
             "group": "Calendar",
@@ -1150,6 +1308,38 @@
             "default": "",
             "description": "Date of exercising a contingent event/obligation such as a forward condition, optionality etc. The Exercise date marks the observed timestamp of fixing the contingent event and respective payment obligation not necessarily the timestamp of settling the obligation."
         },
+        "exercisePeriod": {
+            "identifier": "exercisePeriod",
+            "group": "Redemption",
+            "name": "Exercise Period",
+            "acronym": "XP",
+            "type": "Period",
+            "allowedValues": [
+                "ISO8601 Duration"
+            ],
+            "default": "0D",
+            "description": "The period within which an option holder (e.g. from redemption of a note / certificate / etc) can chose to execute his option"
+        },
+        "exerciseQuantity": {
+            "identifier": "exerciseQuantity",
+            "group": "Redemption",
+            "name": "Exercise Quantity",
+            "acronym": "XQ",
+            "type": "Integer",
+            "allowedValues": [],
+            "default": "0",
+            "description": "The number of shares / notes / certificates / etc executed. E.g. the number of certificates redeemed as per a certain redemption day."
+        },
+        "exerciseQuantityOrdered": {
+            "identifier": "exerciseQuantityOrdered",
+            "group": "Redemption",
+            "name": "Exercise Quantity Ordered",
+            "acronym": "XO",
+            "type": "Integer",
+            "allowedValues": [],
+            "default": "0",
+            "description": "The number of shares / notes / certificates / etc ordered for exercise. E.g. the number of certificates ordered for redemption as per a certain redemption day."
+        },
         "feeAccrued": {
             "identifier": "feeAccrued",
             "group": "Fees",
@@ -1199,13 +1389,13 @@
             "identifier": "fixingPeriod",
             "group": "Rate Reset",
             "name": "Fixing Period",
-            "acronym": "RRFIX",
+            "acronym": "FIP",
             "type": "Period",
             "allowedValues": [
                 "ISO8601 Duration"
             ],
             "default": "P0D",
-            "description": "Interest rate resets (adjustments) are usually fixed one or two days (usually Business Days) before the new rate applies (defined by the rate reset schedule). This field holds the period between fixing and application of a rate."
+            "description": "Adjustments of external data points (variable rates, redemption amounts, etc.) are usually fixed one or two days (usually Business Days) before they are applied (the fixing day). This field holds the period between fixing and application of a data point."
         },
         "futuresPrice": {
             "identifier": "futuresPrice",
@@ -1329,6 +1519,40 @@
             "default": "",
             "description": "This is the amount used for the calculation of interest. Calculation base per SD."
         },
+        "issueDate": {
+            "identifier": "issueDate",
+            "group": "Notional Principal",
+            "name": "Issue Date",
+            "acronym": "ID",
+            "type": "Timestamp",
+            "allowedValues": [
+                "ISO8601 Datetime"
+            ],
+            "default": "",
+            "description": "Defines the time of issuance of the contract. At this time, the contract transitions from e.g. the subscription phase into the execution phase."
+        },
+        "issuePrice": {
+            "identifier": "issuePrice",
+            "group": "Notional Principal",
+            "name": "Issue Price",
+            "acronym": "IPR",
+            "type": "Real",
+            "allowedValues": [],
+            "default": "",
+            "description": "The issue price for a single certificate as per Issue Day."
+        },
+        "lastCouponDay": {
+            "identifier": "lastCouponDay",
+            "group": "Coupon",
+            "name": "Last Coupon Day",
+            "acronym": "LCD",
+            "type": "Timestamp",
+            "allowedValues": [
+                "ISO8601 Datetime"
+            ],
+            "default": "",
+            "description": "The most recent Coupon Day as per which the last Coupon Amount was fixed."
+        },
         "lifeCap": {
             "identifier": "lifeCap",
             "group": "Rate Reset",
@@ -1372,6 +1596,16 @@
             ],
             "default": "",
             "description": "Defines the upper bound of the Maintenance Margin. If MRVM falls above MRMMU, then capital is refunded to reach the original MRIM."
+        },
+        "marginFactor": {
+            "identifier": "marginFactor",
+            "group": "Redemption",
+            "name": "Margin Factor",
+            "acronym": "MRF",
+            "type": "Real",
+            "allowedValues": [],
+            "default": "1",
+            "description": "A correction factor for the Redemption Amount determined by the Calculating Agent."
         },
         "marketObjectCode": {
             "identifier": "marketObjectCode",
@@ -1489,6 +1723,16 @@
             "allowedValues": [],
             "default": "",
             "description": "The nominal interest rate which will be used to calculate accruals and the next interest payment at the next IP date on the second leg (the one not mentioned in CNTRL) of a plain vanilla swap. The relevant time period is a function of IPDC. \nIt is periodically updated per SD."
+        },
+        "nominalPrice": {
+            "identifier": "nominalPrice",
+            "group": "Notional Principal",
+            "name": "Nominal Price",
+            "acronym": "NPR",
+            "type": "Real",
+            "allowedValues": [],
+            "default": "",
+            "description": "The nominal price for a single certificate."
         },
         "nonPerformingDate": {
             "identifier": "nonPerformingDate",

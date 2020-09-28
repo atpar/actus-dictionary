@@ -1,8 +1,8 @@
 {
     "version": {
-        "Version": "1.0",
+        "Version": "1.2",
         "Edition": "0",
-        "Date": "2019-10-23"
+        "Date": "2020-06-03"
     },
     "taxonomy": {
         "annuity": {
@@ -44,6 +44,16 @@
             "description": "Cash or cash equivalent position",
             "coverage": "Cash, deposits at central bank.",
             "status": "Released"
+        },
+        "certificate": {
+            "identifier": "certificate",
+            "name": "Certificate",
+            "acronym": "CERTF",
+            "family": "Combined",
+            "class": "Asymmetric",
+            "description": "This contract represents all kinds of certificates which, in essence, give an investor the possibility to participate in the change of market value of an underlying instrument. The underlying instrument can be any product with a market value or a NAV calculated for it. Generally, a certificate grants the investor the right to redeem his shares / notes at a defined redemption schedule and with a payoff following a predefined redemption formula. Other rights and duties of the investor are also possible.",
+            "coverage": "Tracker Certificates, Performance Certificates, etc.",
+            "status": "Planned"
         },
         "collateral": {
             "identifier": "collateral",
@@ -315,6 +325,16 @@
             "allowedValues": [],
             "default": "",
             "description": "Accrued interest as per SD. In case of NULL, this value will be recalculated using IPANX, IPCL and IPNR information. Can be used to represent irregular next IP payments."
+        },
+        "adjustmentFactor": {
+            "identifier": "adjustmentFactor",
+            "group": "Redemption",
+            "name": "Adjustment Factor",
+            "acronym": "ADF",
+            "type": "Real",
+            "allowedValues": [],
+            "default": "1",
+            "description": "A correction factor for the Redemption Amount determined by the Calculating Agent."
         },
         "amortizationDate": {
             "identifier": "amortizationDate",
@@ -915,6 +935,13 @@
                     "name": "Credit Enhancement Collateral",
                     "acronym": "CEC",
                     "description": "A collateral securing the scheduled payment obligations of an underlying instrument"
+                },
+                {
+                    "option": "18",
+                    "identifier": "certificate",
+                    "name": "Certificate",
+                    "acronym": "CERTF",
+                    "description": "A certificate letting the buyer participate in the performance of an underlying instrument. Often comes with specific rights of redemption and termination and also special features on the payoff."
                 }
             ],
             "default": "",
@@ -929,6 +956,65 @@
             "allowedValues": [],
             "default": "",
             "description": "CPID identifies the counterparty to the CRID in this contract.\nCPID is ideally the official LEI which can be a firm, a government body, even a single person etc. However, this can also refer to a annonymous group in which case this information is not to be disclosed. CPID may also refer to a group taking a joint risk or more generally, CPID is the main counterparty, against which the contract has been settled."
+        },
+        "couponAmountFixed": {
+            "identifier": "couponAmountFixed",
+            "group": "Coupon",
+            "name": "Coupon Amount Fixed",
+            "acronym": "CPFX",
+            "type": "Real",
+            "allowedValues": [],
+            "default": "0",
+            "description": "The coupon amount fixed at the most recent coupon day and due for payment."
+        },
+        "couponRate": {
+            "identifier": "couponRate",
+            "group": "Coupon",
+            "name": "Coupon Rate",
+            "acronym": "CPRT",
+            "type": "Real",
+            "allowedValues": [],
+            "default": "0",
+            "description": "The fixed coupon applicable (if any). Applies in conjunction with couponType=FIX (fixed)."
+        },
+        "couponType": {
+            "identifier": "couponType",
+            "group": "Coupon",
+            "name": "Coupon Type",
+            "acronym": "CPTP",
+            "type": "Enum",
+            "allowedValues": [
+                {
+                    "option": "0",
+                    "identifier": "none",
+                    "name": "No Coupon",
+                    "acronym": "NOC",
+                    "description": "No coupon is paid."
+                },
+                {
+                    "option": "1",
+                    "identifier": "fixed",
+                    "name": "Fixed Coupon",
+                    "acronym": "FIX",
+                    "description": "A fixed coupon is paid according to the couponRate."
+                },
+                {
+                    "option": "2",
+                    "identifier": "fixedConditional",
+                    "name": "Fixed Conditional Coupon",
+                    "acronym": "FCN",
+                    "description": "A fixed coupon is paid conditional to sufficient liquidity."
+                },
+                {
+                    "option": "3",
+                    "identifier": "performance",
+                    "name": "Performance Based",
+                    "acronym": "PRF",
+                    "description": "The coupon paid is based on the performance of the underlying instrument."
+                }
+            ],
+            "default": "NOC",
+            "description": "The type of coupon applicable."
         },
         "coverageOfCreditEnhancement": {
             "identifier": "coverageOfCreditEnhancement",
@@ -1023,6 +1109,18 @@
             ],
             "default": "",
             "description": "The currency of the cash flows of the second leg (if not defined, main currency applies)\n"
+        },
+        "cycleAnchorDateOfCoupon": {
+            "identifier": "cycleAnchorDateOfCoupon",
+            "group": "Coupon",
+            "name": "Cycle Anchor Date Of Coupon",
+            "acronym": "CPANX",
+            "type": "Timestamp",
+            "allowedValues": [
+                "ISO8601 Datetime"
+            ],
+            "default": "",
+            "description": "The start date of the Coupon Day schedule. i.e. this is the very first regular Coupon Day. After this day periodic Coupon Days are scheduled through the Cycle of Coupon Day."
         },
         "cycleAnchorDateOfDividend": {
             "identifier": "cycleAnchorDateOfDividend",
@@ -1120,6 +1218,18 @@
             "default": "",
             "description": "Date from which the rate reset date schedule is calculated according to the cycle length. The first rate reset event takes place on this anchor."
         },
+        "cycleAnchorDateOfRedemption": {
+            "identifier": "cycleAnchorDateOfRedemption",
+            "group": "Redemption",
+            "name": "Cycle Anchor Date Of Redemption Day",
+            "acronym": "RDANX",
+            "type": "Timestamp",
+            "allowedValues": [
+                "ISO8601 Datetime"
+            ],
+            "default": "",
+            "description": "The start date of the Redemption Day schedule. i.e. this is the very first regular Redemption Day. After this day periodic Redemption Days are scheduled through the Cycle of Redemption Day."
+        },
         "cycleAnchorDateOfScalingIndex": {
             "identifier": "cycleAnchorDateOfScalingIndex",
             "group": "Notional Principal",
@@ -1131,6 +1241,30 @@
             ],
             "default": "",
             "description": "Date from which the scaling date schedule is calculated according to the cycle length. The first scaling event takes place on this anchor."
+        },
+        "cycleAnchorDateOfTermination": {
+            "identifier": "cycleAnchorDateOfTermination",
+            "group": "Redemption",
+            "name": "Cycle Anchor Date Of Termination",
+            "acronym": "TDANX",
+            "type": "Timestamp",
+            "allowedValues": [
+                "ISO8601 Datetime"
+            ],
+            "default": "",
+            "description": "The start date of the Termination Day schedule. i.e. this is the very first regular Termination Day. After this period Termination Days are scheduled according to the Cycle Of Termination Day."
+        },
+        "cycleOfCoupon": {
+            "identifier": "cycleOfCoupon",
+            "group": "Coupon",
+            "name": "Cycle Of Coupon",
+            "acronym": "CPCL",
+            "type": "Cycle",
+            "allowedValues": [
+                "[ISO8601 Duration]L[s={0,1}]"
+            ],
+            "default": "",
+            "description": "The period according to which Coupon Days are scheduled."
         },
         "cycleOfDividend": {
             "identifier": "cycleOfDividend",
@@ -1228,6 +1362,18 @@
             "default": "",
             "description": "Cycle according to which the rate reset date schedule will be calculated.\nIn case RRCL is not set, then there will only be one rate reset event at RRANX given RRANX if set.\nThe interval will be adjusted yet by EOMC and BDC."
         },
+        "cycleOfRedemption": {
+            "identifier": "cycleOfRedemption",
+            "group": "Redemption",
+            "name": "Cycle Of Redemption Day",
+            "acronym": "RDCL",
+            "type": "Cycle",
+            "allowedValues": [
+                "[ISO8601 Duration]L[s={0,1}]"
+            ],
+            "default": "",
+            "description": "The period according to which Redemption Days are scheduled."
+        },
         "cycleOfScalingIndex": {
             "identifier": "cycleOfScalingIndex",
             "group": "Notional Principal",
@@ -1239,6 +1385,18 @@
             ],
             "default": "",
             "description": "Cycle according to which the scaling date schedule will be calculated.\nIn case SCCL is not set, then there will only be one scaling event at SCANX given SCANX is set.\nThe interval will be adjusted yet by EOMC and BDC."
+        },
+        "cycleOfTermination": {
+            "identifier": "cycleOfTermination",
+            "group": "Redemption",
+            "name": "Cycle Of Termination",
+            "acronym": "TDCL",
+            "type": "Cycle",
+            "allowedValues": [
+                "[ISO8601 Duration]L[s={0,1}]"
+            ],
+            "default": "",
+            "description": "The period according to which Termination Days are scheduled."
         },
         "cyclePointOfInterestPayment": {
             "identifier": "cyclePointOfInterestPayment",
@@ -1392,6 +1550,16 @@
             "default": "D",
             "description": "Indicates whether the contract is settled in cash or physical delivery.\nIn case of physical delivery, the underlying contract and associated (future) cash flows are effectively exchanged. In case of cash settlement, the current market value of the underlying contract determines the cash flow exchanged."
         },
+        "denominationRatio": {
+            "identifier": "denominationRatio",
+            "group": "Notional Principal",
+            "name": "Denomination Ratio",
+            "acronym": "RAT",
+            "type": "Real",
+            "allowedValues": [],
+            "default": "1.0",
+            "description": "The ratio defining how a single certificate is denominated in terms of the certificate’s underlying instrument. Is often times also simply referred to as the “Ratio”."
+        },
         "endOfMonthConvention": {
             "identifier": "endOfMonthConvention",
             "group": "Calendar",
@@ -1451,6 +1619,38 @@
             "default": "",
             "description": "Date of exercising a contingent event/obligation such as a forward condition, optionality etc. The Exercise date marks the observed timestamp of fixing the contingent event and respective payment obligation not necessarily the timestamp of settling the obligation."
         },
+        "exercisePeriod": {
+            "identifier": "exercisePeriod",
+            "group": "Redemption",
+            "name": "Exercise Period",
+            "acronym": "XP",
+            "type": "Period",
+            "allowedValues": [
+                "ISO8601 Duration"
+            ],
+            "default": "0D",
+            "description": "The period within which an option holder (e.g. from redemption of a note / certificate / etc) can chose to execute his option"
+        },
+        "exerciseQuantity": {
+            "identifier": "exerciseQuantity",
+            "group": "Redemption",
+            "name": "Exercise Quantity",
+            "acronym": "XQ",
+            "type": "Integer",
+            "allowedValues": [],
+            "default": "0",
+            "description": "The number of shares / notes / certificates / etc executed. E.g. the number of certificates redeemed as per a certain redemption day."
+        },
+        "exerciseQuantityOrdered": {
+            "identifier": "exerciseQuantityOrdered",
+            "group": "Redemption",
+            "name": "Exercise Quantity Ordered",
+            "acronym": "XO",
+            "type": "Integer",
+            "allowedValues": [],
+            "default": "0",
+            "description": "The number of shares / notes / certificates / etc ordered for exercise. E.g. the number of certificates ordered for redemption as per a certain redemption day."
+        },
         "feeAccrued": {
             "identifier": "feeAccrued",
             "group": "Fees",
@@ -1500,13 +1700,13 @@
             "identifier": "fixingPeriod",
             "group": "Rate Reset",
             "name": "Fixing Period",
-            "acronym": "RRFIX",
+            "acronym": "FIP",
             "type": "Period",
             "allowedValues": [
                 "ISO8601 Duration"
             ],
             "default": "P0D",
-            "description": "Interest rate resets (adjustments) are usually fixed one or two days (usually Business Days) before the new rate applies (defined by the rate reset schedule). This field holds the period between fixing and application of a rate."
+            "description": "Adjustments of external data points (variable rates, redemption amounts, etc.) are usually fixed one or two days (usually Business Days) before they are applied (the fixing day). This field holds the period between fixing and application of a data point."
         },
         "futuresPrice": {
             "identifier": "futuresPrice",
@@ -1630,6 +1830,40 @@
             "default": "",
             "description": "This is the amount used for the calculation of interest. Calculation base per SD."
         },
+        "issueDate": {
+            "identifier": "issueDate",
+            "group": "Notional Principal",
+            "name": "Issue Date",
+            "acronym": "ID",
+            "type": "Timestamp",
+            "allowedValues": [
+                "ISO8601 Datetime"
+            ],
+            "default": "",
+            "description": "Defines the time of issuance of the contract. At this time, the contract transitions from e.g. the subscription phase into the execution phase."
+        },
+        "issuePrice": {
+            "identifier": "issuePrice",
+            "group": "Notional Principal",
+            "name": "Issue Price",
+            "acronym": "IPR",
+            "type": "Real",
+            "allowedValues": [],
+            "default": "",
+            "description": "The issue price for a single certificate as per Issue Day."
+        },
+        "lastCouponDay": {
+            "identifier": "lastCouponDay",
+            "group": "Coupon",
+            "name": "Last Coupon Day",
+            "acronym": "LCD",
+            "type": "Timestamp",
+            "allowedValues": [
+                "ISO8601 Datetime"
+            ],
+            "default": "",
+            "description": "The most recent Coupon Day as per which the last Coupon Amount was fixed."
+        },
         "lifeCap": {
             "identifier": "lifeCap",
             "group": "Rate Reset",
@@ -1673,6 +1907,16 @@
             ],
             "default": "",
             "description": "Defines the upper bound of the Maintenance Margin. If MRVM falls above MRMMU, then capital is refunded to reach the original MRIM."
+        },
+        "marginFactor": {
+            "identifier": "marginFactor",
+            "group": "Redemption",
+            "name": "Margin Factor",
+            "acronym": "MRF",
+            "type": "Real",
+            "allowedValues": [],
+            "default": "1",
+            "description": "A correction factor for the Redemption Amount determined by the Calculating Agent."
         },
         "marketObjectCode": {
             "identifier": "marketObjectCode",
@@ -1790,6 +2034,16 @@
             "allowedValues": [],
             "default": "",
             "description": "The nominal interest rate which will be used to calculate accruals and the next interest payment at the next IP date on the second leg (the one not mentioned in CNTRL) of a plain vanilla swap. The relevant time period is a function of IPDC. \nIt is periodically updated per SD."
+        },
+        "nominalPrice": {
+            "identifier": "nominalPrice",
+            "group": "Notional Principal",
+            "name": "Nominal Price",
+            "acronym": "NPR",
+            "type": "Real",
+            "allowedValues": [],
+            "default": "",
+            "description": "The nominal price for a single certificate."
         },
         "nonPerformingDate": {
             "identifier": "nonPerformingDate",
@@ -2497,6 +2751,54 @@
             "currency": "NN",
             "notionalPrincipal": "NN"
         },
+        "certificate": {
+            "contract": "certificate",
+            "calendar": "x",
+            "businessDayConvention": "x",
+            "endOfMonthConvention": "x",
+            "contractType": "NN",
+            "statusDate": "NN(,,1)",
+            "contractRole": "NN",
+            "creatorID": "NN(,,1)",
+            "contractID": "NN",
+            "marketObjectCode": "x",
+            "contractStructure": "NN",
+            "counterpartyID": "NN(,,1)",
+            "contractPerformance": "x(,,1)",
+            "nonPerformingDate": "x(,,1)",
+            "gracePeriod": "x(,,1)",
+            "delinquencyPeriod": "x(,,1)",
+            "delinquencyRate": "x(,,1)",
+            "dayCountConvention": "NN",
+            "currency": "NN",
+            "contractDealDate": "NN(,,1)",
+            "initialExchangeDate": "x",
+            "maturityDate": "x",
+            "quantity": "NN",
+            "fixingPeriod": "x",
+            "exerciseAmount": "x",
+            "settlementPeriod": "x",
+            "settlementCurrency": "x",
+            "issueDate": "NN",
+            "nominalPrice": "NN",
+            "issuePrice": "NN",
+            "denominationRatio": "x",
+            "cycleAnchorDateOfRedemption": "x",
+            "cycleOfRedemption": "x",
+            "cycleAnchorDateOfTermination": "x",
+            "cycleOfTermination": "x",
+            "exercisePeriod": "x",
+            "exerciseQuantity": "x",
+            "exerciseQuantityOrdered": "x",
+            "marginFactor": "x",
+            "adjustmentFactor": "x",
+            "cycleAnchorDateOfCoupon": "x(1,0,)",
+            "cycleOfCoupon": "x(1,0,)",
+            "couponType": "NN(1,1,)",
+            "couponRate": "NN(1,1,)",
+            "couponAmountFixed": "x(1,0,)",
+            "lastCouponDay": "x(1,0,)"
+        },
         "collateral": {
             "contract": "collateral",
             "calendar": "x",
@@ -3142,6 +3444,14 @@
             "type": "Real",
             "allowedValues": []
         },
+        "adjustmentFactor": {
+            "identifier": "adjustmentFactor",
+            "name": "Adjustment Factor",
+            "acronym": "ADF",
+            "description": "A correction factor for the Redemption Amount determined by the Calculating Agent.",
+            "type": "Real",
+            "allowedValues": []
+        },
         "contractPerformance": {
             "identifier": "contractPerformance",
             "name": "Contract Performance",
@@ -3193,6 +3503,14 @@
                 }
             ]
         },
+        "couponAmountFixed": {
+            "identifier": "couponAmountFixed",
+            "name": "Coupon Amount Fixed",
+            "acronym": "CAF",
+            "description": "The Coupon Amount fixed with the last Coupon Fixing Day event and applicable to the next Coupon Payment Day event.",
+            "type": "Real",
+            "allowedValues": []
+        },
         "exerciseAmount": {
             "identifier": "exerciseAmount",
             "name": "Exercise Amount",
@@ -3210,6 +3528,22 @@
             "allowedValues": [
                 "ISO8601 Datetime"
             ]
+        },
+        "exerciseQuantity": {
+            "identifier": "exerciseQuantity",
+            "name": "Exercise Quantity",
+            "acronym": "XQ",
+            "description": "The number of shares / notes / certificates / etc executed. E.g. the number of certificates redeemed as per a certain redemption day.",
+            "type": "Integer",
+            "allowedValues": []
+        },
+        "exerciseQuantityOrdered": {
+            "identifier": "exerciseQuantityOrdered",
+            "name": "Exercise Quantity Ordered",
+            "acronym": "XO",
+            "description": "The number of shares / notes / certificates / etc ordered for exercise. E.g. the number of certificates ordered for redemption as per a certain redemption day.",
+            "type": "Integer",
+            "allowedValues": []
         },
         "feeAccrued": {
             "identifier": "feeAccrued",
@@ -3232,6 +3566,24 @@
             "name": "Interest Scaling Multiplier",
             "acronym": "ISC",
             "description": "The multiplier being applied to interest cash flows",
+            "type": "Real",
+            "allowedValues": []
+        },
+        "lastCouponDay": {
+            "identifier": "lastCouponDay",
+            "name": "Last Coupon Day",
+            "acronym": "LCD",
+            "description": "The most recent Coupon Day as per which the last Coupon Amount was fixed.",
+            "type": "Timestamp",
+            "allowedValues": [
+                "ISO8601 Datetime"
+            ]
+        },
+        "marginFactor": {
+            "identifier": "marginFactor",
+            "name": "Margin Factor",
+            "acronym": "MRF",
+            "description": "A correction factor for the Redemption Amount determined by the Calculating Agent.",
             "type": "Real",
             "allowedValues": []
         },
@@ -3303,6 +3655,14 @@
             "type": "Real",
             "allowedValues": []
         },
+        "quantity": {
+            "identifier": "quantity",
+            "name": "Quantity",
+            "acronym": "QT",
+            "description": "The number of shares / notes / certificates / etc in circulation",
+            "type": "Integer",
+            "allowedValues": []
+        },
         "statusDate": {
             "identifier": "statusDate",
             "name": "Status Date",
@@ -3358,175 +3718,223 @@
                     "name": "Monitoring",
                     "acronym": "AD",
                     "description": "Monitoring of contract. Evaluates all contract states",
-                    "sequence": "22"
+                    "sequence": "28"
                 },
                 {
                     "option": "1",
-                    "identifier": "initialExchange",
-                    "name": "Initial Exchange",
-                    "acronym": "IED",
-                    "description": "Scheduled date of initial exchange of e.g. principal value in fixed income products",
+                    "identifier": "issueDay",
+                    "name": "Issue Day",
+                    "acronym": "ID",
+                    "description": "Marks the day or timestamp respectively of issuance of a contract",
                     "sequence": "1"
                 },
                 {
                     "option": "2",
-                    "identifier": "feePayment",
-                    "name": "Fee Payment",
-                    "acronym": "FP",
-                    "description": "Scheduled fee payments",
+                    "identifier": "initialExchange",
+                    "name": "Initial Exchange",
+                    "acronym": "IED",
+                    "description": "Scheduled date of initial exchange of e.g. principal value in fixed income products",
                     "sequence": "2"
                 },
                 {
                     "option": "3",
-                    "identifier": "principalRedemption",
-                    "name": "Principal Redemption",
-                    "acronym": "PR",
-                    "description": "Scheduled principal redemption payment",
+                    "identifier": "feePayment",
+                    "name": "Fee Payment",
+                    "acronym": "FP",
+                    "description": "Scheduled fee payments",
                     "sequence": "3"
                 },
                 {
                     "option": "4",
-                    "identifier": "principalDrawing",
-                    "name": "Principal Drawing",
-                    "acronym": "PD",
-                    "description": "Drawing of principal amount e.g. in a credit line",
+                    "identifier": "principalRedemption",
+                    "name": "Principal Redemption",
+                    "acronym": "PR",
+                    "description": "Scheduled principal redemption payment",
                     "sequence": "4"
                 },
                 {
                     "option": "5",
-                    "identifier": "principalPaymentAmountFixing",
-                    "name": "Principal Payment Amount Fixing",
-                    "acronym": "PRF",
-                    "description": "Scheduled fixing of principal payment amount",
+                    "identifier": "principalDrawing",
+                    "name": "Principal Drawing",
+                    "acronym": "PD",
+                    "description": "Drawing of principal amount e.g. in a credit line",
                     "sequence": "5"
                 },
                 {
                     "option": "6",
-                    "identifier": "penalytPayment",
-                    "name": "Penalty Payment",
-                    "acronym": "PY",
-                    "description": "Scheduled payment of a penalty",
+                    "identifier": "principalPaymentAmountFixing",
+                    "name": "Principal Payment Amount Fixing",
+                    "acronym": "PRF",
+                    "description": "Scheduled fixing of principal payment amount",
                     "sequence": "6"
                 },
                 {
                     "option": "7",
-                    "identifier": "principalPrepayment",
-                    "name": "Principal Prepayment",
-                    "acronym": "PP",
-                    "description": "Unscheduled early repayment of principal",
+                    "identifier": "penalytPayment",
+                    "name": "Penalty Payment",
+                    "acronym": "PY",
+                    "description": "Scheduled payment of a penalty",
                     "sequence": "7"
                 },
                 {
                     "option": "8",
-                    "identifier": "interestPayment",
-                    "name": "Interest Payment",
-                    "acronym": "IP",
-                    "description": "Scheduled interest payment",
+                    "identifier": "principalPrepayment",
+                    "name": "Principal Prepayment",
+                    "acronym": "PP",
+                    "description": "Unscheduled early repayment of principal",
                     "sequence": "8"
                 },
                 {
                     "option": "9",
-                    "identifier": "interestCapitalization",
-                    "name": "Interest Capitalization",
-                    "acronym": "IPCI",
-                    "description": "Scheduled capitalization of accrued interest",
+                    "identifier": "interestPayment",
+                    "name": "Interest Payment",
+                    "acronym": "IP",
+                    "description": "Scheduled interest payment",
                     "sequence": "9"
                 },
                 {
                     "option": "10",
-                    "identifier": "creditEvent",
-                    "name": "Credit Event",
-                    "acronym": "CE",
-                    "description": "Credit event of counterparty to a contract",
+                    "identifier": "interestCapitalization",
+                    "name": "Interest Capitalization",
+                    "acronym": "IPCI",
+                    "description": "Scheduled capitalization of accrued interest",
                     "sequence": "10"
                 },
                 {
                     "option": "11",
+                    "identifier": "creditEvent",
+                    "name": "Credit Event",
+                    "acronym": "CE",
+                    "description": "Credit event of counterparty to a contract",
+                    "sequence": "11"
+                },
+                {
+                    "option": "12",
                     "identifier": "rateResetFixed",
                     "name": "Rate Reset Fixing with Known Rate",
                     "acronym": "RRF",
                     "description": "Scheduled fixing of variable rate with known new rate",
-                    "sequence": "11 "
-                },
-                {
-                    "option": "12",
-                    "identifier": "rateResetVariable",
-                    "name": "Rate Reset Fixing with Unknown Rate",
-                    "acronym": "RR",
-                    "description": "Scheduled fixing of variable rate with unknown new rate",
                     "sequence": "12"
                 },
                 {
                     "option": "13",
-                    "identifier": "dividendPayment",
-                    "name": "Dividend Payment",
-                    "acronym": "DV",
-                    "description": "Payment of dividends",
+                    "identifier": "rateResetVariable",
+                    "name": "Rate Reset Fixing with Unknown Rate",
+                    "acronym": "RR",
+                    "description": "Scheduled fixing of variable rate with unknown new rate",
                     "sequence": "13"
                 },
                 {
                     "option": "14",
-                    "identifier": "purchase",
-                    "name": "Purchase",
-                    "acronym": "PRD",
-                    "description": "Purchase of a contract",
+                    "identifier": "dividendPayment",
+                    "name": "Dividend Payment",
+                    "acronym": "DV",
+                    "description": "Payment of dividends",
                     "sequence": "14"
                 },
                 {
                     "option": "15",
-                    "identifier": "marginCall",
-                    "name": "Margin Call",
-                    "acronym": "MR",
-                    "description": "Scheduled margin call",
+                    "identifier": "purchase",
+                    "name": "Purchase",
+                    "acronym": "PRD",
+                    "description": "Purchase of a contract",
                     "sequence": "15"
                 },
                 {
                     "option": "16",
-                    "identifier": "termination",
-                    "name": "Termination",
-                    "acronym": "TD",
-                    "description": "Termination of a contract",
+                    "identifier": "marginCall",
+                    "name": "Margin Call",
+                    "acronym": "MR",
+                    "description": "Scheduled margin call",
                     "sequence": "16"
                 },
                 {
                     "option": "17",
-                    "identifier": "scalingIndexFixing",
-                    "name": "Scaling Index Fixing",
-                    "acronym": "SC",
-                    "description": "Scheduled fixing of a scaling index",
+                    "identifier": "termination",
+                    "name": "Termination",
+                    "acronym": "TD",
+                    "description": "Termination of a contract",
                     "sequence": "17"
                 },
                 {
                     "option": "18",
-                    "identifier": "interestCalculationBaseFixing",
-                    "name": "Interest Calculation Base Fixing",
-                    "acronym": "IPCB",
-                    "description": "Scheduled fixing of the interest calculation base",
+                    "identifier": "scalingIndexFixing",
+                    "name": "Scaling Index Fixing",
+                    "acronym": "SC",
+                    "description": "Scheduled fixing of a scaling index",
                     "sequence": "18"
                 },
                 {
                     "option": "19",
-                    "identifier": "maturity",
-                    "name": "Maturity",
-                    "acronym": "MD",
-                    "description": "Maturity of a contract",
+                    "identifier": "interestCalculationBaseFixing",
+                    "name": "Interest Calculation Base Fixing",
+                    "acronym": "IPCB",
+                    "description": "Scheduled fixing of the interest calculation base",
                     "sequence": "19"
                 },
                 {
                     "option": "20",
-                    "identifier": "exercise",
-                    "name": "Exercise",
-                    "acronym": "XD",
-                    "description": "Exercise of a contractual feature such as an optionality",
+                    "identifier": "maturity",
+                    "name": "Maturity",
+                    "acronym": "MD",
+                    "description": "Maturity of a contract",
                     "sequence": "20"
                 },
                 {
                     "option": "21",
+                    "identifier": "couponFixingDay",
+                    "name": "Coupon Fixing Day",
+                    "acronym": "CFD",
+                    "description": "Fixing of the coupon amount",
+                    "sequence": "21"
+                },
+                {
+                    "option": "22",
+                    "identifier": "couponPaymentDay",
+                    "name": "Coupon Payment Day",
+                    "acronym": "CPD",
+                    "description": "Payment of the coupon amount",
+                    "sequence": "22"
+                },
+                {
+                    "option": "23",
+                    "identifier": "redemptionFixingDay",
+                    "name": "Redemption Fixing Day",
+                    "acronym": "RFD",
+                    "description": "Fixing of the redemption amount",
+                    "sequence": "23"
+                },
+                {
+                    "option": "24",
+                    "identifier": "redemptionPaymentDay",
+                    "name": "Redemption Payment Day",
+                    "acronym": "RPD",
+                    "description": "Payment of the redemption amount",
+                    "sequence": "24"
+                },
+                {
+                    "option": "25",
+                    "identifier": "exerciseOrder",
+                    "name": "Exercise Order",
+                    "acronym": "XO",
+                    "description": "Submission of an exercise order for a contractual feature such as an optionality",
+                    "sequence": "25"
+                },
+                {
+                    "option": "26",
+                    "identifier": "exerciseDay",
+                    "name": "Exercise Day",
+                    "acronym": "XD",
+                    "description": "Exercise of a contractual feature such as an optionality",
+                    "sequence": "26"
+                },
+                {
+                    "option": "27",
                     "identifier": "settlement",
                     "name": "Settlement",
                     "acronym": "STD",
                     "description": "Settlement of an exercised contractual claim",
-                    "sequence": "21"
+                    "sequence": "27"
                 }
             ]
         },

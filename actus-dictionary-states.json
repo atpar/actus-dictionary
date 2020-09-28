@@ -1,8 +1,8 @@
 {
     "version": {
-        "Version": "1.0",
+        "Version": "1.2",
         "Edition": "0",
-        "Date": "2019-10-23"
+        "Date": "2020-06-03"
     },
     "states": {
         "accruedInterest": {
@@ -18,6 +18,14 @@
             "name": "Accrued Interest 2",
             "acronym": "IPAC2",
             "description": "The current value of accrued interest of the second leg",
+            "type": "Real",
+            "allowedValues": []
+        },
+        "adjustmentFactor": {
+            "identifier": "adjustmentFactor",
+            "name": "Adjustment Factor",
+            "acronym": "ADF",
+            "description": "A correction factor for the Redemption Amount determined by the Calculating Agent.",
             "type": "Real",
             "allowedValues": []
         },
@@ -72,6 +80,14 @@
                 }
             ]
         },
+        "couponAmountFixed": {
+            "identifier": "couponAmountFixed",
+            "name": "Coupon Amount Fixed",
+            "acronym": "CAF",
+            "description": "The Coupon Amount fixed with the last Coupon Fixing Day event and applicable to the next Coupon Payment Day event.",
+            "type": "Real",
+            "allowedValues": []
+        },
         "exerciseAmount": {
             "identifier": "exerciseAmount",
             "name": "Exercise Amount",
@@ -89,6 +105,22 @@
             "allowedValues": [
                 "ISO8601 Datetime"
             ]
+        },
+        "exerciseQuantity": {
+            "identifier": "exerciseQuantity",
+            "name": "Exercise Quantity",
+            "acronym": "XQ",
+            "description": "The number of shares / notes / certificates / etc executed. E.g. the number of certificates redeemed as per a certain redemption day.",
+            "type": "Integer",
+            "allowedValues": []
+        },
+        "exerciseQuantityOrdered": {
+            "identifier": "exerciseQuantityOrdered",
+            "name": "Exercise Quantity Ordered",
+            "acronym": "XO",
+            "description": "The number of shares / notes / certificates / etc ordered for exercise. E.g. the number of certificates ordered for redemption as per a certain redemption day.",
+            "type": "Integer",
+            "allowedValues": []
         },
         "feeAccrued": {
             "identifier": "feeAccrued",
@@ -111,6 +143,24 @@
             "name": "Interest Scaling Multiplier",
             "acronym": "ISC",
             "description": "The multiplier being applied to interest cash flows",
+            "type": "Real",
+            "allowedValues": []
+        },
+        "lastCouponDay": {
+            "identifier": "lastCouponDay",
+            "name": "Last Coupon Day",
+            "acronym": "LCD",
+            "description": "The most recent Coupon Day as per which the last Coupon Amount was fixed.",
+            "type": "Timestamp",
+            "allowedValues": [
+                "ISO8601 Datetime"
+            ]
+        },
+        "marginFactor": {
+            "identifier": "marginFactor",
+            "name": "Margin Factor",
+            "acronym": "MRF",
+            "description": "A correction factor for the Redemption Amount determined by the Calculating Agent.",
             "type": "Real",
             "allowedValues": []
         },
@@ -180,6 +230,14 @@
             "acronym": "NSC",
             "description": "The multiplier being applied to principal cash flows",
             "type": "Real",
+            "allowedValues": []
+        },
+        "quantity": {
+            "identifier": "quantity",
+            "name": "Quantity",
+            "acronym": "QT",
+            "description": "The number of shares / notes / certificates / etc in circulation",
+            "type": "Integer",
             "allowedValues": []
         },
         "statusDate": {

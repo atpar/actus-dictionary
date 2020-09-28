@@ -1,8 +1,8 @@
 {
     "version": {
-        "Version": "1.0",
+        "Version": "1.2",
         "Edition": "0",
-        "Date": "2019-10-23"
+        "Date": "2020-06-03"
     },
     "taxonomy": {
         "annuity": {
@@ -44,6 +44,16 @@
             "description": "Cash or cash equivalent position",
             "coverage": "Cash, deposits at central bank.",
             "status": "Released"
+        },
+        "certificate": {
+            "identifier": "certificate",
+            "name": "Certificate",
+            "acronym": "CERTF",
+            "family": "Combined",
+            "class": "Asymmetric",
+            "description": "This contract represents all kinds of certificates which, in essence, give an investor the possibility to participate in the change of market value of an underlying instrument. The underlying instrument can be any product with a market value or a NAV calculated for it. Generally, a certificate grants the investor the right to redeem his shares / notes at a defined redemption schedule and with a payoff following a predefined redemption formula. Other rights and duties of the investor are also possible.",
+            "coverage": "Tracker Certificates, Performance Certificates, etc.",
+            "status": "Planned"
         },
         "collateral": {
             "identifier": "collateral",
