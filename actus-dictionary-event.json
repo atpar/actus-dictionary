@@ -146,115 +146,179 @@
                 },
                 {
                     "option": "14",
-                    "identifier": "dividendPayment",
-                    "name": "Dividend Payment",
-                    "acronym": "DV",
-                    "description": "Payment of dividends",
+                    "identifier": "dividendDeclarationDate",
+                    "name": "Dividend Declaration Date",
+                    "acronym": "DDD",
+                    "description": "Declaration of a dividend payment",
                     "sequence": "14"
                 },
                 {
                     "option": "15",
-                    "identifier": "purchase",
-                    "name": "Purchase",
-                    "acronym": "PRD",
-                    "description": "Purchase of a contract",
+                    "identifier": "dividendExDate",
+                    "name": "Dividend Ex Date",
+                    "acronym": "DED",
+                    "description": "Date from which new shareholders are not considered for the next dividend distribution",
                     "sequence": "15"
                 },
                 {
                     "option": "16",
-                    "identifier": "marginCall",
-                    "name": "Margin Call",
-                    "acronym": "MR",
-                    "description": "Scheduled margin call",
+                    "identifier": "dividendPaymentDate",
+                    "name": "Dividend Payment Date",
+                    "acronym": "DPD",
+                    "description": "Date at which next dividend is distributed to shareholders",
                     "sequence": "16"
                 },
                 {
                     "option": "17",
-                    "identifier": "termination",
-                    "name": "Termination",
-                    "acronym": "TD",
-                    "description": "Termination of a contract",
+                    "identifier": "purchase",
+                    "name": "Purchase",
+                    "acronym": "PRD",
+                    "description": "Purchase of a contract",
                     "sequence": "17"
                 },
                 {
                     "option": "18",
-                    "identifier": "scalingIndexFixing",
-                    "name": "Scaling Index Fixing",
-                    "acronym": "SC",
-                    "description": "Scheduled fixing of a scaling index",
+                    "identifier": "marginCall",
+                    "name": "Margin Call",
+                    "acronym": "MR",
+                    "description": "Scheduled margin call",
                     "sequence": "18"
                 },
                 {
                     "option": "19",
-                    "identifier": "interestCalculationBaseFixing",
-                    "name": "Interest Calculation Base Fixing",
-                    "acronym": "IPCB",
-                    "description": "Scheduled fixing of the interest calculation base",
+                    "identifier": "termination",
+                    "name": "Termination",
+                    "acronym": "TD",
+                    "description": "Termination of a contract",
                     "sequence": "19"
                 },
                 {
                     "option": "20",
-                    "identifier": "maturity",
-                    "name": "Maturity",
-                    "acronym": "MD",
-                    "description": "Maturity of a contract",
+                    "identifier": "scalingIndexFixing",
+                    "name": "Scaling Index Fixing",
+                    "acronym": "SC",
+                    "description": "Scheduled fixing of a scaling index",
                     "sequence": "20"
                 },
                 {
                     "option": "21",
-                    "identifier": "couponFixingDay",
-                    "name": "Coupon Fixing Day",
-                    "acronym": "CFD",
-                    "description": "Fixing of the coupon amount",
+                    "identifier": "interestCalculationBaseFixing",
+                    "name": "Interest Calculation Base Fixing",
+                    "acronym": "IPCB",
+                    "description": "Scheduled fixing of the interest calculation base",
                     "sequence": "21"
                 },
                 {
                     "option": "22",
-                    "identifier": "couponPaymentDay",
-                    "name": "Coupon Payment Day",
-                    "acronym": "CPD",
-                    "description": "Payment of the coupon amount",
+                    "identifier": "maturity",
+                    "name": "Maturity",
+                    "acronym": "MD",
+                    "description": "Maturity of a contract",
                     "sequence": "22"
                 },
                 {
                     "option": "23",
-                    "identifier": "redemptionFixingDay",
-                    "name": "Redemption Fixing Day",
-                    "acronym": "RFD",
-                    "description": "Fixing of the redemption amount",
+                    "identifier": "couponFixingDay",
+                    "name": "Coupon Fixing Day",
+                    "acronym": "CFD",
+                    "description": "Fixing of the coupon amount",
                     "sequence": "23"
                 },
                 {
                     "option": "24",
-                    "identifier": "redemptionPaymentDay",
-                    "name": "Redemption Payment Day",
-                    "acronym": "RPD",
-                    "description": "Payment of the redemption amount",
+                    "identifier": "couponPaymentDay",
+                    "name": "Coupon Payment Day",
+                    "acronym": "CPD",
+                    "description": "Payment of the coupon amount",
                     "sequence": "24"
                 },
                 {
                     "option": "25",
-                    "identifier": "exerciseOrder",
-                    "name": "Exercise Order",
-                    "acronym": "XO",
-                    "description": "Submission of an exercise order for a contractual feature such as an optionality",
+                    "identifier": "redemptionFixingDay",
+                    "name": "Redemption Fixing Day",
+                    "acronym": "RFD",
+                    "description": "Fixing of the redemption amount",
                     "sequence": "25"
                 },
                 {
                     "option": "26",
-                    "identifier": "exerciseDay",
-                    "name": "Exercise Day",
-                    "acronym": "XD",
-                    "description": "Exercise of a contractual feature such as an optionality",
+                    "identifier": "redemptionPaymentDay",
+                    "name": "Redemption Payment Day",
+                    "acronym": "RPD",
+                    "description": "Payment of the redemption amount",
                     "sequence": "26"
                 },
                 {
                     "option": "27",
+                    "identifier": "exerciseOrder",
+                    "name": "Exercise Order",
+                    "acronym": "XO",
+                    "description": "Submission of an exercise order for a contractual feature such as an optionality",
+                    "sequence": "27"
+                },
+                {
+                    "option": "28",
+                    "identifier": "exerciseDay",
+                    "name": "Exercise Day",
+                    "acronym": "XD",
+                    "description": "Exercise of a contractual feature such as an optionality",
+                    "sequence": "28"
+                },
+                {
+                    "option": "29",
                     "identifier": "settlement",
                     "name": "Settlement",
                     "acronym": "STD",
                     "description": "Settlement of an exercised contractual claim",
-                    "sequence": "27"
+                    "sequence": "29"
+                },
+                {
+                    "option": "30",
+                    "identifier": "splitDeclarationDate",
+                    "name": "Split Declaration Date",
+                    "acronym": "SDD",
+                    "description": "Declaration of a stock split or reverse split",
+                    "sequence": "30"
+                },
+                {
+                    "option": "31",
+                    "identifier": "splitExDate",
+                    "name": "Split Ex Date",
+                    "acronym": "SED",
+                    "description": "Date at which stock split is initiated",
+                    "sequence": "31"
+                },
+                {
+                    "option": "32",
+                    "identifier": "splitSettlementDate",
+                    "name": "Split Settlement Date",
+                    "acronym": "SSD",
+                    "description": "Date at which stock split is settled or settlement is finalized",
+                    "sequence": "32"
+                },
+                {
+                    "option": "33",
+                    "identifier": "redemptionDeclarationDate",
+                    "name": "Redemption Declaration Date",
+                    "acronym": "RDD",
+                    "description": "Declaration of the redemption of units of an instrument by the initiating party",
+                    "sequence": "33"
+                },
+                {
+                    "option": "34",
+                    "identifier": "redemptionExDate",
+                    "name": "Redemption Ex Date",
+                    "acronym": "RED",
+                    "description": "Date from which new holders are not considered for next redemption",
+                    "sequence": "34"
+                },
+                {
+                    "option": "35",
+                    "identifier": "redemptionPaymentDate",
+                    "name": "Redemption Payment Date",
+                    "acronym": "RPD",
+                    "description": "Date at which redemption is settled by paying the Redemption Price against returning respective units of instrument",
+                    "sequence": "35"
                 }
             ]
         },

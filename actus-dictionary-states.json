@@ -88,6 +88,34 @@
             "type": "Real",
             "allowedValues": []
         },
+        "dividendDeclarationDate": {
+            "identifier": "dividendDeclarationDate",
+            "name": "Dividend Declaration Date",
+            "acronym": "DDD",
+            "description": "The timestamp of the next DDD event (if scheduled).",
+            "type": "Timestamp",
+            "allowedValues": [
+                "ISO8601 Datetime"
+            ]
+        },
+        "dividendPaymentAmount": {
+            "identifier": "dividendPaymentAmount",
+            "name": "Dividend Payment Amount",
+            "acronym": "DPA",
+            "description": "The amount of the next dividend payment (if fixed).",
+            "type": "Real",
+            "allowedValues": []
+        },
+        "dividendPaymentDate": {
+            "identifier": "dividendPaymentDate",
+            "name": "Dividend Payment Date",
+            "acronym": "DPD",
+            "description": "The timestamp of the next DPD event (if scheduled).",
+            "type": "Timestamp",
+            "allowedValues": [
+                "ISO8601 Datetime"
+            ]
+        },
         "exerciseAmount": {
             "identifier": "exerciseAmount",
             "name": "Exercise Amount",
@@ -151,6 +179,16 @@
             "name": "Last Coupon Day",
             "acronym": "LCD",
             "description": "The most recent Coupon Day as per which the last Coupon Amount was fixed.",
+            "type": "Timestamp",
+            "allowedValues": [
+                "ISO8601 Datetime"
+            ]
+        },
+        "lastDividendDeclarationDate": {
+            "identifier": "lastDividendDeclarationDate",
+            "name": "Last Dividend Declaration Date",
+            "acronym": "DLDD",
+            "description": "The timestamp of the last DDD event.",
             "type": "Timestamp",
             "allowedValues": [
                 "ISO8601 Datetime"
@@ -239,6 +277,56 @@
             "description": "The number of shares / notes / certificates / etc in circulation",
             "type": "Integer",
             "allowedValues": []
+        },
+        "redemptionExDate": {
+            "identifier": "redemptionExDate",
+            "name": "Redemption Ex Date",
+            "acronym": "RED",
+            "description": "The timestamp of the next RED event (if scheduled).",
+            "type": "Timestamp",
+            "allowedValues": [
+                "ISO8601 Datetime"
+            ]
+        },
+        "redemptionPaymentDate": {
+            "identifier": "redemptionPaymentDate",
+            "name": "Redemption Payment Date",
+            "acronym": "RPD",
+            "description": "The timestamp of the next RPD event (if scheduled).",
+            "type": "Timestamp",
+            "allowedValues": [
+                "ISO8601 Datetime"
+            ]
+        },
+        "splitExDate": {
+            "identifier": "splitExDate",
+            "name": "Split Ex Date",
+            "acronym": "SED",
+            "description": "The timestamp of the next SED event (if scheduled).",
+            "type": "Timestamp",
+            "allowedValues": [
+                "ISO8601 Datetime"
+            ]
+        },
+        "splitRatio": {
+            "identifier": "splitRatio",
+            "name": "Split Ratio",
+            "acronym": "SRA",
+            "description": "The ratio of the next stock split (if scheduled).",
+            "type": "Real",
+            "allowedValues": [
+                "Positive"
+            ]
+        },
+        "splitSettlementDate": {
+            "identifier": "splitSettlementDate",
+            "name": "Split Settlement Date",
+            "acronym": "SSD",
+            "description": "The timestmap of the next SSD event (if scheduled).",
+            "type": "Timestamp",
+            "allowedValues": [
+                "ISO8601 Datetime"
+            ]
         },
         "statusDate": {
             "identifier": "statusDate",

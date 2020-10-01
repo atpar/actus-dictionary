@@ -1249,6 +1249,66 @@
             "default": "1.0",
             "description": "The ratio defining how a single certificate is denominated in terms of the certificate’s underlying instrument. Is often times also simply referred to as the “Ratio”."
         },
+        "dividendExDate": {
+            "identifier": "dividendExDate",
+            "group": "Dividend",
+            "name": "Dividend Ex Date",
+            "acronym": "DED",
+            "type": "Timestamp",
+            "allowedValues": [
+                "ISO8601 Datetime"
+            ],
+            "default": "",
+            "description": "In case contract is traded between DVEX and next DV payment date (i.e. PRD>DVEX & PRD<next DV payment date), then the old holder of the contract (previous to the trade) receives the next DV payment. In other words, the next DV payment is cancelled for the new (after the trade) holder of the contract."
+        },
+        "dividendPaymentAmount": {
+            "identifier": "dividendPaymentAmount",
+            "group": "Dividend",
+            "name": "Dividend Payment Amount",
+            "acronym": "DPA",
+            "type": "Real",
+            "allowedValues": [
+                "Positive"
+            ],
+            "default": "0",
+            "description": "Defines the next dividend payment (amount) whereas the date of dividend payment is defined through the DVANX/DVCL pair. If DVCL is defined, then this amount will be used as dividend payment for each future dividend payment date."
+        },
+        "dividendPaymentDate": {
+            "identifier": "dividendPaymentDate",
+            "group": "Dividend",
+            "name": "Dividend Payment Date",
+            "acronym": "DPD",
+            "type": "Timestamp",
+            "allowedValues": [
+                "ISO8601 Datetime"
+            ],
+            "default": "",
+            "description": "The timestamp of the next Dividend Payment Date if one has been announced."
+        },
+        "dividendPaymentPeriod": {
+            "identifier": "dividendPaymentPeriod",
+            "group": "Dividend",
+            "name": "Dividend Payment Period",
+            "acronym": "DPP",
+            "type": "Period",
+            "allowedValues": [
+                "ISO8601 Duration"
+            ],
+            "default": "P0D",
+            "description": "The period according to which the Dividend Payment Date is scheduled. More specifically, the Dividend Payment Date is scheduled at Dividend Declaration Date, the time at which a dividend event is announced, plus DPP."
+        },
+        "dividendRecordPeriod": {
+            "identifier": "dividendRecordPeriod",
+            "group": "Dividend",
+            "name": "Dividend Record Period",
+            "acronym": "DRP",
+            "type": "Period",
+            "allowedValues": [
+                "ISO8601 Duration"
+            ],
+            "default": "P0D",
+            "description": "The period according to which the Dividend Ex Date is scheduled. More specifically, the Dividend Ex Date is scheduled at Dividend Declaration Date, the time at which a dividend event is announced, plus DRP."
+        },
         "endOfMonthConvention": {
             "identifier": "endOfMonthConvention",
             "group": "Calendar",
@@ -1273,18 +1333,6 @@
             ],
             "default": "sd",
             "description": "When computing schedules a special problem arises if an anchor date is at the end of a month and a cycle of monthly or quarterly is applied (yearly in the case of leap years only). How do we have to interpret an anchor date April 30 plus 1M cycles? In case where EOM is selected, it will jump to the 31st of May, then June 30, July 31 and so on. If SM is selected, it will jump to the 30st always with of course an exception in February. \nThis logic applies for all months having 30 or less days and an anchor date at the last day. Month with 31 days will at any rate jump to the last of the month if anchor date is on the last day."
-        },
-        "exDividendDate": {
-            "identifier": "exDividendDate",
-            "group": "Dividend",
-            "name": "Ex Dividend Date",
-            "acronym": "DVEX",
-            "type": "Timestamp",
-            "allowedValues": [
-                "ISO8601 Datetime"
-            ],
-            "default": "",
-            "description": "In case contract is traded between DVEX and next DV payment date (i.e. PRD>DVEX & PRD<next DV payment date), then the old holder of the contract (previous to the trade) receives the next DV payment. In other words, the next DV payment is cancelled for the new (after the trade) holder of the contract."
         },
         "exerciseAmount": {
             "identifier": "exerciseAmount",
@@ -1670,18 +1718,6 @@
             "default": "[ the value of notionalPrincipal ]",
             "description": "Defines the notional amount which can be withdrawn before XDN without penalty"
         },
-        "nextDividendPaymentAmount": {
-            "identifier": "nextDividendPaymentAmount",
-            "group": "Dividend",
-            "name": "Next Dividend Payment Amount",
-            "acronym": "DVNP",
-            "type": "Real",
-            "allowedValues": [
-                "Positive"
-            ],
-            "default": "0",
-            "description": "Defines the next dividend payment (amount) whereas the date of dividend payment is defined through the DVANX/DVCL pair. If DVCL is defined, then this amount will be used as dividend payment for each future dividend payment date."
-        },
         "nextPrincipalRedemptionPayment": {
             "identifier": "nextPrincipalRedemptionPayment",
             "group": "Notional Principal",
@@ -2063,6 +2099,89 @@
             "default": "0",
             "description": "Interest rate spread. A typical rate resetting rule is LIBOR plus x basis point where x represents the interest rate spread.  \nThe following equation can be taken if RRMLT is not set: IPNR after rate reset = Rate selected from the market object  + RRSP."
         },
+        "redeemableByIssuer": {
+            "identifier": "redeemableByIssuer",
+            "group": "Redemption",
+            "name": "Redeemable By Issuer",
+            "acronym": "RBI",
+            "type": "Enum",
+            "allowedValues": [
+                {
+                    "option": "0",
+                    "identifier": "yes",
+                    "name": "Yes",
+                    "acronym": "Y",
+                    "description": "The instrument is redeemable by the issuer."
+                },
+                {
+                    "option": "1",
+                    "identifier": "no",
+                    "name": "no",
+                    "acronym": "N",
+                    "description": "The instrument is not redeemable by the issuer."
+                }
+            ],
+            "default": "N",
+            "description": "Marks whether the contract is redeemable by the issuer. If RBI=’Y’, then the issuer has the right to redeem, if RBI=’N’, then the issuer has no right to redeem."
+        },
+        "redemptionExDate": {
+            "identifier": "redemptionExDate",
+            "group": "Redemption",
+            "name": "Redemption Ex Date",
+            "acronym": "RED",
+            "type": "Timestamp",
+            "allowedValues": [
+                "ISO8601 Datetime"
+            ],
+            "default": "",
+            "description": "The timestamp of the next Redemption Ex Date event if one has been announced."
+        },
+        "redemptionPaymentDate": {
+            "identifier": "redemptionPaymentDate",
+            "group": "Redemption",
+            "name": "Redemption Payment Date",
+            "acronym": "RPD",
+            "type": "Timestamp",
+            "allowedValues": [
+                "ISO8601 Datetime"
+            ],
+            "default": "",
+            "description": "The timestamp of the next Redemption Payment Date event if one has been announced."
+        },
+        "redemptionPaymentPeriod": {
+            "identifier": "redemptionPaymentPeriod",
+            "group": "Redemption",
+            "name": "Redemption Payment Period",
+            "acronym": "RPP",
+            "type": "Period",
+            "allowedValues": [
+                "ISO8601 Duration"
+            ],
+            "default": "P0D",
+            "description": "The period according to which the Redemption Payment Date is scheduled. More specifically, the Redemption Payment Date is scheduled at Redemption Declaration Date, which is the time when a redemption event is announced, plus RPP."
+        },
+        "redemptionPrice": {
+            "identifier": "redemptionPrice",
+            "group": "Redemption",
+            "name": "Redemption Price",
+            "acronym": "RPR",
+            "type": "Real",
+            "allowedValues": [],
+            "default": "",
+            "description": "The redemption price applicable to the next Redemption Payment Date event if one has been announced."
+        },
+        "redemptionRecordPeriod": {
+            "identifier": "redemptionRecordPeriod",
+            "group": "Redemption",
+            "name": "Redemption Record Period",
+            "acronym": "RRP",
+            "type": "Period",
+            "allowedValues": [
+                "ISO8601 Duration"
+            ],
+            "default": "P0D",
+            "description": "The period according to which the Redemption Ex Date is scheduled. More specifically, the Redemption Ex Date is scheduled at the Redemption Declaration Date, which is the time when redemption is announced, plus RRP."
+        },
         "scalingEffect": {
             "identifier": "scalingEffect",
             "group": "Notional Principal",
@@ -2161,6 +2280,39 @@
             ],
             "default": "P0D",
             "description": "Defines the period from fixing of a contingent event/obligation (Exercise Date) to settlement of the obligation.\n"
+        },
+        "splitExDate": {
+            "identifier": "splitExDate",
+            "group": "Notional Principal",
+            "name": "Split Ex Date",
+            "acronym": "SED",
+            "type": "Timestamp",
+            "allowedValues": [
+                "ISO8601 Datetime"
+            ],
+            "default": ""
+        },
+        "splitRatio": {
+            "identifier": "splitRatio",
+            "group": "Notional Principal",
+            "name": "Split Ratio",
+            "acronym": "SRA",
+            "type": "Real",
+            "allowedValues": [
+                "Positive"
+            ],
+            "default": ""
+        },
+        "splitRecordPeriod": {
+            "identifier": "splitRecordPeriod",
+            "group": "Notional Principal",
+            "name": "Split Record Period",
+            "acronym": "SRP",
+            "type": "Period",
+            "allowedValues": [
+                "ISO8601 Duration"
+            ],
+            "default": "P0D"
         },
         "statusDate": {
             "identifier": "statusDate",
