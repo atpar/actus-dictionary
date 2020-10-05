@@ -52,7 +52,7 @@
                     "option: 2",
                     "identifier: issue",
                     "name: Issue",
-                    "acronym: IS",
+                    "acronym: ISS",
                     "description: Marks the date or timestamp respectively of issuance of a contract",
                     "sequence: 2"
                 ],
@@ -148,7 +148,7 @@
                     "option: 14",
                     "identifier: dividendFixing",
                     "name: Dividend Fixing",
-                    "acronym: DF",
+                    "acronym: DIF",
                     "description: Declaration of a dividend payment",
                     "sequence: 14"
                 ],
@@ -156,7 +156,7 @@
                     "option: 15",
                     "identifier: dividendEx",
                     "name: Dividend Ex",
-                    "acronym: DE",
+                    "acronym: DIX",
                     "description: Date from which new shareholders are not considered for the next dividend distribution",
                     "sequence: 15"
                 ],
@@ -164,7 +164,7 @@
                     "option: 16",
                     "identifier: dividendPayment",
                     "name: Dividend Payment",
-                    "acronym: DP",
+                    "acronym: DIP",
                     "description: Date at which next dividend is distributed to shareholders",
                     "sequence: 16"
                 ],
@@ -172,7 +172,7 @@
                     "option: 17",
                     "identifier: couponFixing",
                     "name: Coupon Fixing",
-                    "acronym: CF",
+                    "acronym: COF",
                     "description: Fixing of the coupon amount",
                     "sequence: 17"
                 ],
@@ -180,7 +180,7 @@
                     "option: 18",
                     "identifier: couponPayment",
                     "name: Coupon Payment",
-                    "acronym: CP",
+                    "acronym: COP",
                     "description: Payment of the coupon amount",
                     "sequence: 18"
                 ],
@@ -188,7 +188,7 @@
                     "option: 19",
                     "identifier: redemptionFixing",
                     "name: Redemption Fixing",
-                    "acronym: RF",
+                    "acronym: REF",
                     "description: Fixing of the redemption amount",
                     "sequence: 19"
                 ],
@@ -196,7 +196,7 @@
                     "option: 20",
                     "identifier: redemptionEx",
                     "name: Redemption Ex",
-                    "acronym: RE",
+                    "acronym: REX",
                     "description: Date from which new holders are not considered for next redemption",
                     "sequence: 20"
                 ],
@@ -204,15 +204,15 @@
                     "option: 21",
                     "identifier: redemptionPayment",
                     "name: Redemption Payment",
-                    "acronym: RP",
+                    "acronym: REP",
                     "description: Payment of the redemption amount",
                     "sequence: 21"
                 ],
                 [
                     "option: 22",
-                    "identifier: splitDeclaration",
-                    "name: Split Declaration",
-                    "acronym: SD",
+                    "identifier: splitFixing",
+                    "name: Split Fixing",
+                    "acronym: SPF",
                     "description: Declaration of a stock split or reverse split",
                     "sequence: 22"
                 ],
@@ -220,7 +220,7 @@
                     "option: 23",
                     "identifier: splitSettlement",
                     "name: Split Settlement",
-                    "acronym: SE",
+                    "acronym: SPS",
                     "description: Date at which stock split is settled or settlement is finalized",
                     "sequence: 23"
                 ],
@@ -228,7 +228,7 @@
                     "option: 24",
                     "identifier: exerciseOrder",
                     "name: Exercise Order",
-                    "acronym: XO",
+                    "acronym: EXO",
                     "description: Submission of an exercise order for a contractual feature such as an optionality",
                     "sequence: 24"
                 ],
@@ -236,7 +236,7 @@
                     "option: 25",
                     "identifier: exercise",
                     "name: Exercise",
-                    "acronym: XE",
+                    "acronym: EXE",
                     "description: Exercise of a contractual feature such as an optionality",
                     "sequence: 25"
                 ],

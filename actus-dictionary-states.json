@@ -91,7 +91,7 @@
         "dividendFixingDate": {
             "identifier": "dividendFixingDate",
             "name": "Dividend Fixing Date",
-            "acronym": "DFD",
+            "acronym": "DIFD",
             "description": "The timestamp of the next DF event (if scheduled).",
             "type": "Timestamp",
             "allowedValues": [
@@ -101,7 +101,7 @@
         "dividendPaymentAmount": {
             "identifier": "dividendPaymentAmount",
             "name": "Dividend Payment Amount",
-            "acronym": "DPA",
+            "acronym": "DIPA",
             "description": "The amount of the next dividend payment (if fixed).",
             "type": "Real",
             "allowedValues": []
@@ -109,7 +109,7 @@
         "dividendPaymentDate": {
             "identifier": "dividendPaymentDate",
             "name": "Dividend Payment Date",
-            "acronym": "DPD",
+            "acronym": "DIPD",
             "description": "The timestamp of the next DP event (if scheduled).",
             "type": "Timestamp",
             "allowedValues": [
@@ -119,7 +119,7 @@
         "exerciseAmount": {
             "identifier": "exerciseAmount",
             "name": "Exercise Amount",
-            "acronym": "XA",
+            "acronym": "EXA",
             "description": "The amount fixed for a the contingent event/obligation exercised at Exercise Date",
             "type": "Real",
             "allowedValues": []
@@ -127,7 +127,7 @@
         "exerciseDate": {
             "identifier": "exerciseDate",
             "name": "Exercise Date",
-            "acronym": "XD",
+            "acronym": "EXD",
             "description": "The timestamp at which a contingent event/obligation is exercised",
             "type": "Timestamp",
             "allowedValues": [
@@ -137,7 +137,7 @@
         "exerciseQuantity": {
             "identifier": "exerciseQuantity",
             "name": "Exercise Quantity",
-            "acronym": "XQ",
+            "acronym": "EXQ",
             "description": "The number of shares / notes / certificates / etc executed. E.g. the number of certificates redeemed as per a certain redemption day.",
             "type": "Integer",
             "allowedValues": []
@@ -145,7 +145,7 @@
         "exerciseQuantityOrdered": {
             "identifier": "exerciseQuantityOrdered",
             "name": "Exercise Quantity Ordered",
-            "acronym": "XO",
+            "acronym": "EXO",
             "description": "The number of shares / notes / certificates / etc ordered for exercise. E.g. the number of certificates ordered for redemption as per a certain redemption day.",
             "type": "Integer",
             "allowedValues": []
@@ -187,7 +187,7 @@
         "lastDividendFixingDate": {
             "identifier": "lastDividendFixingDate",
             "name": "Last Dividend Fixing Date",
-            "acronym": "LDFD",
+            "acronym": "LDIFD",
             "description": "The timestamp of the last DF event.",
             "type": "Timestamp",
             "allowedValues": [
@@ -281,7 +281,7 @@
         "redemptionExDate": {
             "identifier": "redemptionExDate",
             "name": "Redemption Ex Date",
-            "acronym": "RED",
+            "acronym": "REXD",
             "description": "The timestamp of the next RE event (if scheduled).",
             "type": "Timestamp",
             "allowedValues": [
@@ -291,7 +291,7 @@
         "redemptionPaymentDate": {
             "identifier": "redemptionPaymentDate",
             "name": "Redemption Payment Date",
-            "acronym": "RPD",
+            "acronym": "REPD",
             "description": "The timestamp of the next RP event (if scheduled).",
             "type": "Timestamp",
             "allowedValues": [
@@ -301,7 +301,7 @@
         "splitRatio": {
             "identifier": "splitRatio",
             "name": "Split Ratio",
-            "acronym": "SRA",
+            "acronym": "SPR",
             "description": "The ratio of the next stock split (if scheduled).",
             "type": "Real",
             "allowedValues": [
@@ -311,7 +311,7 @@
         "splitSettlementDate": {
             "identifier": "splitSettlementDate",
             "name": "Split Settlement Date",
-            "acronym": "SSD",
+            "acronym": "SPSD",
             "description": "The timestmap of the next SSD event (if scheduled).",
             "type": "Timestamp",
             "allowedValues": [

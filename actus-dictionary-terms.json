@@ -650,7 +650,7 @@
             "identifier": "couponAmountFixed",
             "group": "Coupon",
             "name": "Coupon Amount Fixed",
-            "acronym": "CPFX",
+            "acronym": "COAF",
             "type": "Real",
             "allowedValues": [],
             "default": "0",
@@ -660,7 +660,7 @@
             "identifier": "couponRate",
             "group": "Coupon",
             "name": "Coupon Rate",
-            "acronym": "CPRT",
+            "acronym": "CORT",
             "type": "Real",
             "allowedValues": [],
             "default": "0",
@@ -670,7 +670,7 @@
             "identifier": "couponType",
             "group": "Coupon",
             "name": "Coupon Type",
-            "acronym": "CPTP",
+            "acronym": "COTP",
             "type": "Enum",
             "allowedValues": [
                 {
@@ -803,7 +803,7 @@
             "identifier": "cycleAnchorDateOfCoupon",
             "group": "Coupon",
             "name": "Cycle Anchor Date Of Coupon",
-            "acronym": "CPANX",
+            "acronym": "COANX",
             "type": "Timestamp",
             "allowedValues": [
                 "ISO8601 Datetime"
@@ -815,7 +815,7 @@
             "identifier": "cycleAnchorDateOfDividend",
             "group": "Dividend",
             "name": "Cycle Anchor Date Of Dividend",
-            "acronym": "DANX",
+            "acronym": "DIANX",
             "type": "Timestamp",
             "allowedValues": [
                 "ISO8601 Datetime"
@@ -911,7 +911,7 @@
             "identifier": "cycleAnchorDateOfRedemption",
             "group": "Redemption",
             "name": "Cycle Anchor Date Of Redemption Day",
-            "acronym": "RDANX",
+            "acronym": "REANX",
             "type": "Timestamp",
             "allowedValues": [
                 "ISO8601 Datetime"
@@ -947,7 +947,7 @@
             "identifier": "cycleOfCoupon",
             "group": "Coupon",
             "name": "Cycle Of Coupon",
-            "acronym": "CPCL",
+            "acronym": "COCL",
             "type": "Cycle",
             "allowedValues": [
                 "[ISO8601 Duration]L[s={0,1}]"
@@ -959,7 +959,7 @@
             "identifier": "cycleOfDividend",
             "group": "Dividend",
             "name": "Cycle Of Dividend",
-            "acronym": "DCL",
+            "acronym": "DICL",
             "type": "Cycle",
             "allowedValues": [
                 "[ISO8601 Duration]L[s={0,1}]"
@@ -1055,7 +1055,7 @@
             "identifier": "cycleOfRedemption",
             "group": "Redemption",
             "name": "Cycle Of Redemption Day",
-            "acronym": "RDCL",
+            "acronym": "RECL",
             "type": "Cycle",
             "allowedValues": [
                 "[ISO8601 Duration]L[s={0,1}]"
@@ -1253,7 +1253,7 @@
             "identifier": "dividendExDate",
             "group": "Dividend",
             "name": "Dividend Ex Date",
-            "acronym": "DED",
+            "acronym": "DIEX",
             "type": "Timestamp",
             "allowedValues": [
                 "ISO8601 Datetime"
@@ -1265,7 +1265,7 @@
             "identifier": "dividendPaymentAmount",
             "group": "Dividend",
             "name": "Dividend Payment Amount",
-            "acronym": "DPA",
+            "acronym": "DIPA",
             "type": "Real",
             "allowedValues": [
                 "Positive"
@@ -1277,7 +1277,7 @@
             "identifier": "dividendPaymentDate",
             "group": "Dividend",
             "name": "Dividend Payment Date",
-            "acronym": "DPD",
+            "acronym": "DIPD",
             "type": "Timestamp",
             "allowedValues": [
                 "ISO8601 Datetime"
@@ -1289,7 +1289,7 @@
             "identifier": "dividendPaymentPeriod",
             "group": "Dividend",
             "name": "Dividend Payment Period",
-            "acronym": "DPP",
+            "acronym": "DIPP",
             "type": "Period",
             "allowedValues": [
                 "ISO8601 Duration"
@@ -1301,7 +1301,7 @@
             "identifier": "dividendRecordPeriod",
             "group": "Dividend",
             "name": "Dividend Record Period",
-            "acronym": "DRP",
+            "acronym": "DIRP",
             "type": "Period",
             "allowedValues": [
                 "ISO8601 Duration"
@@ -1338,7 +1338,7 @@
             "identifier": "exerciseAmount",
             "group": "Settlement",
             "name": "Exercise Amount",
-            "acronym": "XA",
+            "acronym": "EXA",
             "type": "Real",
             "allowedValues": [],
             "default": "",
@@ -1348,7 +1348,7 @@
             "identifier": "exerciseDate",
             "group": "Settlement",
             "name": "Exercise Date",
-            "acronym": "XD",
+            "acronym": "EXD",
             "type": "Timestamp",
             "allowedValues": [
                 "ISO8601 Datetime"
@@ -1360,7 +1360,7 @@
             "identifier": "exercisePeriod",
             "group": "Redemption",
             "name": "Exercise Period",
-            "acronym": "XP",
+            "acronym": "EXP",
             "type": "Period",
             "allowedValues": [
                 "ISO8601 Duration"
@@ -1372,7 +1372,7 @@
             "identifier": "exerciseQuantity",
             "group": "Redemption",
             "name": "Exercise Quantity",
-            "acronym": "XQ",
+            "acronym": "EXQ",
             "type": "Integer",
             "allowedValues": [],
             "default": "0",
@@ -1382,7 +1382,7 @@
             "identifier": "exerciseQuantityOrdered",
             "group": "Redemption",
             "name": "Exercise Quantity Ordered",
-            "acronym": "XO",
+            "acronym": "EXO",
             "type": "Integer",
             "allowedValues": [],
             "default": "0",
@@ -1571,7 +1571,7 @@
             "identifier": "issueDate",
             "group": "Notional Principal",
             "name": "Issue Date",
-            "acronym": "ID",
+            "acronym": "ISD",
             "type": "Timestamp",
             "allowedValues": [
                 "ISO8601 Datetime"
@@ -1583,7 +1583,7 @@
             "identifier": "issuePrice",
             "group": "Notional Principal",
             "name": "Issue Price",
-            "acronym": "IPR",
+            "acronym": "ISPR",
             "type": "Real",
             "allowedValues": [],
             "default": "",
@@ -1593,7 +1593,7 @@
             "identifier": "lastCouponFixingDate",
             "group": "Coupon",
             "name": "Last Coupon Fixing Date",
-            "acronym": "LCD",
+            "acronym": "LCOD",
             "type": "Timestamp",
             "allowedValues": [
                 "ISO8601 Datetime"
@@ -1605,7 +1605,7 @@
             "identifier": "lastDividendFixingDate",
             "group": "Dividend",
             "name": "Last Dividend Fixing Date",
-            "acronym": "LDFD",
+            "acronym": "LDIFD",
             "type": "Timestamp",
             "allowedValues": [
                 "ISO8601 Datetime"
@@ -1777,7 +1777,7 @@
             "identifier": "nominalPrice",
             "group": "Notional Principal",
             "name": "Nominal Price",
-            "acronym": "NPR",
+            "acronym": "NOPR",
             "type": "Real",
             "allowedValues": [],
             "default": "",
@@ -2116,7 +2116,7 @@
             "identifier": "redeemableByIssuer",
             "group": "Redemption",
             "name": "Redeemable By Issuer",
-            "acronym": "RBI",
+            "acronym": "REBI",
             "type": "Enum",
             "allowedValues": [
                 {
@@ -2141,7 +2141,7 @@
             "identifier": "redemptionExDate",
             "group": "Redemption",
             "name": "Redemption Ex Date",
-            "acronym": "RED",
+            "acronym": "REXD",
             "type": "Timestamp",
             "allowedValues": [
                 "ISO8601 Datetime"
@@ -2153,7 +2153,7 @@
             "identifier": "redemptionPaymentDate",
             "group": "Redemption",
             "name": "Redemption Payment Date",
-            "acronym": "RPD",
+            "acronym": "REPD",
             "type": "Timestamp",
             "allowedValues": [
                 "ISO8601 Datetime"
@@ -2165,7 +2165,7 @@
             "identifier": "redemptionPaymentPeriod",
             "group": "Redemption",
             "name": "Redemption Payment Period",
-            "acronym": "RPP",
+            "acronym": "REPP",
             "type": "Period",
             "allowedValues": [
                 "ISO8601 Duration"
@@ -2177,7 +2177,7 @@
             "identifier": "redemptionPrice",
             "group": "Redemption",
             "name": "Redemption Price",
-            "acronym": "RPR",
+            "acronym": "REPR",
             "type": "Real",
             "allowedValues": [],
             "default": "",
@@ -2187,7 +2187,7 @@
             "identifier": "redemptionRecordPeriod",
             "group": "Redemption",
             "name": "Redemption Record Period",
-            "acronym": "RRP",
+            "acronym": "RERP",
             "type": "Period",
             "allowedValues": [
                 "ISO8601 Duration"
@@ -2299,7 +2299,7 @@
             "identifier": "splitRatio",
             "group": "Notional Principal",
             "name": "Split Ratio",
-            "acronym": "SRA",
+            "acronym": "SPR",
             "type": "Real",
             "allowedValues": [
                 "Positive"
@@ -2311,7 +2311,7 @@
             "identifier": "splitSettlementPeriod",
             "group": "Notional Principal",
             "name": "Split Settlement Period",
-            "acronym": "SEP",
+            "acronym": "SPSP",
             "type": "Period",
             "allowedValues": [
                 "ISO8601 Duration"
