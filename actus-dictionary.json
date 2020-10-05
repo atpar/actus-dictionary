@@ -3678,7 +3678,7 @@
         "couponAmountFixed": {
             "identifier": "couponAmountFixed",
             "name": "Coupon Amount Fixed",
-            "acronym": "CAF",
+            "acronym": "COAF",
             "description": "The Coupon Amount fixed with the last Coupon Fixing Day event and applicable to the next Coupon Payment Day event.",
             "type": "Real",
             "allowedValues": []
@@ -3772,7 +3772,7 @@
         "lastCouponFixingDate": {
             "identifier": "lastCouponFixingDate",
             "name": "Last Coupon Fixing Date",
-            "acronym": "LCFD",
+            "acronym": "LCOFD",
             "description": "The timestamp of the last CF event.",
             "type": "Timestamp",
             "allowedValues": [
