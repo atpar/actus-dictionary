@@ -815,7 +815,7 @@
             "identifier": "cycleAnchorDateOfDividend",
             "group": "Dividend",
             "name": "Cycle Anchor Date Of Dividend",
-            "acronym": "DVANX",
+            "acronym": "DANX",
             "type": "Timestamp",
             "allowedValues": [
                 "ISO8601 Datetime"
@@ -959,7 +959,7 @@
             "identifier": "cycleOfDividend",
             "group": "Dividend",
             "name": "Cycle Of Dividend",
-            "acronym": "DVCL",
+            "acronym": "DCL",
             "type": "Cycle",
             "allowedValues": [
                 "[ISO8601 Duration]L[s={0,1}]"
@@ -1589,10 +1589,10 @@
             "default": "",
             "description": "The issue price for a single certificate as per Issue Day."
         },
-        "lastCouponDay": {
-            "identifier": "lastCouponDay",
+        "lastCouponFixingDate": {
+            "identifier": "lastCouponFixingDate",
             "group": "Coupon",
-            "name": "Last Coupon Day",
+            "name": "Last Coupon Fixing Date",
             "acronym": "LCD",
             "type": "Timestamp",
             "allowedValues": [
@@ -1600,6 +1600,18 @@
             ],
             "default": "",
             "description": "The most recent Coupon Day as per which the last Coupon Amount was fixed."
+        },
+        "lastDividendFixingDate": {
+            "identifier": "lastDividendFixingDate",
+            "group": "Dividend",
+            "name": "Last Dividend Fixing Date",
+            "acronym": "LDFD",
+            "type": "Timestamp",
+            "allowedValues": [
+                "ISO8601 Datetime"
+            ],
+            "default": "",
+            "description": "The timestamp of the last DF event."
         },
         "lifeCap": {
             "identifier": "lifeCap",
@@ -1672,7 +1684,8 @@
             "acronym": "SCMO",
             "type": "Varchar",
             "allowedValues": [],
-            "default": ""
+            "default": "",
+            "description": "The identifier of the market object used to update the scaling index variable."
         },
         "marketObjectCodeRateReset": {
             "identifier": "marketObjectCodeRateReset",
@@ -2230,7 +2243,8 @@
             "allowedValues": [
                 "Positive"
             ],
-            "default": ""
+            "default": "",
+            "description": "The current value of the scaling index as per last scaling index fixing event (SC)."
         },
         "seniority": {
             "identifier": "seniority",
@@ -2281,17 +2295,6 @@
             "default": "P0D",
             "description": "Defines the period from fixing of a contingent event/obligation (Exercise Date) to settlement of the obligation.\n"
         },
-        "splitExDate": {
-            "identifier": "splitExDate",
-            "group": "Notional Principal",
-            "name": "Split Ex Date",
-            "acronym": "SED",
-            "type": "Timestamp",
-            "allowedValues": [
-                "ISO8601 Datetime"
-            ],
-            "default": ""
-        },
         "splitRatio": {
             "identifier": "splitRatio",
             "group": "Notional Principal",
@@ -2301,18 +2304,20 @@
             "allowedValues": [
                 "Positive"
             ],
-            "default": ""
+            "default": "",
+            "description": "The ratio according to which a stock split is executed."
         },
-        "splitRecordPeriod": {
-            "identifier": "splitRecordPeriod",
+        "splitSettlementPeriod": {
+            "identifier": "splitSettlementPeriod",
             "group": "Notional Principal",
-            "name": "Split Record Period",
-            "acronym": "SRP",
+            "name": "Split Settlement Period",
+            "acronym": "SEP",
             "type": "Period",
             "allowedValues": [
                 "ISO8601 Duration"
             ],
-            "default": "P0D"
+            "default": "P0D",
+            "description": "The period according to which stock splits are scheduled."
         },
         "statusDate": {
             "identifier": "statusDate",

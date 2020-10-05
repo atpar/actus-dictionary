@@ -88,11 +88,11 @@
             "type": "Real",
             "allowedValues": []
         },
-        "dividendDeclarationDate": {
-            "identifier": "dividendDeclarationDate",
-            "name": "Dividend Declaration Date",
-            "acronym": "DDD",
-            "description": "The timestamp of the next DDD event (if scheduled).",
+        "dividendFixingDate": {
+            "identifier": "dividendFixingDate",
+            "name": "Dividend Fixing Date",
+            "acronym": "DFD",
+            "description": "The timestamp of the next DF event (if scheduled).",
             "type": "Timestamp",
             "allowedValues": [
                 "ISO8601 Datetime"
@@ -110,7 +110,7 @@
             "identifier": "dividendPaymentDate",
             "name": "Dividend Payment Date",
             "acronym": "DPD",
-            "description": "The timestamp of the next DPD event (if scheduled).",
+            "description": "The timestamp of the next DP event (if scheduled).",
             "type": "Timestamp",
             "allowedValues": [
                 "ISO8601 Datetime"
@@ -174,21 +174,21 @@
             "type": "Real",
             "allowedValues": []
         },
-        "lastCouponDay": {
-            "identifier": "lastCouponDay",
-            "name": "Last Coupon Day",
-            "acronym": "LCD",
-            "description": "The most recent Coupon Day as per which the last Coupon Amount was fixed.",
+        "lastCouponFixingDate": {
+            "identifier": "lastCouponFixingDate",
+            "name": "Last Coupon Fixing Date",
+            "acronym": "LCFD",
+            "description": "The timestamp of the last CF event.",
             "type": "Timestamp",
             "allowedValues": [
                 "ISO8601 Datetime"
             ]
         },
-        "lastDividendDeclarationDate": {
-            "identifier": "lastDividendDeclarationDate",
-            "name": "Last Dividend Declaration Date",
-            "acronym": "DLDD",
-            "description": "The timestamp of the last DDD event.",
+        "lastDividendFixingDate": {
+            "identifier": "lastDividendFixingDate",
+            "name": "Last Dividend Fixing Date",
+            "acronym": "LDFD",
+            "description": "The timestamp of the last DF event.",
             "type": "Timestamp",
             "allowedValues": [
                 "ISO8601 Datetime"
@@ -282,7 +282,7 @@
             "identifier": "redemptionExDate",
             "name": "Redemption Ex Date",
             "acronym": "RED",
-            "description": "The timestamp of the next RED event (if scheduled).",
+            "description": "The timestamp of the next RE event (if scheduled).",
             "type": "Timestamp",
             "allowedValues": [
                 "ISO8601 Datetime"
@@ -292,17 +292,7 @@
             "identifier": "redemptionPaymentDate",
             "name": "Redemption Payment Date",
             "acronym": "RPD",
-            "description": "The timestamp of the next RPD event (if scheduled).",
-            "type": "Timestamp",
-            "allowedValues": [
-                "ISO8601 Datetime"
-            ]
-        },
-        "splitExDate": {
-            "identifier": "splitExDate",
-            "name": "Split Ex Date",
-            "acronym": "SED",
-            "description": "The timestamp of the next SED event (if scheduled).",
+            "description": "The timestamp of the next RP event (if scheduled).",
             "type": "Timestamp",
             "allowedValues": [
                 "ISO8601 Datetime"

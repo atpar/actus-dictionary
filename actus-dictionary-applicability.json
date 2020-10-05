@@ -205,7 +205,7 @@
             "couponType": "NN(1,1,)",
             "couponRate": "NN(1,1,)",
             "couponAmountFixed": "x(1,0,)",
-            "lastCouponDay": "x(1,0,)"
+            "lastCouponFixingDate": "x(1,0,)"
         },
         "collateral": {
             "contract": "collateral",
@@ -758,12 +758,12 @@
             "dividendPaymentAmount": "x(1,0,)",
             "dividendRecordPeriod": "x(1,1,)",
             "dividendPaymentPeriod": "x(1,1,)",
+            "lastDividendFixingDate": "x",
             "currency": "NN",
             "contractDealDate": "NN(,,1)",
             "notionalPrincipal": "NN",
             "quantity": "NN(,,3)",
-            "splitRecordPeriod": "x",
-            "splitExDate": "x",
+            "splitSettlementPeriod": "x",
             "splitRatio": "x",
             "purchaseDate": "NN",
             "priceAtPurchaseDate": "NN",
