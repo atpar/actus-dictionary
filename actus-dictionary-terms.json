@@ -1356,18 +1356,6 @@
             "default": "",
             "description": "Date of exercising a contingent event/obligation such as a forward condition, optionality etc. The Exercise date marks the observed timestamp of fixing the contingent event and respective payment obligation not necessarily the timestamp of settling the obligation."
         },
-        "exercisePeriod": {
-            "identifier": "exercisePeriod",
-            "group": "Redemption",
-            "name": "Exercise Period",
-            "acronym": "EXP",
-            "type": "Period",
-            "allowedValues": [
-                "ISO8601 Duration"
-            ],
-            "default": "0D",
-            "description": "The period within which an option holder (e.g. from redemption of a note / certificate / etc) can chose to execute his option"
-        },
         "exerciseQuantity": {
             "identifier": "exerciseQuantity",
             "group": "Redemption",
@@ -2148,6 +2136,18 @@
             ],
             "default": "",
             "description": "The timestamp of the next Redemption Ex Date event if one has been announced."
+        },
+        "redemptionExercisePeriod": {
+            "identifier": "redemptionExercisePeriod",
+            "group": "Redemption",
+            "name": "Redemption Exercise Period",
+            "acronym": "REXP",
+            "type": "Period",
+            "allowedValues": [
+                "ISO8601 Duration"
+            ],
+            "default": "0D",
+            "description": "The period within which an option holder (e.g. from redemption of a note / certificate / etc) can chose to execute his option"
         },
         "redemptionPaymentDate": {
             "identifier": "redemptionPaymentDate",
