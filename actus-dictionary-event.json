@@ -32,273 +32,270 @@
             "description": "The type of the event. Different types have their own business logic in terms of payoff and state transition functions",
             "type": "Enum",
             "allowedValues": [
-                [
-                    "option: 0",
-                    "identifier: monitoring",
-                    "name: Monitoring",
-                    "acronym: AD",
-                    "description: Monitoring of contract. Evaluates all contract states",
-                    "sequence: 33"
-                ],
-                [
-                    "option: 1",
-                    "identifier: creditEvent",
-                    "name: Credit Event",
-                    "acronym: CE",
-                    "description: Credit event of counterparty to a contract",
-                    "sequence: 1"
-                ],
-                [
-                    "option: 2",
-                    "identifier: issue",
-                    "name: Issue",
-                    "acronym: ISS",
-                    "description: Marks the date or timestamp respectively of issuance of a contract",
-                    "sequence: 2"
-                ],
-                [
-                    "option: 3",
-                    "identifier: initialExchange",
-                    "name: Initial Exchange",
-                    "acronym: IED",
-                    "description: Scheduled date of initial exchange of e.g. principal value in fixed income products",
-                    "sequence: 3"
-                ],
-                [
-                    "option: 4",
-                    "identifier: purchase",
-                    "name: Purchase",
-                    "acronym: PRD",
-                    "description: Purchase of a contract",
-                    "sequence: 4"
-                ],
-                [
-                    "option: 5",
-                    "identifier: feePayment",
-                    "name: Fee Payment",
-                    "acronym: FP",
-                    "description: Scheduled fee payments",
-                    "sequence: 5"
-                ],
-                [
-                    "option: 6",
-                    "identifier: principalRedemption",
-                    "name: Principal Redemption",
-                    "acronym: PR",
-                    "description: Scheduled principal redemption payment",
-                    "sequence: 6"
-                ],
-                [
-                    "option: 7",
-                    "identifier: principalDrawing",
-                    "name: Principal Drawing",
-                    "acronym: PD",
-                    "description: Drawing of principal amount e.g. in a credit line",
-                    "sequence: 7"
-                ],
-                [
-                    "option: 8",
-                    "identifier: penaltyPayment",
-                    "name: Penalty Payment",
-                    "acronym: PY",
-                    "description: Scheduled payment of a penalty",
-                    "sequence: 8"
-                ],
-                [
-                    "option: 9",
-                    "identifier: principalPrepayment",
-                    "name: Principal Prepayment",
-                    "acronym: PP",
-                    "description: Unscheduled early repayment of principal",
-                    "sequence: 9"
-                ],
-                [
-                    "option: 10",
-                    "identifier: interestPayment",
-                    "name: Interest Payment",
-                    "acronym: IP",
-                    "description: Scheduled interest payment",
-                    "sequence: 10"
-                ],
-                [
-                    "option: 11",
-                    "identifier: interestCapitalization",
-                    "name: Interest Capitalization",
-                    "acronym: IPCI",
-                    "description: Scheduled capitalization of accrued interest",
-                    "sequence: 11"
-                ],
-                [
-                    "option: 12",
-                    "identifier: rateResetFixed",
-                    "name: Rate Reset Fixing with Known Rate",
-                    "acronym: RRF",
-                    "description: Scheduled fixing of variable rate with known new rate",
-                    "sequence: 12"
-                ],
-                [
-                    "option: 13",
-                    "identifier: rateResetVariable",
-                    "name: Rate Reset Fixing with Unknown Rate",
-                    "acronym: RR",
-                    "description: Scheduled fixing of variable rate with unknown new rate",
-                    "sequence: 13"
-                ],
-                [
-                    "option: 14",
-                    "identifier: dividendFixing",
-                    "name: Dividend Fixing",
-                    "acronym: DIF",
-                    "description: Declaration of a dividend payment",
-                    "sequence: 14"
-                ],
-                [
-                    "option: 15",
-                    "identifier: dividendEx",
-                    "name: Dividend Ex",
-                    "acronym: DIX",
-                    "description: Date from which new shareholders are not considered for the next dividend distribution",
-                    "sequence: 15"
-                ],
-                [
-                    "option: 16",
-                    "identifier: dividendPayment",
-                    "name: Dividend Payment",
-                    "acronym: DIP",
-                    "description: Date at which next dividend is distributed to shareholders",
-                    "sequence: 16"
-                ],
-                [
-                    "option: 17",
-                    "identifier: couponFixing",
-                    "name: Coupon Fixing",
-                    "acronym: COF",
-                    "description: Fixing of the coupon amount",
-                    "sequence: 17"
-                ],
-                [
-                    "option: 18",
-                    "identifier: couponPayment",
-                    "name: Coupon Payment",
-                    "acronym: COP",
-                    "description: Payment of the coupon amount",
-                    "sequence: 18"
-                ],
-                [
-                    "option: 19",
-                    "identifier: redemptionFixing",
-                    "name: Redemption Fixing",
-                    "acronym: REF",
-                    "description: Fixing of the redemption amount",
-                    "sequence: 19"
-                ],
-                [
-                    "option: 20",
-                    "identifier: redemptionEx",
-                    "name: Redemption Ex",
-                    "acronym: REX",
-                    "description: Date from which new holders are not considered for next redemption",
-                    "sequence: 20"
-                ],
-                [
-                    "option: 21",
-                    "identifier: redemptionPayment",
-                    "name: Redemption Payment",
-                    "acronym: REP",
-                    "description: Payment of the redemption amount",
-                    "sequence: 21"
-                ],
-                [
-                    "option: 22",
-                    "identifier: splitFixing",
-                    "name: Split Fixing",
-                    "acronym: SPF",
-                    "description: Declaration of a stock split or reverse split",
-                    "sequence: 22"
-                ],
-                [
-                    "option: 23",
-                    "identifier: splitSettlement",
-                    "name: Split Settlement",
-                    "acronym: SPS",
-                    "description: Date at which stock split is settled or settlement is finalized",
-                    "sequence: 23"
-                ],
-                [
-                    "option: 24",
-                    "identifier: exerciseOrder",
-                    "name: Exercise Order",
-                    "acronym: EXO",
-                    "description: Submission of an exercise order for a contractual feature such as an optionality",
-                    "sequence: 24"
-                ],
-                [
-                    "option: 25",
-                    "identifier: exercise",
-                    "name: Exercise",
-                    "acronym: EXE",
-                    "description: Exercise of a contractual feature such as an optionality",
-                    "sequence: 25"
-                ],
-                [
-                    "option: 26",
-                    "identifier: settlement",
-                    "name: Settlement",
-                    "acronym: ST",
-                    "description: Settlement of an exercised contractual claim",
-                    "sequence: 26"
-                ],
-                [
-                    "option: 27",
-                    "identifier: scalingIndexFixing",
-                    "name: Scaling Index Fixing",
-                    "acronym: SC",
-                    "description: Scheduled fixing of a scaling index",
-                    "sequence: 27"
-                ],
-                [
-                    "option: 28",
-                    "identifier: interestCalculationBaseFixing",
-                    "name: Interest Calculation Base Fixing",
-                    "acronym: IPCB",
-                    "description: Scheduled fixing of the interest calculation base",
-                    "sequence: 28"
-                ],
-                [
-                    "option: 29",
-                    "identifier: principalPaymentAmountFixing",
-                    "name: Principal Payment Amount Fixing",
-                    "acronym: PRF",
-                    "description: Scheduled fixing of principal payment amount",
-                    "sequence: 29"
-                ],
-                [
-                    "option: 30",
-                    "identifier: marginCall",
-                    "name: Margin Call",
-                    "acronym: MC",
-                    "description: Scheduled margin call",
-                    "sequence: 30"
-                ],
-                [
-                    "option: 31",
-                    "identifier: termination",
-                    "name: Termination",
-                    "acronym: TD",
-                    "description: Termination of a contract",
-                    "sequence: 31"
-                ],
-                [
-                    "option: 32",
-                    "identifier: maturity",
-                    "name: Maturity",
-                    "acronym: MD",
-                    "description: Maturity of a contract",
-                    "sequence: 32"
-                ],
-                [
-
-                ]
+                {
+                    "option": "0",
+                    "identifier": "monitoring",
+                    "name": "Monitoring",
+                    "acronym": "AD",
+                    "description": "Monitoring of contract. Evaluates all contract states",
+                    "sequence": "33"
+                },
+                {
+                    "option": "1",
+                    "identifier": "creditEvent",
+                    "name": "Credit Event",
+                    "acronym": "CE",
+                    "description": "Credit event of counterparty to a contract",
+                    "sequence": "1"
+                },
+                {
+                    "option": "2",
+                    "identifier": "issue",
+                    "name": "Issue",
+                    "acronym": "ISS",
+                    "description": "Marks the date or timestamp respectively of issuance of a contract",
+                    "sequence": "2"
+                },
+                {
+                    "option": "3",
+                    "identifier": "initialExchange",
+                    "name": "Initial Exchange",
+                    "acronym": "IED",
+                    "description": "Scheduled date of initial exchange of e.g. principal value in fixed income products",
+                    "sequence": "3"
+                },
+                {
+                    "option": "4",
+                    "identifier": "purchase",
+                    "name": "Purchase",
+                    "acronym": "PRD",
+                    "description": "Purchase of a contract",
+                    "sequence": "4"
+                },
+                {
+                    "option": "5",
+                    "identifier": "feePayment",
+                    "name": "Fee Payment",
+                    "acronym": "FP",
+                    "description": "Scheduled fee payments",
+                    "sequence": "5"
+                },
+                {
+                    "option": "6",
+                    "identifier": "principalRedemption",
+                    "name": "Principal Redemption",
+                    "acronym": "PR",
+                    "description": "Scheduled principal redemption payment",
+                    "sequence": "6"
+                },
+                {
+                    "option": "7",
+                    "identifier": "principalDrawing",
+                    "name": "Principal Drawing",
+                    "acronym": "PD",
+                    "description": "Drawing of principal amount e.g. in a credit line",
+                    "sequence": "7"
+                },
+                {
+                    "option": "8",
+                    "identifier": "penaltyPayment",
+                    "name": "Penalty Payment",
+                    "acronym": "PY",
+                    "description": "Scheduled payment of a penalty",
+                    "sequence": "8"
+                },
+                {
+                    "option": "9",
+                    "identifier": "principalPrepayment",
+                    "name": "Principal Prepayment",
+                    "acronym": "PP",
+                    "description": "Unscheduled early repayment of principal",
+                    "sequence": "9"
+                },
+                {
+                    "option": "10",
+                    "identifier": "interestPayment",
+                    "name": "Interest Payment",
+                    "acronym": "IP",
+                    "description": "Scheduled interest payment",
+                    "sequence": "10"
+                },
+                {
+                    "option": "11",
+                    "identifier": "interestCapitalization",
+                    "name": "Interest Capitalization",
+                    "acronym": "IPCI",
+                    "description": "Scheduled capitalization of accrued interest",
+                    "sequence": "11"
+                },
+                {
+                    "option": "12",
+                    "identifier": "rateResetFixed",
+                    "name": "Rate Reset Fixing with Known Rate",
+                    "acronym": "RRF",
+                    "description": "Scheduled fixing of variable rate with known new rate",
+                    "sequence": "12"
+                },
+                {
+                    "option": "13",
+                    "identifier": "rateResetVariable",
+                    "name": "Rate Reset Fixing with Unknown Rate",
+                    "acronym": "RR",
+                    "description": "Scheduled fixing of variable rate with unknown new rate",
+                    "sequence": "13"
+                },
+                {
+                    "option": "14",
+                    "identifier": "dividendFixing",
+                    "name": "Dividend Fixing",
+                    "acronym": "DIF",
+                    "description": "Declaration of a dividend payment",
+                    "sequence": "14"
+                },
+                {
+                    "option": "15",
+                    "identifier": "dividendEx",
+                    "name": "Dividend Ex",
+                    "acronym": "DIX",
+                    "description": "Date from which new shareholders are not considered for the next dividend distribution",
+                    "sequence": "15"
+                },
+                {
+                    "option": "16",
+                    "identifier": "dividendPayment",
+                    "name": "Dividend Payment",
+                    "acronym": "DIP",
+                    "description": "Date at which next dividend is distributed to shareholders",
+                    "sequence": "16"
+                },
+                {
+                    "option": "17",
+                    "identifier": "couponFixing",
+                    "name": "Coupon Fixing",
+                    "acronym": "COF",
+                    "description": "Fixing of the coupon amount",
+                    "sequence": "17"
+                },
+                {
+                    "option": "18",
+                    "identifier": "couponPayment",
+                    "name": "Coupon Payment",
+                    "acronym": "COP",
+                    "description": "Payment of the coupon amount",
+                    "sequence": "18"
+                },
+                {
+                    "option": "19",
+                    "identifier": "redemptionFixing",
+                    "name": "Redemption Fixing",
+                    "acronym": "REF",
+                    "description": "Fixing of the redemption amount",
+                    "sequence": "19"
+                },
+                {
+                    "option": "20",
+                    "identifier": "redemptionEx",
+                    "name": "Redemption Ex",
+                    "acronym": "REX",
+                    "description": "Date from which new holders are not considered for next redemption",
+                    "sequence": "20"
+                },
+                {
+                    "option": "21",
+                    "identifier": "redemptionPayment",
+                    "name": "Redemption Payment",
+                    "acronym": "REP",
+                    "description": "Payment of the redemption amount",
+                    "sequence": "21"
+                },
+                {
+                    "option": "22",
+                    "identifier": "splitFixing",
+                    "name": "Split Fixing",
+                    "acronym": "SPF",
+                    "description": "Declaration of a stock split or reverse split",
+                    "sequence": "22"
+                },
+                {
+                    "option": "23",
+                    "identifier": "splitSettlement",
+                    "name": "Split Settlement",
+                    "acronym": "SPS",
+                    "description": "Date at which stock split is settled or settlement is finalized",
+                    "sequence": "23"
+                },
+                {
+                    "option": "24",
+                    "identifier": "exerciseOrder",
+                    "name": "Exercise Order",
+                    "acronym": "EXO",
+                    "description": "Submission of an exercise order for a contractual feature such as an optionality",
+                    "sequence": "24"
+                },
+                {
+                    "option": "25",
+                    "identifier": "exercise",
+                    "name": "Exercise",
+                    "acronym": "EXE",
+                    "description": "Exercise of a contractual feature such as an optionality",
+                    "sequence": "25"
+                },
+                {
+                    "option": "26",
+                    "identifier": "settlement",
+                    "name": "Settlement",
+                    "acronym": "ST",
+                    "description": "Settlement of an exercised contractual claim",
+                    "sequence": "26"
+                },
+                {
+                    "option": "27",
+                    "identifier": "scalingIndexFixing",
+                    "name": "Scaling Index Fixing",
+                    "acronym": "SC",
+                    "description": "Scheduled fixing of a scaling index",
+                    "sequence": "27"
+                },
+                {
+                    "option": "28",
+                    "identifier": "interestCalculationBaseFixing",
+                    "name": "Interest Calculation Base Fixing",
+                    "acronym": "IPCB",
+                    "description": "Scheduled fixing of the interest calculation base",
+                    "sequence": "28"
+                },
+                {
+                    "option": "29",
+                    "identifier": "principalPaymentAmountFixing",
+                    "name": "Principal Payment Amount Fixing",
+                    "acronym": "PRF",
+                    "description": "Scheduled fixing of principal payment amount",
+                    "sequence": "29"
+                },
+                {
+                    "option": "30",
+                    "identifier": "marginCall",
+                    "name": "Margin Call",
+                    "acronym": "MC",
+                    "description": "Scheduled margin call",
+                    "sequence": "30"
+                },
+                {
+                    "option": "31",
+                    "identifier": "termination",
+                    "name": "Termination",
+                    "acronym": "TD",
+                    "description": "Termination of a contract",
+                    "sequence": "31"
+                },
+                {
+                    "option": "32",
+                    "identifier": "maturity",
+                    "name": "Maturity",
+                    "acronym": "MD",
+                    "description": "Maturity of a contract",
+                    "sequence": "32"
+                }
             ]
         },
         "payoff": {
