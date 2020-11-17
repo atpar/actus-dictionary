@@ -305,6 +305,18 @@
             "default": "",
             "description": "Indicates wheter CRID takes a clearing house function or not. In other word, whether CRID receive margins (MRIM, MRVM)."
         },
+        "collateralCurrency": {
+            "identifier": "collateralCurrency",
+            "group": "Collateral",
+            "name": "Collateral Currency",
+            "acronym": "COCU",
+            "type": "Varchar",
+            "allowedValues": [
+                "ISO4217"
+            ],
+            "default": "",
+            "description": "The currency of the collateral to be supplied for securing a contract."
+        },
         "contractDealDate": {
             "identifier": "contractDealDate",
             "group": "Notional Principal",
@@ -704,6 +716,18 @@
             ],
             "default": "NOC",
             "description": "The type of coupon applicable."
+        },
+        "coverageOfCollateral": {
+            "identifier": "coverageOfCollateral",
+            "group": "Collateral",
+            "name": "Coverage Of Collateral",
+            "acronym": "COCO",
+            "type": "Real",
+            "allowedValues": [
+                "(0,Infinity)"
+            ],
+            "default": "",
+            "description": "The coverage of contract nominal value that the collateral must maintain. i.e. if coverageOfCollateral=0.5 the market value of the collateral must always be higher than 50% of the nominal value of the contract."
         },
         "coverageOfCreditEnhancement": {
             "identifier": "coverageOfCreditEnhancement",
@@ -1664,6 +1688,16 @@
             "allowedValues": [],
             "default": "",
             "description": "Is pointing to the market value at SD (MarketObject).\nUnique codes for market objects must be used."
+        },
+        "marketObjectCodeOfCollateral": {
+            "identifier": "marketObjectCodeOfCollateral",
+            "group": "Collateral",
+            "name": "Market Object Code Of Collateral",
+            "acronym": "COMO",
+            "type": "Varchar",
+            "allowedValues": [],
+            "default": "",
+            "description": "The identifier of the market price feed of the collateral securing a contract."
         },
         "marketObjectCodeOfScalingIndex": {
             "identifier": "marketObjectCodeOfScalingIndex",

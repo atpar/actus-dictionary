@@ -78,7 +78,10 @@
             "nextResetRate": "x(9,1,)",
             "rateMultiplier": "x(9,1,)",
             "settlementCurrency": "x",
-            "issueDate": "NN"
+            "issueDate": "NN",
+            "collateralCurrency": "x(10,1,)",
+            "coverageOfCollateral": "x(10,0,)",
+            "marketObjectCodeOfCollateral": "x(10,1,)"
         },
         "callMoney": {
             "contract": "callMoney",
@@ -148,7 +151,10 @@
             "marketValueObserved": "x",
             "lifeCap": "x(7,2,)",
             "lifeFloor": "x(7,2,)",
-            "settlementCurrency": "x"
+            "settlementCurrency": "x",
+            "collateralCurrency": "x(10,1,)",
+            "coverageOfCollateral": "x(10,0,)",
+            "marketObjectCodeOfCollateral": "x(10,1,)"
         },
         "cash": {
             "contract": "cash",
@@ -210,7 +216,10 @@
             "couponType": "NN(1,1,)",
             "couponRate": "NN(1,1,)",
             "couponAmountFixed": "x(1,0,)",
-            "lastCouponFixingDate": "x(1,0,)"
+            "lastCouponFixingDate": "x(1,0,)",
+            "collateralCurrency": "x(10,1,)",
+            "coverageOfCollateral": "x(10,0,)",
+            "marketObjectCodeOfCollateral": "x(10,1,)"
         },
         "collateral": {
             "contract": "collateral",
@@ -326,7 +335,10 @@
             "nextResetRate": "x(9,1,)",
             "rateMultiplier": "x(9,1,)",
             "settlementCurrency": "x",
-            "issueDate": "NN"
+            "issueDate": "NN",
+            "collateralCurrency": "x(10,1,)",
+            "coverageOfCollateral": "x(10,0,)",
+            "marketObjectCodeOfCollateral": "x(10,1,)"
         },
         "foreignExchangeOutright": {
             "contract": "foreignExchangeOutright",
@@ -361,7 +373,10 @@
             "exerciseAmount": "NN(7,1,)\n",
             "settlementPeriod": "x",
             "deliverySettlement": "x(,,1)",
-            "settlementCurrency": "x"
+            "settlementCurrency": "x",
+            "collateralCurrency": "x(10,1,)",
+            "coverageOfCollateral": "x(10,0,)",
+            "marketObjectCodeOfCollateral": "x(10,1,)"
         },
         "future": {
             "contract": "future",
@@ -402,7 +417,10 @@
             "settlementPeriod": "x",
             "deliverySettlement": "x(,,1)",
             "futuresPrice": "NN",
-            "settlementCurrency": "x"
+            "settlementCurrency": "x",
+            "collateralCurrency": "x(10,1,)",
+            "coverageOfCollateral": "x(10,0,)",
+            "marketObjectCodeOfCollateral": "x(10,1,)"
         },
         "guarantee": {
             "contract": "guarantee",
@@ -440,7 +458,10 @@
             "exerciseDate": "x(7,0,)",
             "exerciseAmount": "NN(7,1,)\n",
             "settlementPeriod": "x",
-            "settlementCurrency": "x"
+            "settlementCurrency": "x",
+            "collateralCurrency": "x(10,1,)",
+            "coverageOfCollateral": "x(10,0,)",
+            "marketObjectCodeOfCollateral": "x(10,1,)"
         },
         "linearAmortizer": {
             "contract": "linearAmortizer",
@@ -516,7 +537,10 @@
             "nextResetRate": "x(9,1,)",
             "rateMultiplier": "x(9,1,)",
             "settlementCurrency": "x",
-            "issueDate": "NN"
+            "issueDate": "NN",
+            "collateralCurrency": "x(10,1,)",
+            "coverageOfCollateral": "x(10,0,)",
+            "marketObjectCodeOfCollateral": "x(10,1,)"
         },
         "negativeAmortizer": {
             "contract": "negativeAmortizer",
@@ -590,7 +614,10 @@
             "nextResetRate": "x(9,1,)",
             "rateMultiplier": "x(9,1,)",
             "settlementCurrency": "x",
-            "issueDate": "NN"
+            "issueDate": "NN",
+            "collateralCurrency": "x(10,1,)",
+            "coverageOfCollateral": "x(10,0,)",
+            "marketObjectCodeOfCollateral": "x(10,1,)"
         },
         "option": {
             "contract": "option",
@@ -630,7 +657,10 @@
             "exerciseAmount": "NN(7,1,)\n",
             "settlementPeriod": "x",
             "deliverySettlement": "x(,,1)",
-            "settlementCurrency": "x"
+            "settlementCurrency": "x",
+            "collateralCurrency": "x(10,1,)",
+            "coverageOfCollateral": "x(10,0,)",
+            "marketObjectCodeOfCollateral": "x(10,1,)"
         },
         "plainVanillaSwap": {
             "contract": "plainVanillaSwap",
@@ -674,7 +704,10 @@
             "nextResetRate": "x(9,1,)",
             "rateMultiplier": "x(9,1,)",
             "deliverySettlement": "x(,,1)",
-            "settlementCurrency": "x"
+            "settlementCurrency": "x",
+            "collateralCurrency": "x(10,1,)",
+            "coverageOfCollateral": "x(10,0,)",
+            "marketObjectCodeOfCollateral": "x(10,1,)"
         },
         "principalAtMaturity": {
             "contract": "principalAtMaturity",
@@ -743,7 +776,10 @@
             "nextResetRate": "x(9,1,)",
             "rateMultiplier": "x(9,1,)",
             "settlementCurrency": "x",
-            "issueDate": "NN"
+            "issueDate": "NN",
+            "collateralCurrency": "x(10,1,)",
+            "coverageOfCollateral": "x(10,0,)",
+            "marketObjectCodeOfCollateral": "x(10,1,)"
         },
         "stock": {
             "contract": "stock",
@@ -814,7 +850,10 @@
             "priceAtTerminationDate": "NN(6,1,1)",
             "marketValueObserved": "x",
             "deliverySettlement": "x(,,1)",
-            "settlementCurrency": "x"
+            "settlementCurrency": "x",
+            "collateralCurrency": "x(10,1,)",
+            "coverageOfCollateral": "x(10,0,)",
+            "marketObjectCodeOfCollateral": "x(10,1,)"
         },
         "undefinedMaturityProfile": {
             "contract": "undefinedMaturityProfile",

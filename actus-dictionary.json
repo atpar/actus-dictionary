@@ -616,6 +616,18 @@
             "default": "",
             "description": "Indicates wheter CRID takes a clearing house function or not. In other word, whether CRID receive margins (MRIM, MRVM)."
         },
+        "collateralCurrency": {
+            "identifier": "collateralCurrency",
+            "group": "Collateral",
+            "name": "Collateral Currency",
+            "acronym": "COCU",
+            "type": "Varchar",
+            "allowedValues": [
+                "ISO4217"
+            ],
+            "default": "",
+            "description": "The currency of the collateral to be supplied for securing a contract."
+        },
         "contractDealDate": {
             "identifier": "contractDealDate",
             "group": "Notional Principal",
@@ -1015,6 +1027,18 @@
             ],
             "default": "NOC",
             "description": "The type of coupon applicable."
+        },
+        "coverageOfCollateral": {
+            "identifier": "coverageOfCollateral",
+            "group": "Collateral",
+            "name": "Coverage Of Collateral",
+            "acronym": "COCO",
+            "type": "Real",
+            "allowedValues": [
+                "(0,Infinity)"
+            ],
+            "default": "",
+            "description": "The coverage of contract nominal value that the collateral must maintain. i.e. if coverageOfCollateral=0.5 the market value of the collateral must always be higher than 50% of the nominal value of the contract."
         },
         "coverageOfCreditEnhancement": {
             "identifier": "coverageOfCreditEnhancement",
@@ -1976,6 +2000,16 @@
             "default": "",
             "description": "Is pointing to the market value at SD (MarketObject).\nUnique codes for market objects must be used."
         },
+        "marketObjectCodeOfCollateral": {
+            "identifier": "marketObjectCodeOfCollateral",
+            "group": "Collateral",
+            "name": "Market Object Code Of Collateral",
+            "acronym": "COMO",
+            "type": "Varchar",
+            "allowedValues": [],
+            "default": "",
+            "description": "The identifier of the market price feed of the collateral securing a contract."
+        },
         "marketObjectCodeOfScalingIndex": {
             "identifier": "marketObjectCodeOfScalingIndex",
             "group": "Notional Principal",
@@ -2815,7 +2849,10 @@
             "nextResetRate": "x(9,1,)",
             "rateMultiplier": "x(9,1,)",
             "settlementCurrency": "x",
-            "issueDate": "NN"
+            "issueDate": "NN",
+            "collateralCurrency": "x(10,1,)",
+            "coverageOfCollateral": "x(10,0,)",
+            "marketObjectCodeOfCollateral": "x(10,1,)"
         },
         "callMoney": {
             "contract": "callMoney",
@@ -2885,7 +2922,10 @@
             "marketValueObserved": "x",
             "lifeCap": "x(7,2,)",
             "lifeFloor": "x(7,2,)",
-            "settlementCurrency": "x"
+            "settlementCurrency": "x",
+            "collateralCurrency": "x(10,1,)",
+            "coverageOfCollateral": "x(10,0,)",
+            "marketObjectCodeOfCollateral": "x(10,1,)"
         },
         "cash": {
             "contract": "cash",
@@ -2947,7 +2987,10 @@
             "couponType": "NN(1,1,)",
             "couponRate": "NN(1,1,)",
             "couponAmountFixed": "x(1,0,)",
-            "lastCouponFixingDate": "x(1,0,)"
+            "lastCouponFixingDate": "x(1,0,)",
+            "collateralCurrency": "x(10,1,)",
+            "coverageOfCollateral": "x(10,0,)",
+            "marketObjectCodeOfCollateral": "x(10,1,)"
         },
         "collateral": {
             "contract": "collateral",
@@ -3063,7 +3106,10 @@
             "nextResetRate": "x(9,1,)",
             "rateMultiplier": "x(9,1,)",
             "settlementCurrency": "x",
-            "issueDate": "NN"
+            "issueDate": "NN",
+            "collateralCurrency": "x(10,1,)",
+            "coverageOfCollateral": "x(10,0,)",
+            "marketObjectCodeOfCollateral": "x(10,1,)"
         },
         "foreignExchangeOutright": {
             "contract": "foreignExchangeOutright",
@@ -3098,7 +3144,10 @@
             "exerciseAmount": "NN(7,1,)\n",
             "settlementPeriod": "x",
             "deliverySettlement": "x(,,1)",
-            "settlementCurrency": "x"
+            "settlementCurrency": "x",
+            "collateralCurrency": "x(10,1,)",
+            "coverageOfCollateral": "x(10,0,)",
+            "marketObjectCodeOfCollateral": "x(10,1,)"
         },
         "future": {
             "contract": "future",
@@ -3139,7 +3188,10 @@
             "settlementPeriod": "x",
             "deliverySettlement": "x(,,1)",
             "futuresPrice": "NN",
-            "settlementCurrency": "x"
+            "settlementCurrency": "x",
+            "collateralCurrency": "x(10,1,)",
+            "coverageOfCollateral": "x(10,0,)",
+            "marketObjectCodeOfCollateral": "x(10,1,)"
         },
         "guarantee": {
             "contract": "guarantee",
@@ -3177,7 +3229,10 @@
             "exerciseDate": "x(7,0,)",
             "exerciseAmount": "NN(7,1,)\n",
             "settlementPeriod": "x",
-            "settlementCurrency": "x"
+            "settlementCurrency": "x",
+            "collateralCurrency": "x(10,1,)",
+            "coverageOfCollateral": "x(10,0,)",
+            "marketObjectCodeOfCollateral": "x(10,1,)"
         },
         "linearAmortizer": {
             "contract": "linearAmortizer",
@@ -3253,7 +3308,10 @@
             "nextResetRate": "x(9,1,)",
             "rateMultiplier": "x(9,1,)",
             "settlementCurrency": "x",
-            "issueDate": "NN"
+            "issueDate": "NN",
+            "collateralCurrency": "x(10,1,)",
+            "coverageOfCollateral": "x(10,0,)",
+            "marketObjectCodeOfCollateral": "x(10,1,)"
         },
         "negativeAmortizer": {
             "contract": "negativeAmortizer",
@@ -3327,7 +3385,10 @@
             "nextResetRate": "x(9,1,)",
             "rateMultiplier": "x(9,1,)",
             "settlementCurrency": "x",
-            "issueDate": "NN"
+            "issueDate": "NN",
+            "collateralCurrency": "x(10,1,)",
+            "coverageOfCollateral": "x(10,0,)",
+            "marketObjectCodeOfCollateral": "x(10,1,)"
         },
         "option": {
             "contract": "option",
@@ -3367,7 +3428,10 @@
             "exerciseAmount": "NN(7,1,)\n",
             "settlementPeriod": "x",
             "deliverySettlement": "x(,,1)",
-            "settlementCurrency": "x"
+            "settlementCurrency": "x",
+            "collateralCurrency": "x(10,1,)",
+            "coverageOfCollateral": "x(10,0,)",
+            "marketObjectCodeOfCollateral": "x(10,1,)"
         },
         "plainVanillaSwap": {
             "contract": "plainVanillaSwap",
@@ -3411,7 +3475,10 @@
             "nextResetRate": "x(9,1,)",
             "rateMultiplier": "x(9,1,)",
             "deliverySettlement": "x(,,1)",
-            "settlementCurrency": "x"
+            "settlementCurrency": "x",
+            "collateralCurrency": "x(10,1,)",
+            "coverageOfCollateral": "x(10,0,)",
+            "marketObjectCodeOfCollateral": "x(10,1,)"
         },
         "principalAtMaturity": {
             "contract": "principalAtMaturity",
@@ -3480,7 +3547,10 @@
             "nextResetRate": "x(9,1,)",
             "rateMultiplier": "x(9,1,)",
             "settlementCurrency": "x",
-            "issueDate": "NN"
+            "issueDate": "NN",
+            "collateralCurrency": "x(10,1,)",
+            "coverageOfCollateral": "x(10,0,)",
+            "marketObjectCodeOfCollateral": "x(10,1,)"
         },
         "stock": {
             "contract": "stock",
@@ -3551,7 +3621,10 @@
             "priceAtTerminationDate": "NN(6,1,1)",
             "marketValueObserved": "x",
             "deliverySettlement": "x(,,1)",
-            "settlementCurrency": "x"
+            "settlementCurrency": "x",
+            "collateralCurrency": "x(10,1,)",
+            "coverageOfCollateral": "x(10,0,)",
+            "marketObjectCodeOfCollateral": "x(10,1,)"
         },
         "undefinedMaturityProfile": {
             "contract": "undefinedMaturityProfile",
