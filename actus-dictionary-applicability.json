@@ -42,7 +42,7 @@
             "currency": "NN",
             "amortizationDate": "x",
             "contractDealDate": "NN(,,1)",
-            "initialExchangeDate": "NN",
+            "initialExchangeDate": "x",
             "premiumDiscountAtIED": "x",
             "maturityDate": "x",
             "notionalPrincipal": "NN",
@@ -77,7 +77,8 @@
             "fixingPeriod": "x(9,1,)",
             "nextResetRate": "x(9,1,)",
             "rateMultiplier": "x(9,1,)",
-            "settlementCurrency": "x"
+            "settlementCurrency": "x",
+            "issueDate": "NN"
         },
         "callMoney": {
             "contract": "callMoney",
@@ -191,7 +192,11 @@
             "nominalPrice": "NN",
             "issuePrice": "NN",
             "denominationRatio": "x",
-            "redemptionExercisePeriod": "x",
+            "redemptionRecordPeriod": "x",
+            "redemptionPaymentPeriod": "x",
+            "redemptionExDate": "x",
+            "redemptionPaymentDate": "x",
+            "redemptionPrice": "NN(7,1,)",
             "cycleAnchorDateOfRedemption": "x",
             "cycleOfRedemption": "x",
             "cycleAnchorDateOfTermination": "x",
@@ -283,7 +288,7 @@
             "cyclePointOfInterestPayment": "x(2,1,)1",
             "currency": "NN",
             "contractDealDate": "NN(,,1)",
-            "initialExchangeDate": "NN",
+            "initialExchangeDate": "x",
             "premiumDiscountAtIED": "x",
             "maturityDate": "x",
             "notionalPrincipal": "NN",
@@ -320,7 +325,8 @@
             "fixingPeriod": "x(9,1,)",
             "nextResetRate": "x(9,1,)",
             "rateMultiplier": "x(9,1,)",
-            "settlementCurrency": "x"
+            "settlementCurrency": "x",
+            "issueDate": "NN"
         },
         "foreignExchangeOutright": {
             "contract": "foreignExchangeOutright",
@@ -473,7 +479,7 @@
             "cyclePointOfInterestPayment": "x(2,1,)1",
             "currency": "NN",
             "contractDealDate": "NN(,,1)",
-            "initialExchangeDate": "NN",
+            "initialExchangeDate": "x",
             "premiumDiscountAtIED": "x",
             "maturityDate": "x",
             "notionalPrincipal": "NN",
@@ -509,7 +515,8 @@
             "fixingPeriod": "x(9,1,)",
             "nextResetRate": "x(9,1,)",
             "rateMultiplier": "x(9,1,)",
-            "settlementCurrency": "x"
+            "settlementCurrency": "x",
+            "issueDate": "NN"
         },
         "negativeAmortizer": {
             "contract": "negativeAmortizer",
@@ -547,7 +554,7 @@
             "interestCalculationBaseAmount": "NN(3,3 ,)",
             "currency": "NN",
             "contractDealDate": "NN(,,1)",
-            "initialExchangeDate": "NN",
+            "initialExchangeDate": "x",
             "premiumDiscountAtIED": "x",
             "maturityDate": "x",
             "notionalPrincipal": "NN",
@@ -582,7 +589,8 @@
             "fixingPeriod": "x(9,1,)",
             "nextResetRate": "x(9,1,)",
             "rateMultiplier": "x(9,1,)",
-            "settlementCurrency": "x"
+            "settlementCurrency": "x",
+            "issueDate": "NN"
         },
         "option": {
             "contract": "option",
@@ -701,7 +709,7 @@
             "cyclePointOfInterestPayment": "x(2,1,)1",
             "currency": "NN",
             "contractDealDate": "NN(,,1)",
-            "initialExchangeDate": "NN",
+            "initialExchangeDate": "x",
             "premiumDiscountAtIED": "x",
             "maturityDate": "NN",
             "notionalPrincipal": "NN",
@@ -734,7 +742,8 @@
             "fixingPeriod": "x(9,1,)",
             "nextResetRate": "x(9,1,)",
             "rateMultiplier": "x(9,1,)",
-            "settlementCurrency": "x"
+            "settlementCurrency": "x",
+            "issueDate": "NN"
         },
         "stock": {
             "contract": "stock",

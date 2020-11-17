@@ -2137,18 +2137,6 @@
             "default": "",
             "description": "The timestamp of the next Redemption Ex Date event if one has been announced."
         },
-        "redemptionExercisePeriod": {
-            "identifier": "redemptionExercisePeriod",
-            "group": "Redemption",
-            "name": "Redemption Exercise Period",
-            "acronym": "REXP",
-            "type": "Period",
-            "allowedValues": [
-                "ISO8601 Duration"
-            ],
-            "default": "0D",
-            "description": "The period within which an option holder (e.g. from redemption of a note / certificate / etc) can chose to execute his option"
-        },
         "redemptionPaymentDate": {
             "identifier": "redemptionPaymentDate",
             "group": "Redemption",
