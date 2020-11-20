@@ -1168,86 +1168,83 @@
             "acronym": "IPDC",
             "type": "Enum",
             "allowedValues": [
-                [
-                    "option: 0",
-                    "identifier: actualActual",
-                    "name: Actual/Actual",
-                    "acronym: AA",
-                    "description: Year fractions accrue on the basis of the actual number of days per month and per year in the respective period."
-                ],
-                [
-                    "option: 1",
-                    "identifier: actualThreeSixty",
-                    "name: Actual Three Sixty",
-                    "acronym: A360",
-                    "description: Year fractions accrue on the basis of the actual number of days per month and 360 days per year in the respective period."
-                ],
-                [
-                    "option: 2",
-                    "identifier: actualThreeSixtyFive",
-                    "name: Actual Three Sixty Five",
-                    "acronym: A365",
-                    "description: Year fractions accrue on the basis of the actual number of days per month and 365 days per year in the respective period."
-                ],
-                [
-                    "option: 3",
-                    "identifier: thirtyEThreeSixtyISDA",
-                    "name: Thirty E Three Sixty ISDA",
-                    "acronym: 30E360ISDA",
-                    "description: Year fractions accrue on the basis of 30 days per month and 360 days per year in the respective period (ISDA method)."
-                ],
-                [
-                    "option: 4",
-                    "identifier: thirtyEThreeSixty",
-                    "name: Thirty E Three Sixty",
-                    "acronym: 30E360",
-                    "description: Year fractions accrue on the basis of 30 days per month and 360 days per year in the respective period."
-                ],
-                [
-                    "option: 5",
-                    "identifier: twentyEightEThreeThirtySix",
-                    "name: Twenty Eight E Three Thirty Six",
-                    "acronym: 28E336",
-                    "description: Year fractions accrue on the basis of 28 days per month and 336 days per year in the respective period."
-                ],
-                [
-                    "option: 6",
-                    "identifier: one",
-                    "name: One",
-                    "acronym: ONE",
-                    "description: Year fractions are always 1."
-                ],
-                [
-                    "option: 7",
-                    "identifier: oneByTwelve",
-                    "name: One by Twelve",
-                    "acronym: OBYT",
-                    "description: Year fractions are always 1/12."
-                ],
-                [
-                    "option: 8",
-                    "identifier: hoursActualActual",
-                    "name: Hours/Actual/Actual",
-                    "acronym: HRSAA",
-                    "description: Year fractions accrue on the basis of measured hours between two timestamps assuming every day counts 24 hours",
-                    "the actual number of days per month and the actual number of days per year in the respective period."
-                ],
-                [
-                    "option: 9",
-                    "identifier: minutesActualActual",
-                    "name: Minutes/Actual/Actual",
-                    "acronym: MINAA",
-                    "description: Year fractions accrue on the basis of measured minutes between two timestamps assuming every every day counts 1440 minutes",
-                    "the actual number of days per month and the actual number of days per year in the respective period."
-                ],
-                [
-                    "option: 10",
-                    "identifier: secondsActualActual",
-                    "name: Seconds/Actual/Actual",
-                    "acronym: SECAA",
-                    "description: Year fractions accrue on the basis of measured seconds between two timestamps assuming every day counts 86400 seconds",
-                    "the actual number of days per month and the actual number of days per year in the respective period."
-                ]
+                {
+                    "option": "0",
+                    "identifier": "actualActual",
+                    "name": "Actual/Actual",
+                    "acronym": "AA",
+                    "description": "Year fractions accrue on the basis of the actual number of days per month and per year in the respective period."
+                },
+                {
+                    "option": "1",
+                    "identifier": "actualThreeSixty",
+                    "name": "Actual Three Sixty",
+                    "acronym": "A360",
+                    "description": "Year fractions accrue on the basis of the actual number of days per month and 360 days per year in the respective period."
+                },
+                {
+                    "option": "2",
+                    "identifier": "actualThreeSixtyFive",
+                    "name": "Actual Three Sixty Five",
+                    "acronym": "A365",
+                    "description": "Year fractions accrue on the basis of the actual number of days per month and 365 days per year in the respective period."
+                },
+                {
+                    "option": "3",
+                    "identifier": "thirtyEThreeSixtyISDA",
+                    "name": "Thirty E Three Sixty ISDA",
+                    "acronym": "30E360ISDA",
+                    "description": "Year fractions accrue on the basis of 30 days per month and 360 days per year in the respective period (ISDA method)."
+                },
+                {
+                    "option": "4",
+                    "identifier": "thirtyEThreeSixty",
+                    "name": "Thirty E Three Sixty",
+                    "acronym": "30E360",
+                    "description": "Year fractions accrue on the basis of 30 days per month and 360 days per year in the respective period."
+                },
+                {
+                    "option": "5",
+                    "identifier": "twentyEightEThreeThirtySix",
+                    "name": "Twenty Eight E Three Thirty Six",
+                    "acronym": "28E336",
+                    "description": "Year fractions accrue on the basis of 28 days per month and 336 days per year in the respective period."
+                },
+                {
+                    "option": "6",
+                    "identifier": "one",
+                    "name": "One",
+                    "acronym": "ONE",
+                    "description": "Year fractions are always 1."
+                },
+                {
+                    "option": "7",
+                    "identifier": "oneByTwelve",
+                    "name": "One by Twelve",
+                    "acronym": "OBYT",
+                    "description": "Year fractions are always 1 divided by 12."
+                },
+                {
+                    "option": "8",
+                    "identifier": "hoursActualActual",
+                    "name": "Hours/Actual/Actual",
+                    "acronym": "HRSAA",
+                    "description": "Year fractions accrue on the basis of measured hours between two timestamps assuming every day counts 24 hours and the actual number of days per month and the actual number of days per year in the respective period."
+                },
+                {
+                    "option": "9",
+                    "identifier": "minutesActualActual",
+                    "name": "Minutes/Actual/Actual",
+                    "acronym": "MINAA",
+                    "description": "Year fractions accrue on the basis of measured minutes between two timestamps assuming every every day counts 1440 minutes and the actual number of days per month and the actual number of days per year in the respective period."
+                },
+                {
+                    "option": "10",
+                    "identifier": "secondsActualActual",
+                    "name": "Seconds/Actual/Actual",
+                    "acronym": "SECAA",
+                    "description": "Year fractions accrue on the basis of measured seconds between two timestamps assuming every day counts 86400 seconds and the actual number of days per month and the actual number of days per year in the respective period."
+                }
             ],
             "default": "",
             "description": "Method defining how the time periods between any two timestamps of a full year are measured. This finally defines the year fraction e.g. in interest accrual calculations."
