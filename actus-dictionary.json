@@ -3224,8 +3224,6 @@
             "notionalPrincipal": "x",
             "purchaseDate": "x(5,0,1)",
             "priceAtPurchaseDate": "NN(5,1,1)",
-            "terminationDate": "x(6,0,1)",
-            "priceAtTerminationDate": "NN(6,1,1)",
             "exerciseDate": "x(7,0,)",
             "exerciseAmount": "NN(7,1,)\n",
             "settlementPeriod": "x",
