@@ -643,6 +643,13 @@
                     "name": "Certificate",
                     "acronym": "CERTF",
                     "description": "A certificate letting the buyer participate in the performance of an underlying instrument. Often comes with specific rights of redemption and termination and also special features on the payoff."
+                },
+                {
+                    "option": "19",
+                    "identifier": "collateralizedLendingAgreement",
+                    "name": "Collateralized Lending Agreement",
+                    "acronym": "COLLA",
+                    "description": "A bullet-type lending agreement (PAM) secured by a collateral."
                 }
             ],
             "default": "",
